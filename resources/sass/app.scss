@@ -1,0 +1,128 @@
+//colors
+$main-white: #fcfcfc;
+$main-color: #33375F;
+
+//size
+$main-title: 4.5em;
+
+//mixins
+@mixin border-button($size:0.5rem, $colour:$main-white){
+    border: $size solid $colour;
+  }
+
+@mixin hover($colour: $main-color){
+    @if ( saturation($colour) < 50% ) {
+        $colour: saturate($colour, 30%);
+    }@else{
+        $colour: desaturate($colour, 30%);
+    }
+    background-color: $colour;
+}
+
+/* General settings */
+
+body {
+    background-color: $main-white;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.logo {
+    color: $main-white;
+    background-color: $main-color;
+    border-radius: 50%;
+    font-size: $main-title;
+    padding-left: 0.1em;
+    padding-right: 0.1em;
+    letter-spacing: -7px;
+    font-weight: 500;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+    text-decoration: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    &:hover {
+        color: $main-color;
+        background-color: $main-white;
+      }
+}
+
+.entry-title {
+    text-transform: uppercase;
+    color: $main-white;
+    font-size: $main-title;
+    text-align: center;
+}
+
+.invisible-title {
+    font-size: 2px;
+    margin: 0;
+}
+
+.vertical-align {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.horizontal-align {
+    display: flex;
+    justify-content: center;
+}
+
+.half-screen {
+    width: 50%;
+    &--left {
+        margin-left: 50%;
+      }
+}
+
+/*buttons */
+.btn {
+    padding: 1.5rem;
+    background: $main-white;
+    cursor: pointer;
+    border-radius: 100rem;
+    font-size: 1.5rem;
+    color: $main-white;
+    text-decoration: none;
+    transition: all 0.5s ease-in-out;
+    &--outline {
+      background: transparent;
+      @include border-button;
+      color: $main-white;
+      &:hover{
+          background: $main-color;
+          border: none;
+      }
+    }
+  }
+
+/*homepage*/
+.vimeo-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+    iframe {
+        width: 100vw;
+        height: 56.25vw; /* Given a 16:9 aspect ratio, 9/16*100 = 56.25 */
+        min-height: 100vh;
+        min-width: 177.77vh; /* Given a 16:9 aspect ratio, 16/9*100 = 177.77 */
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+     }
+     &--half  {
+        width: 50%;
+        &--left  {
+            left: 50%;
+          }
+      }
+ }
