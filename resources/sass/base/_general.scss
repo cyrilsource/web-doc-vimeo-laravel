@@ -1,0 +1,16 @@
+body {
+    background-color: $main-white;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.entry-title {
+    text-transform: uppercase;
+    color: $main-white;
+    font-size: $main-title;
+    text-align: center;
+}
+
+.invisible-title {
+    font-size: 2px;
+    margin: 0;
+}

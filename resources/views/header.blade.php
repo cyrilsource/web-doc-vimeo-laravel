@@ -1,6 +1,6 @@
 
 <header>
-    <a class="logo" href="http://localhost:3000/terrecommune/public/">TC</a>
+    <a class="logo" href="{{ url('/') }}">TC</a>
 </header>
 
 

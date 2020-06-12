@@ -1,0 +1,20 @@
+.logo {
+    color: $main-white;
+    background-color: $main-color;
+    border-radius: 50%;
+    font-size: $main-title;
+    padding-left: 0.1em;
+    padding-right: 0.1em;
+    letter-spacing: -7px;
+    font-weight: 500;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+    text-decoration: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    &:hover {
+        color: $main-color;
+        background-color: $main-white;
+      }
+}

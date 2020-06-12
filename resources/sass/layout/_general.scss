@@ -1,0 +1,18 @@
+.vertical-align {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.horizontal-align {
+    display: flex;
+    justify-content: center;
+}
+
+.half-screen {
+    width: 50%;
+    &--left {
+        margin-left: 50%;
+      }
+}

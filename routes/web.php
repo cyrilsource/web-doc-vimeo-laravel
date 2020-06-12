@@ -20,3 +20,11 @@ Route::get('/', function () {
 Route::get('/ways', function () {
     return view('ways');
 });
+
+/* admin */
+
+//display form to create themes
+Route::get('/admin', 'ThemeController@create');
+
+//create a new theme
+Route::post('/admin', 'ThemeController@store');

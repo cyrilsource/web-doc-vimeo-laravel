@@ -1,0 +1,13 @@
+//mixins
+@mixin border-button($size:0.5rem, $colour:$main-white){
+    border: $size solid $colour;
+  }
+
+@mixin hover($colour: $main-color){
+    @if ( saturation($colour) < 50% ) {
+        $colour: saturate($colour, 30%);
+    }@else{
+        $colour: desaturate($colour, 30%);
+    }
+    background-color: $colour;
+}

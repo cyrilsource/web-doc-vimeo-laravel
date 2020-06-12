@@ -1,0 +1,20 @@
+/*buttons */
+.custom-btn {
+    padding: 1.5rem;
+    background: $main-white;
+    cursor: pointer;
+    border-radius: 100rem;
+    font-size: 1.5rem;
+    color: $main-white;
+    text-decoration: none;
+    transition: all 0.5s ease-in-out;
+    &--outline {
+      background: transparent;
+      @include border-button;
+      color: $main-white;
+      &:hover{
+          background: $main-color;
+          border: none;
+      }
+    }
+  }
