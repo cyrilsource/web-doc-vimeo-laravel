@@ -10,3 +10,7 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
+/storage/app/public/**
+/public/pdf/theme/*.png
+/public/pdf/theme/*.jpg
+/public/img/theme/*.pdf

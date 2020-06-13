@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use App\Http\Requests\CreateThemeRequest;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use App\Theme;
 
@@ -56,28 +57,29 @@ class ThemeController extends Controller
 
         //on récupère les données de l'image
         $image = $request->file('image');
-        $mimeType = $image->getClientmimeType();
-        $extension = substr($mimeType, 6);
 
-        //timestamp pour rendre unique les noms de fichiers
-        $timestamp = time();
+        // Generate a file name
+        $thumbnail = "$slug"."-".time().".".$image->getClientOriginalExtension();
 
-        $imagePath = "$name"."-"."$timestamp"."."."$extension";
+        // Save the file
+        $image->storeAs('public/img/theme', $thumbnail);
 
-        $image->move(public_path() ."/img/theme", $imagePath);
+        $datas['thumbnail'] = $thumbnail;
 
-        $datas['thumbnail'] = "/img/theme/$imagePath";
-
+        /*PDF */
         //on récupère les données pour le pdf
         $document = $request->file('pdf');
-        $mimeType_pdf = $document->getClientmimeType();
-        $extension_pdf = substr($mimeType_pdf, 12);
 
-        $pdfPath = "$name"."-"."$timestamp"."."."$extension_pdf";
+        //remove pdf extension from original name
+        $originalName = substr($document->getClientOriginalName(), 0, -4);
 
-        $datas['pdf'] = "/pdf/theme/$pdfPath";
+        // Generate a file name
+        $pdf = $originalName."-".rand(1,100).".".$document->getClientOriginalExtension();
 
-        $document->move(public_path() ."/pdf/theme", "$name"."-"."$timestamp"."."."$extension_pdf");
+        // Save the file
+        $document->storeAs('public/pdf/theme', $pdf);
+
+        $datas['pdf'] = $pdf;
 
         //On enleve le champ image et le champ token des valeurs envoyées à la bdd
         $datas2 = Arr::except($datas, ['image']);
@@ -112,7 +114,9 @@ class ThemeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $theme = Theme::findOrFail($id);
+
+        return view('admin.editTheme', ['theme' => $theme]);
     }
 
     /**
@@ -135,6 +139,19 @@ class ThemeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $theme = Theme::findOrFail($id);
+
+        //suppression des fichiers
+        Storage::delete("public/img/theme/".$theme['thumbnail']);
+        Storage::delete("public/pdf/theme/".$theme['pdf']);
+
+        $theme->delete();
+
+        $themes = $users = DB::table('themes')
+                ->orderBy('name', 'asc')
+                ->get();
+
+        return view('admin.home', ['themes' => $themes]);
+
     }
 }

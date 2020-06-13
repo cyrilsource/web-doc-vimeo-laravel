@@ -18,7 +18,7 @@ class CreateThemesTable extends Migration
             $table->string('name');
             $table->string('slug');
             $table->string('thumbnail');
-            $table->string('pdf');
+            $table->string('pdf')->nullable();
             $table->text('description');
             $table->timestamps();
         });

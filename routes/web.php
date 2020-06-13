@@ -28,3 +28,9 @@ Route::get('/admin', 'ThemeController@create');
 
 //create a new theme
 Route::post('/admin', 'ThemeController@store');
+
+//edit post
+Route::get('/admin/editTheme/{id}', 'ThemeController@edit');
+
+//delete theme
+Route::post('/admin/deleteTheme/{id}', 'ThemeController@destroy');

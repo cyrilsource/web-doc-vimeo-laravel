@@ -9,7 +9,7 @@
 <div class="row">
     <div class="col-4">
     <h2>Create a theme</h2>
-      <form method="post" action="" enctype="multipart/form-data" method="POST">
+      <form action="{{ url('/') }}/admin" enctype="multipart/form-data" method="post">
       @csrf
         <div class="form-group">
           <label for="name">Name</label>
@@ -41,6 +41,7 @@
             <tr>
               <th scope="col">Thumbnail</th>
               <th scope="col">Name</th>
+              <th scope="col">PDF</th>
               <th scope="col">Edit</th>
               <th scope="col">Delete</th>
             </tr>
@@ -48,11 +49,13 @@
           <tbody>
           @foreach ($themes as $theme)
               <tr>
-                  <td><img style="width: 150px" src="{{ url('/') }}/{{ $theme->thumbnail }}" alt="" title="change the picture"></></td>
+                  <td><img style="width: 150px" src="{{ url('/') }}/storage/img/theme/{{$theme->thumbnail}}" alt="" title="change the picture"></></td>
                   <td>{{ $theme->name }}</td>
-                  <td><a href="" class="btn btn-info" role="button" aria-pressed="true">Edit</a></td>
+                  <td>{{ $theme->pdf }}</td>
+                  <td><a href="{{ url('/') }}/admin/editTheme/{{$theme->id}}" class="btn btn-info" role="button" aria-pressed="true">Edit</a></td>
                   <td>
-                    <form action="" method="post">
+                    <form action="{{ url('/') }}/admin/deleteTheme/{{$theme->id}}" method="post">
+                    @csrf
                       <button type="submit" class="btn btn-danger">Delete</button>
                     </form>
                   </td>
