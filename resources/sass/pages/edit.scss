@@ -40,7 +40,7 @@
     cursor: pointer;
 }
 
-.upload {
+.upload, .upload-pdf {
     display: none;
     z-index: 10;
     @include transition;

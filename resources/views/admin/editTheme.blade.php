@@ -29,7 +29,11 @@
             <span class="image-preview__default-text">Image preview</span>
           </div>
         </div>
-        <div class="form-group">
+        <div class="edit-pdf">
+            <a class="mb-5" href="{{ url('/') }}/storage/pdf/theme/{{$theme->pdf}}">{{$theme->pdf}}</a>
+            <button class="btn btn-info edit-pdf__button">Change pdf</button>
+        </div>
+        <div class="form-group upload-pdf">
           <label for="pdf">Add a pdf</label>
           <input name="pdf" type="file" class="form-control-file" id="pdf">
         </div>

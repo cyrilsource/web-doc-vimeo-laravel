@@ -49,9 +49,9 @@
           <tbody>
           @foreach ($themes as $theme)
               <tr>
-                  <td><img style="width: 150px" src="{{ url('/') }}/storage/img/theme/{{$theme->thumbnail}}" alt="" title="change the picture"></></td>
+                  <td><img style="width: 150px" src="{{ url('/') }}/storage/img/theme/{{$theme->thumbnail}}" alt="" title="change the picture"></td>
                   <td>{{ $theme->name }}</td>
-                  <td>{{ $theme->pdf }}</td>
+                  <td><a href="{{ url('/') }}/storage/pdf/theme/{{$theme->pdf}}">{{$theme->pdf}}</a></td>
                   <td><a href="{{ url('/') }}/admin/editTheme/{{$theme->id}}" class="btn btn-info" role="button" aria-pressed="true">Edit</a></td>
                   <td>
                     <form action="{{ url('/') }}/admin/deleteTheme/{{$theme->id}}" method="post">

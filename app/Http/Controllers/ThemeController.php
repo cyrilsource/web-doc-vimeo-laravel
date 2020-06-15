@@ -140,7 +140,7 @@ class ThemeController extends Controller
         //on récupère les données de l'image
         $image = $request->file('image');
 
-        if ($image =!null) {
+        if ($image !==null) {
             //get the current theme
             $theme = Theme::findOrFail($id);
 
@@ -148,7 +148,7 @@ class ThemeController extends Controller
             Storage::delete("public/img/theme/".$theme['thumbnail']);
 
             //on récupère les données de l'image
-        $image = $request->file('image');
+            $image = $request->file('image');
 
             // Generate a file name
             $thumbnail = "$slug"."-".time().".".$image->getClientOriginalExtension();
@@ -157,6 +157,33 @@ class ThemeController extends Controller
             $image->storeAs('public/img/theme', $thumbnail);
 
             $datas['thumbnail'] = $thumbnail;
+        }
+
+        //on récupère les données pour le pdf
+        $document = $request->file('pdf');
+
+        if ($document !==null) {
+            //get the current theme
+            $theme = Theme::findOrFail($id);
+
+            //remove previous image
+            Storage::delete("public/pdf/theme/".$theme['pdf']);
+
+            //on récupère les données de l'image
+            $document = $request->file('pdf');
+
+            $document = $request->file('pdf');
+
+            //remove pdf extension from original name
+            $originalName = substr($document->getClientOriginalName(), 0, -4);
+
+            // Generate a file name
+            $pdf = $originalName."-".rand(1,100).".".$document->getClientOriginalExtension();
+
+            // Save the file
+            $document->storeAs('public/pdf/theme', $pdf);
+
+            $datas['pdf'] = $pdf;
         }
 
         //On enleve le champ image et le champ token des valeurs envoyées à la bdd

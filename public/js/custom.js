@@ -32,3 +32,14 @@ editImage.addEventListener('click', function () {
   containerEditImage.style.display = 'none'
   upload.style.display = 'block'
 })
+
+/* change pdf */
+const containerEditPdf = document.querySelector('.edit-pdf')
+const editPdf = containerEditPdf.querySelector('.edit-pdf__button')
+const uploadPdf = document.querySelector('.upload-pdf')
+
+editPdf.addEventListener('click', function (e) {
+  e.preventDefault()
+  containerEditPdf.style.display = 'none'
+  uploadPdf.style.display = 'block'
+})
