@@ -128,7 +128,52 @@ class ThemeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $datas = $request->all();
+
+        $name = $datas['name'];
+
+        //creation du slug à la volée
+        $slug = Str::slug($datas['name']);
+        //insertion slug dans array $values
+        $datas['slug'] = $slug;
+
+        //on récupère les données de l'image
+        $image = $request->file('image');
+
+        if ($image =!null) {
+            //get the current theme
+            $theme = Theme::findOrFail($id);
+
+            //remove previous image
+            Storage::delete("public/img/theme/".$theme['thumbnail']);
+
+            //on récupère les données de l'image
+        $image = $request->file('image');
+
+            // Generate a file name
+            $thumbnail = "$slug"."-".time().".".$image->getClientOriginalExtension();
+
+            // Save the file
+            $image->storeAs('public/img/theme', $thumbnail);
+
+            $datas['thumbnail'] = $thumbnail;
+        }
+
+        //On enleve le champ image et le champ token des valeurs envoyées à la bdd
+        $datas2 = Arr::except($datas, ['image']);
+        $values = Arr::except($datas2, ['_token']);
+
+        //update datas in database
+        DB::table('themes')
+            ->where('id', $id)
+            ->update($values);
+
+        $themes = $users = DB::table('themes')
+        ->orderBy('name', 'asc')
+        ->get();
+
+        return view('admin.home', ['themes' => $themes]);
+
     }
 
     /**
