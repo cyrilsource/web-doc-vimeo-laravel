@@ -11,3 +11,7 @@
     }
     background-color: $colour;
 }
+
+@mixin transition ($time: 0.3s) {
+	transition: all $time ease-in-out;
+}

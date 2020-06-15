@@ -1,0 +1,47 @@
+.edit-image {
+    position: relative;
+    @include transition;
+
+    img {
+        opacity: 1;
+        display: block;
+        width: 100%;
+        height: auto;
+        @include transition;
+        backface-visibility: hidden;
+    }
+
+    &__middle {
+        @include transition;
+        opacity: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+    &__text {
+        background-color: $main-color;
+        color: $main-white;
+        font-size: 16px;
+        padding: 16px 32px;
+    }
+
+}
+
+.edit-image:hover img {
+    opacity: 0.3;
+}
+
+.edit-image:hover .edit-image__middle {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.upload {
+    opacity: 0;
+    height: 0;
+    @include transition;
+}

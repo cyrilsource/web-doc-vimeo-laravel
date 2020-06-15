@@ -22,3 +22,15 @@ inpFile.addEventListener('change', function () {
     previewImage.setAttribute('src', '')
   }
 })
+
+/* change image */
+const containerEditImage = document.querySelector('.edit-image')
+const editImage = containerEditImage.querySelector('.edit-image__middle')
+const upload = document.querySelector('.upload')
+
+editImage.addEventListener('click', function () {
+  containerEditImage.style.opacity = '0'
+  containerEditImage.style.height = '0'
+  upload.style.opacity = '1'
+  upload.style.height = '200px'
+})

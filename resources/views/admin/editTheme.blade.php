@@ -15,11 +15,17 @@
           <label for="name">Name</label>
           <input name="name" type="text" value="{{$theme->name}}" class="form-control" id="name" aria-describedby="name">
         </div>
-        <div class="form-group">
-          <label for="image">Add an image</label>
+        <div class="edit-image mb-5">
+            <img src="{{ url('/') }}/storage/img/theme/{{$theme->thumbnail}}" >
+            <div class="edit-image__middle">
+                <span class="edit-image__text">Change the picture</span>
+            </div>
+        </div>
+        <div class="form-group upload">
+          <label for="image">Choose a new image</label>
           <input name="image" type="file" class="form-control-file" id="image">
           <div id="imagePreview" class="image-preview">
-            <img scr="{{ url('/') }}/storage/img/theme/{{$theme->thumbnail}}" class="image-preview__image">
+            <img scr="" class="image-preview__image">
             <span class="image-preview__default-text">Image preview</span>
           </div>
         </div>
