@@ -45,6 +45,12 @@ class ThemeController extends Controller
      */
     public function store(Request $request)
     {
+        request()->validate([
+            'name' => 'required',
+            'image'=> ['required', 'image', 'mimes:jpeg,jpg,png', 'max:800'],
+            'pdf'=> ['mimes:pdf', 'max:800'],
+            'description' => 'required'
+        ]);
 
         $datas = $request->all();
 
@@ -66,20 +72,27 @@ class ThemeController extends Controller
 
         $datas['thumbnail'] = $thumbnail;
 
-        /*PDF */
         //on récupère les données pour le pdf
         $document = $request->file('pdf');
 
-        //remove pdf extension from original name
-        $originalName = substr($document->getClientOriginalName(), 0, -4);
+        if ($document !==null) {
 
-        // Generate a file name
-        $pdf = $originalName."-".rand(1,100).".".$document->getClientOriginalExtension();
+            /*PDF */
+            //on récupère les données pour le pdf
+            $document = $request->file('pdf');
 
-        // Save the file
-        $document->storeAs('public/pdf/theme', $pdf);
+            //remove pdf extension from original name
+            $originalName = substr($document->getClientOriginalName(), 0, -4);
 
-        $datas['pdf'] = $pdf;
+            // Generate a file name
+            $pdf = $originalName."-".rand(1,100).".".$document->getClientOriginalExtension();
+
+            // Save the file
+            $document->storeAs('public/pdf/theme', $pdf);
+
+            $datas['pdf'] = $pdf;
+
+        }
 
         //On enleve le champ image et le champ token des valeurs envoyées à la bdd
         $datas2 = Arr::except($datas, ['image']);
