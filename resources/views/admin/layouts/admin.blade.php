@@ -20,8 +20,8 @@
   <div class="bg-light border-right" id="sidebar-wrapper">
     <div class="sidebar-heading">Terre Commune</div>
     <div class="list-group list-group-flush">
-      <a href="#" class="list-group-item list-group-item-action bg-light">Themes</a>
-      <a href="#" class="list-group-item list-group-item-action bg-light">Videos</a>
+      <a href="{{ url('/') }}/admin" class="list-group-item list-group-item-action bg-light">Themes</a>
+      <a href="{{ url('/') }}/admin/videos" class="list-group-item list-group-item-action bg-light">Videos</a>
 
     </div>
   </div>

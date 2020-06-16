@@ -46,7 +46,7 @@ class ThemeController extends Controller
     public function store(Request $request)
     {
         request()->validate([
-            'name' => 'required',
+            'name' => ['required', 'max:255'],
             'image'=> ['required', 'image', 'mimes:jpeg,jpg,png', 'max:800'],
             'pdf'=> ['mimes:pdf', 'max:800'],
             'description' => 'required'

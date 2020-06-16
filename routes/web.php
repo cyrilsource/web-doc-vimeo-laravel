@@ -37,3 +37,12 @@ Route::post('/admin/editTheme/{id}', 'ThemeController@update');
 
 //delete theme
 Route::post('/admin/deleteTheme/{id}', 'ThemeController@destroy');
+
+//display form to create videos
+Route::get('/admin/videos', 'VideoController@create');
+
+//create a new video
+Route::post('/admin/videos', 'VideoController@store');
+
+//delete video
+Route::post('/admin/deleteVideo/{id}', 'VideoController@destroy');

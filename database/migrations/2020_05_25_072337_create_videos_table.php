@@ -18,6 +18,7 @@ class CreateVideosTable extends Migration
             $table->string('name');
             $table->string('slug');
             $table->string('link');
+            $table->string('pdf')->nullable();
             $table->text('description');
             $table->timestamps();
         });

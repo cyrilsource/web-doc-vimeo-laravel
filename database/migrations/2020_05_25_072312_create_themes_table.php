@@ -23,7 +23,7 @@ class CreateThemesTable extends Migration
             $table->timestamps();
         });
 
-        Schema::create('video_theme', function (Blueprint $table) {
+        Schema::create('theme_video', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('video_id')->unsigned()->index();
             $table->integer('theme_id')->unsigned()->index();
