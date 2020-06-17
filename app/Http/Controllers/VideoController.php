@@ -32,7 +32,7 @@ class VideoController extends Controller
     public function create()
     {
         //pour aficher les videos
-        $videos = Video::orderBy('name', 'asc')->get();
+        $videos = Video::orderBy('title', 'asc')->get();
 
         //display themes for select input
         $themes = Theme::orderBy('name', 'asc')->get();
@@ -50,21 +50,39 @@ class VideoController extends Controller
     public function store(Request $request)
     {
         request()->validate([
-            'name' => ['required', 'max:255'],
             'link' => ['required', 'url', 'max:255'],
             'themes' => 'required',
-            'pdf'=> ['mimes:pdf', 'max:800'],
-            'description' => 'required'
+            'pdf'=> ['mimes:pdf', 'max:800']
         ]);
 
         $datas = $request->all();
 
-        $name = $datas['name'];
+        //get url and we take only vimeo id
+        $vimeo_id = substr($datas['link'], 18);
+
+        // https://jamesdavidson.io/blog/getting-thumbnails-using-vimeo-api-php
+        $xml = simplexml_load_file("http://vimeo.com/api/v2/video/".$vimeo_id.".xml");
+
+        $xml = $xml->video;
+
+        //get title vimeo
+        $title = $xml->title->__toString();
 
         //creation du slug à la volée
-        $slug = Str::slug($datas['name']);
-        //insertion slug dans array $values
-        $datas['slug'] = $slug;
+        $slug = Str::slug($title);
+
+        //get description vimeo
+        $description = $xml->description->__toString();
+
+        //get thumnail_small vimeo
+        $thumbnail_small = $xml->thumbnail_small->__toString();
+
+        //get thumnail_medium vimeo
+        $thumbnail_medium = $xml->thumbnail_medium->__toString();
+
+        //get thumnail_large vimeo
+        $thumbnail_large = $xml->thumbnail_large->__toString();
+
 
         //on récupère les données pour le pdf
         $document = $request->file('pdf');
@@ -88,26 +106,47 @@ class VideoController extends Controller
 
         }
 
+        //vimeo id in datas
+        $datas['vimeo_id'] = $vimeo_id;
+        //vimeo title in datas
+        $datas['title'] = $title;
+        //insertion slug dans array $values
+        $datas['slug'] = $slug;
+        //vimeo description in datas
+        $datas['description'] = $description;
+        //vimeo thumbnail_small in datas
+        $datas['thumbnail_small'] = $thumbnail_small;
+        //vimeo thumbnail_medium in datas
+        $datas['thumbnail_medium'] = $thumbnail_medium;
+        //vimeo thumbnail_large in datas
+        $datas['thumbnail_large'] = $thumbnail_large;
+
         //On enleve le champ themes et le champ token des valeurs envoyées à la bdd
         $datas2 = Arr::except($datas, ['_token']);
         $values = Arr::except($datas2, ['themes']);
 
-        Video::create($values);
+        DB::table('videos')->insert(
+            $values
+        );
 
         // on récupère le dernier post
         $lastpost = DB::table('videos')
-                ->orderBy('created_at', 'desc')
+                ->orderBy('id', 'desc')
                 ->limit(1)
                 ->value('id');
+
 
         //on va insérer les themes_id dans la table video_theme en récuperant le dernier post inséré
         $video = Video::findOrFail($lastpost);
 
+
+
         //on insert les themes dans la table pivot
         $video->themes()->sync($datas['themes']);
 
+
         //pour aficher les videos
-        $videos = Video::orderBy('name', 'asc')->get();
+        $videos = Video::orderBy('title', 'asc')->get();
 
         //display themes for select input
         $themes = Theme::orderBy('name', 'asc')->get();
@@ -166,7 +205,7 @@ class VideoController extends Controller
         $video->delete();
 
         //pour aficher les videos
-        $videos = Video::orderBy('name', 'asc')->get();
+        $videos = Video::orderBy('title', 'asc')->get();
 
         //display themes for select input
         $themes = Theme::orderBy('name', 'asc')->get();

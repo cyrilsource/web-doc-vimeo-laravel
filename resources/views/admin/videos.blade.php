@@ -10,17 +10,6 @@
       <form action="{{ url('/') }}/admin/videos" enctype="multipart/form-data" method="post">
       @csrf
         <div class="form-group">
-            <label for="name">Name</label>
-            <input name="name" type="text" class="form-control @error('name') is-invalid @enderror"
-            id="name" aria-describedby="name"
-            value="{{ old('name') }}">
-            @error('name')
-            <div class="alert alert-danger" role="alert">
-                {{ $errors->first('name') }}
-            </div>
-            @enderror
-        </div>
-        <div class="form-group">
             <label for="link">video link</label>
             <input name="link" type="text" class="form-control @error('link') is-invalid @enderror"
             id="link" aria-describedby="link"
@@ -48,18 +37,6 @@
             </div>
             @enderror
         </div>
-         <div class="form-group">
-            <label for="description">Description</label>
-            <textarea name="description" class="form-control @error('name') is-invalid @enderror"
-            id="description" rows="3">
-            {{ old('description') }}
-            </textarea>
-            @error('description')
-            <div class="alert alert-danger" role="alert">
-                {{ $errors->first('description') }}
-            </div>
-            @enderror
-        </div>
         <button type="submit" class="btn btn-primary">Add video</button>
       </form>
     </div>
@@ -79,8 +56,8 @@
           <tbody>
           @foreach ($videos as $video)
               <tr>
-                  <td></td>
-                  <td>{{ $video->name }}</td>
+                  <td><img src="{{ $video->thumbnail_medium }}"></td>
+                  <td>{{ $video->title }}</td>
                   <td><a href="{{$video->link}}">link</a></td>
                   <td>
                     @foreach ($video->themes as $theme)
