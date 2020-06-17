@@ -8,7 +8,7 @@ class Theme extends Model
 {
     protected $fillable = ['name', 'slug', 'description', 'thumbnail', 'pdf'];
 
-	public function posts() {
+	public function videos() {
 
 		return $this->belongsToMany('App\Video');
 

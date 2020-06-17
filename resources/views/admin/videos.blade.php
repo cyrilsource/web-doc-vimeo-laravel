@@ -82,7 +82,11 @@
                   <td></td>
                   <td>{{ $video->name }}</td>
                   <td><a href="{{$video->link}}">link</a></td>
-                  <td></td>
+                  <td>
+                    @foreach ($video->themes as $theme)
+						<em>{{$theme->name}},</em>
+					@endforeach
+                  </td>
                   <td><a href="{{ url('/') }}/admin/editVideo/{{$video->id}}" class="btn btn-info" role="button" aria-pressed="true">Edit</a></td>
                   <td>
                     <form action="{{ url('/') }}/admin/deleteVideo/{{$video->id}}" method="post">

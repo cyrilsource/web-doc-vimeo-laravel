@@ -208,7 +208,7 @@ class ThemeController extends Controller
             ->where('id', $id)
             ->update($values);
 
-        $themes = $users = DB::table('themes')
+        $themes = DB::table('themes')
         ->orderBy('name', 'asc')
         ->get();
 

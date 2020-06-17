@@ -31,15 +31,14 @@ class VideoController extends Controller
      */
     public function create()
     {
-        $videos = DB::table('videos')
-                ->orderBy('name', 'asc')
-                ->get();
+        //pour aficher les videos
+        $videos = Video::orderBy('name', 'asc')->get();
 
-        $themes = DB::table('themes')
-                ->orderBy('name', 'asc')
-                 ->get();
+        //display themes for select input
+        $themes = Theme::orderBy('name', 'asc')->get();
 
         return view('admin.videos', ['videos' => $videos, 'themes' => $themes]);
+
     }
 
     /**
@@ -102,19 +101,16 @@ class VideoController extends Controller
                 ->value('id');
 
         //on va insérer les themes_id dans la table video_theme en récuperant le dernier post inséré
-       $video = Video::findOrFail($lastpost);
+        $video = Video::findOrFail($lastpost);
 
         //on insert les themes dans la table pivot
         $video->themes()->sync($datas['themes']);
 
-        //affichage pour la page
-        $videos = DB::table('videos')
-                ->orderBy('name', 'asc')
-                ->get();
+        //pour aficher les videos
+        $videos = Video::orderBy('name', 'asc')->get();
 
-        $themes = DB::table('themes')
-                ->orderBy('name', 'asc')
-                 ->get();
+        //display themes for select input
+        $themes = Theme::orderBy('name', 'asc')->get();
 
         return view('admin.videos', ['videos' => $videos, 'themes' => $themes]);
 
@@ -169,14 +165,11 @@ class VideoController extends Controller
 
         $video->delete();
 
-        //affichage pour la page
-        $videos = DB::table('videos')
-                ->orderBy('name', 'asc')
-                ->get();
+        //pour aficher les videos
+        $videos = Video::orderBy('name', 'asc')->get();
 
-        $themes = DB::table('themes')
-                ->orderBy('name', 'asc')
-                 ->get();
+        //display themes for select input
+        $themes = Theme::orderBy('name', 'asc')->get();
 
         return view('admin.videos', ['videos' => $videos, 'themes' => $themes]);
     }
