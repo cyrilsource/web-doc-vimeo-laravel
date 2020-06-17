@@ -29,9 +29,7 @@ class ThemeController extends Controller
      */
     public function create()
     {
-        $themes = $users = DB::table('themes')
-                ->orderBy('name', 'asc')
-                ->get();
+        $themes = Theme::orderBy('name', 'asc')->get();
 
         return view('admin.home', ['themes' => $themes]);
 
@@ -100,9 +98,7 @@ class ThemeController extends Controller
 
         Theme::create($values);
 
-        $themes = $users = DB::table('themes')
-                ->orderBy('name', 'asc')
-                ->get();
+        $themes = Theme::orderBy('name', 'asc')->get();
 
         return view('admin.home', ['themes' => $themes]);
 
@@ -208,9 +204,7 @@ class ThemeController extends Controller
             ->where('id', $id)
             ->update($values);
 
-        $themes = DB::table('themes')
-        ->orderBy('name', 'asc')
-        ->get();
+        $themes = Theme::orderBy('name', 'asc')->get();
 
         return view('admin.home', ['themes' => $themes]);
 
@@ -232,9 +226,7 @@ class ThemeController extends Controller
 
         $theme->delete();
 
-        $themes = $users = DB::table('themes')
-                ->orderBy('name', 'asc')
-                ->get();
+        $themes = Theme::orderBy('name', 'asc')->get();
 
         return view('admin.home', ['themes' => $themes]);
 
