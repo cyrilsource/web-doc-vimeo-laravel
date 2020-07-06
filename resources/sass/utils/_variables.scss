@@ -3,4 +3,7 @@ $main-white: #fcfcfc;
 $main-color: #33375F;
 
 //size
-$main-title: 4.5em;
+$main-title: (first-title:4.5rem, title-page:2.5rem, third-title:1.7rem);
+
+//paddings
+$padding-button: 0.5rem 0;

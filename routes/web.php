@@ -17,6 +17,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//display themes on front end
+Route::get('/themes', 'ThemeController@index');
+
+//display themes on front end
+Route::get('/themes/{id}', 'ThemeController@show');
+
 Route::get('/ways', function () {
     return view('ways');
 });

@@ -9,6 +9,7 @@ use App\Http\Requests\CreateThemeRequest;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use App\Theme;
+use App\Video;
 
 class ThemeController extends Controller
 {
@@ -19,7 +20,9 @@ class ThemeController extends Controller
      */
     public function index()
     {
-        //
+        $themes = Theme::orderBy('name', 'asc')->get();
+
+        return view('themes', ['themes' => $themes]);
     }
 
     /**
@@ -112,7 +115,12 @@ class ThemeController extends Controller
      */
     public function show($id)
     {
-        //
+        //get the videos with the theme
+        $videos = Theme::findOrFail($id)->videos->sortBy('title')->all();
+
+        $theme = Theme::findOrFail($id);
+
+        return view('singleTheme', ['theme' => $theme, 'videos' => $videos]);
     }
 
     /**

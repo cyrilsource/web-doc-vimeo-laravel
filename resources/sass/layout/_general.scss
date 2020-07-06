@@ -16,3 +16,31 @@
         margin-left: 50%;
       }
 }
+
+.main {
+    padding: 7rem 2rem;
+}
+
+.center {
+	@include center;
+}
+
+@media screen and (max-width : 768px)  {
+	.main {
+		padding: 7rem 1rem;
+	}
+
+}
+
+@media screen and (min-width : 768px) and (max-width: 1024px) {
+	.main {
+		padding: 7rem 1rem;
+	}
+
+}
+
+.entry-content {
+    width: 33%;
+    padding: 1rem;
+    color: $main-color;
+}

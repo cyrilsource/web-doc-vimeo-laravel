@@ -1,0 +1,7 @@
+@function light($clr) {
+	@if ( lightness($clr) < 50% ) {
+		@return lighten($clr, 30%);
+	}@else{
+		@return darken($clr, 30%);
+	}
+}

@@ -2,7 +2,7 @@
     color: $main-white;
     background-color: $main-color;
     border-radius: 50%;
-    font-size: $main-title;
+    font-size: map-get($main-title, first-title);
     padding-left: 0.1em;
     padding-right: 0.1em;
     letter-spacing: -7px;

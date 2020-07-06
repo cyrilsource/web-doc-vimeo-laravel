@@ -13,7 +13,7 @@
     <div class="main-title">
         <h1 class="entry-title">terre commune</h1>
         <div class="horizontal-align">
-            <a href="ways" class="custom-btn custom-btn--outline">Commencez</a>
+            <a href="themes" class="custom-btn custom-btn--outline">Commencez</a>
         </div>
     </div>
 </div>

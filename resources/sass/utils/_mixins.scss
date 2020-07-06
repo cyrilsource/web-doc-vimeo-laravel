@@ -15,3 +15,16 @@
 @mixin transition ($time: 0.3s) {
 	transition: all $time ease-in-out;
 }
+
+@mixin center {
+	display: grid;
+	justify-content: center;
+}
+
+@mixin title_button {
+	background-color: $main-color;
+	text-align: center;
+	color: $main-white;
+    font-size: 1rem;
+    padding: $padding-button;
+}

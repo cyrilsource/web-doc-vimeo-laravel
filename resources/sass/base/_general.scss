@@ -1,3 +1,8 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
 body {
     background-color: $main-white;
     font-family: 'Montserrat', sans-serif;
@@ -6,8 +11,12 @@ body {
 .entry-title {
     text-transform: uppercase;
     color: $main-white;
-    font-size: $main-title;
+    font-size: map-get($main-title, first-title);
     text-align: center;
+    &__page {
+        color: $main-color;
+        font-size: map-get($main-title, title-page);
+    }
 }
 
 .invisible-title {

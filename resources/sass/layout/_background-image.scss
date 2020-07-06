@@ -1,0 +1,21 @@
+.background-image {
+	width: 75%;
+    position: relative;
+    z-index: -10;
+    margin-left: 25%;
+    margin-bottom: -40%;
+
+    &__image {
+        width: 100%;
+        opacity: 0.3;
+
+    }
+
+    &__blur {
+        width: 100%;
+	position: absolute;
+	bottom: 0px;
+	top: 0px;
+	box-shadow: inset 84px -62px 87px -8px $main-white;
+    }
+}
