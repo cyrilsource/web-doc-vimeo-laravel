@@ -7,14 +7,14 @@
     font-size: 1.5rem;
     color: $main-white;
     text-decoration: none;
-    transition: all 0.5s ease-in-out;
+    transition: background 0.7s, border 0.9s;
     &--outline {
       background: transparent;
       @include border-button;
       color: $main-white;
       &:hover{
-          background: $main-color;
-          border: none;
+        background: $main-color;
+        border: 0 solid transparent;
       }
     }
   }

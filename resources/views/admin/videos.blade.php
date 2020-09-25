@@ -11,9 +11,9 @@
       @csrf
         <div class="form-group">
             <label for="link">video link</label>
-            <input name="link" type="text" class="form-control @error('link') is-invalid @enderror"
+            <input name="link" type="text" class="url form-control @error('link') is-invalid @enderror"
             id="link" aria-describedby="link"
-            value="{{ old('link') }}">
+            value="{{ old('link') }}" required pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$">
             @error('link')
             <div class="alert alert-danger" role="alert">
                 {{ $errors->first('link') }}

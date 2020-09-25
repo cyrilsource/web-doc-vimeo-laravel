@@ -28,3 +28,11 @@
     font-size: 1rem;
     padding: $padding-button;
 }
+
+@mixin mobile-only {
+    @media screen and (max-width: map-get($breakpoints, mobile)){
+        @content;
+    }
+  }
+
+

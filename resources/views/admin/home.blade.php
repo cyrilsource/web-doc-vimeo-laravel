@@ -14,7 +14,7 @@
             <label for="name">Name</label>
             <input name="name" type="text" class="form-control @error('name') is-invalid @enderror"
             id="name" aria-describedby="name"
-            value="{{ old('name') }}">
+            value="{{ old('name') }}" required>
             @error('name')
             <div class="alert alert-danger" role="alert">
                 {{ $errors->first('name') }}

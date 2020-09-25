@@ -118,9 +118,17 @@ class ThemeController extends Controller
         //get the videos with the theme
         $videos = Theme::findOrFail($id)->videos->sortBy('title')->all();
 
+        $frame = 3;
+
+        $number = count($videos);
+
+        if ($number < 3) {
+            $frame = 'none';
+        }
+
         $theme = Theme::findOrFail($id);
 
-        return view('singleTheme', ['theme' => $theme, 'videos' => $videos]);
+        return view('singleTheme', ['theme' => $theme, 'videos' => $videos, 'frame' => $frame]);
     }
 
     /**

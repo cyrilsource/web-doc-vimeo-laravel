@@ -16,6 +16,9 @@ body {
     &__page {
         color: $main-color;
         font-size: map-get($main-title, title-page);
+        @include mobile-only {
+            font-size: map-get($main-title, title-page)*0.6;
+        }
     }
 }
 

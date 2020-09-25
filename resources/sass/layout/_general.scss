@@ -18,7 +18,7 @@
 }
 
 .main {
-    padding: 7rem 2rem;
+    padding: 8rem 1rem;
 }
 
 .center {
@@ -43,4 +43,7 @@
     width: 33%;
     padding: 1rem;
     color: $main-color;
+    @include mobile-only {
+        width: 100%;
+    }
 }
