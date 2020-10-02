@@ -221,6 +221,44 @@ body {
   }
 }
 
+.video-vignette {
+  margin: 0;
+  padding: 0;
+}
+
+.video-vignette-card {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  width: 600px;
+}
+
+.video-vignette-card__title {
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  display: none;
+}
+
+.video-vignette-card img {
+  width: 600px;
+}
+
+.video-vignette-card:hover h3 {
+  display: block;
+  -webkit-animation: fade_in_show 0.5s;
+          animation: fade_in_show 0.5s;
+  position: absolute;
+  bottom: 5px;
+  background-color: #33375F;
+  padding: 0.5rem;
+  text-align: center;
+  width: 600px;
+  z-index: 3;
+  color: #fcfcfc;
+  font-size: 1.7rem;
+}
+
 .slick-prev,
 .slick-next {
   background-color: #33375F !important;

@@ -3,7 +3,7 @@
 
 @section('title', 'Themes')
 @if($frame !='none')
-    @section('pagespecificstyles')
+    @section('pagespecificslick')
         <!-- flot charts css-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"
         integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
@@ -13,6 +13,11 @@
         crossorigin="anonymous" />
     @stop
 @endif
+@section('pagespecificlity')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lity/2.4.1/lity.min.css"
+    integrity="sha512-UiVP2uTd2EwFRqPM4IzVXuSFAzw+Vo84jxICHVbOA1VZFUyr4a6giD9O3uvGPFIuB2p3iTnfDVLnkdY7D/SJJQ=="
+    crossorigin="anonymous" />
+@stop
 
 @section('content')
 @include('header')
@@ -30,17 +35,17 @@
     @if($frame !='none')
         <section class="video-carousel">
             @foreach ($videos as $video)
-                <a href="videos/{{ $video->id }}" class="video-carousel-card">
+                <a href="{{ $video->link }}" data-lity class="video-carousel-card">
                     <h3 class="video-carousel-card__title">{{ $video->title }}</h3>
                     <img src="{{ $video->thumbnail_large }}">
                 </a>
             @endforeach
         </section>
     @else
-        <section class="">
+        <section class="video-vignette horizontal-align">
             @foreach ($videos as $video)
-                <a href="videos/{{ $video->id }}" class="">
-                    <h3 class="">{{ $video->title }}</h3>
+                <a href="{{ $video->link }}" data-lity class="video-vignette-card">
+                    <h3 class="video-vignette-card__title">{{ $video->title }}</h3>
                     <img src="{{ $video->thumbnail_large }}">
                 </a>
             @endforeach
@@ -50,12 +55,20 @@
 </main>
 
 @endsection
+@section('pagespecificjquery')
+    <!-- flot charts scripts-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+    integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+    crossorigin="anonymous"></script>
+@stop
+@section('pagespecificlityjs')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lity/2.4.1/lity.min.js"
+integrity="sha512-UU0D/t+4/SgJpOeBYkY+lG16MaNF8aqmermRIz8dlmQhOlBnw6iQrnt4Ijty513WB3w+q4JO75IX03lDj6qQNA=="
+crossorigin="anonymous"></script>
+@stop
 @if($frame !='none')
     @section('pagespecificscripts')
         <!-- flot charts scripts-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
-        integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
-        crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"
         integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A=="
         crossorigin="anonymous"></script>
@@ -63,7 +76,7 @@
         jQuery( document ).ready(function( $ ){
             $('.video-carousel').slick({
                 infinite: true,
-                slidesToShow: {!! json_encode($frame) !!},
+                slidesToShow: 3,
                 slidesToScroll: 1,
                 responsive: [
                     {
