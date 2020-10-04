@@ -42,9 +42,11 @@ body {
   padding-right: 0.1em;
   letter-spacing: -7px;
   font-weight: 500;
-  -webkit-transition: background-color 1.5s, color 0.5s 0.5s;
-  -o-transition: background-color 1.5s, color 0.5s 0.5s;
-  transition: background-color 1.5s, color 0.5s 0.5s;
+  -webkit-transition: -webkit-transform 1.5s ease-in-out;
+  transition: -webkit-transform 1.5s ease-in-out;
+  -o-transition: transform 1.5s ease-in-out;
+  transition: transform 1.5s ease-in-out;
+  transition: transform 1.5s ease-in-out, -webkit-transform 1.5s ease-in-out;
   cursor: pointer;
   text-decoration: none;
   position: absolute;
@@ -55,13 +57,16 @@ body {
 }
 
 .logo:hover {
-  color: #33375F;
-  background-color: rgba(51, 55, 95, 0);
+  -webkit-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+          transform: rotate(360deg);
 }
 
 /*buttons */
 
-.custom-btn {
+.custom-btn--outline {
+  z-index: 1;
+  position: relative;
   padding: 1.5rem;
   background: #fcfcfc;
   cursor: pointer;
@@ -69,20 +74,36 @@ body {
   font-size: 1.5rem;
   color: #fcfcfc;
   text-decoration: none;
-  -webkit-transition: background 0.7s, border 0.9s;
-  -o-transition: background 0.7s, border 0.9s;
-  transition: background 0.7s, border 0.9s;
-}
-
-.custom-btn--outline {
   background: transparent;
   border: 0.5rem solid #fcfcfc;
   color: #fcfcfc;
 }
 
-.custom-btn--outline:hover {
+.custom-btn--outline::after {
+  position: relative;
+  padding: 1.5rem;
+  background: #fcfcfc;
+  cursor: pointer;
+  border-radius: 100rem;
+  font-size: 1.5rem;
+  color: #fcfcfc;
+  text-decoration: none;
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  z-index: -1;
   background: #33375F;
-  border: 0 solid transparent;
+  -webkit-transition: opacity 700ms ease-in-out;
+  -o-transition: opacity 700ms ease-in-out;
+  transition: opacity 700ms ease-in-out;
+}
+
+.custom-btn--outline:hover::after {
+  opacity: 1;
 }
 
 /* preview image upload */
@@ -114,42 +135,69 @@ body {
 
 .entry-content-themes__card {
   position: relative;
+  z-index: 1;
 }
 
-.entry-content-themes__card:hover {
+.entry-content-themes__card:hover img {
   -webkit-filter: saturate(1.5);
           filter: saturate(1.5);
 }
 
-.entry-content-themes__card:hover h2 {
-  background-color: #767bb5;
+.entry-content-themes__card:hover h2::after {
+  -webkit-transform: scaleX(1);
+      -ms-transform: scaleX(1);
+          transform: scaleX(1);
+  opacity: 0;
+  -webkit-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
 }
 
-.entry-content-themes__card:hover h2 {
-  background-color: #767bb5;
-}
-
-.entry-content-themes__image img {
+.entry-content-themes img {
+  margin: 0;
+  position: relative;
+  z-index: -1;
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  -webkit-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+  -webkit-transition: -webkit-filter 300ms ease-in-out;
+  transition: -webkit-filter 300ms ease-in-out;
+  -o-transition: filter 300ms ease-in-out;
+  transition: filter 300ms ease-in-out;
+  transition: filter 300ms ease-in-out, -webkit-filter 300ms ease-in-out;
 }
 
-.entry-content-themes__title {
+.entry-content-themes h2 {
+  margin: 0;
   width: 100%;
-  position: absolute;
-  bottom: -9px;
+  z-index: 1;
+  position: relative;
   background-color: #33375F;
   text-align: center;
   color: #fcfcfc;
   font-size: 1rem;
   padding: 0.5rem 0;
-  -webkit-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+}
+
+.entry-content-themes h2::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  background-color: #767bb5;
+  -webkit-transition: none;
+  -o-transition: none;
+  transition: none;
+  -webkit-transform-origin: left;
+      -ms-transform-origin: left;
+          transform-origin: left;
+  -webkit-transform: scaleX(0);
+      -ms-transform: scaleX(0);
+          transform: scaleX(0);
+  opacity: 0.6;
 }
 
 .entry-content-themes a {

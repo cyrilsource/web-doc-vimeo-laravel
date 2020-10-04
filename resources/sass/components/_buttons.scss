@@ -1,20 +1,23 @@
 /*buttons */
 .custom-btn {
-    padding: 1.5rem;
-    background: $main-white;
-    cursor: pointer;
-    border-radius: 100rem;
-    font-size: 1.5rem;
-    color: $main-white;
-    text-decoration: none;
-    transition: background 0.7s, border 0.9s;
     &--outline {
-      background: transparent;
-      @include border-button;
-      color: $main-white;
-      &:hover{
-        background: $main-color;
-        border: 0 solid transparent;
+        z-index: 1;
+        @include custom-btn;
+        background: transparent;
+        @include border-button;
+        color: $main-white;
+        &::after {
+            @include custom-btn;
+            @include pseudo-element;
+            opacity: 0;
+            z-index: -1;
+            background: $main-color;
+            transition: opacity 700ms ease-in-out;
+        }
+        &:hover{
+            &::after {
+            opacity: 1;
+            }
       }
     }
   }

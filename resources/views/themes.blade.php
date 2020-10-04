@@ -11,9 +11,7 @@
         <div class="entry-content-themes__grid">
             @foreach ($themes as $theme)
                 <a href="themes/{{ $theme->id }}" class="entry-content-themes__card">
-                    <div class="entry-content-themes__image">
-                        <img src="{{ url('/') }}/storage/img/theme/{{$theme->thumbnail}}" alt="{{ $theme->name }}">
-                    </div>
+                    <img src="{{ url('/') }}/storage/img/theme/{{$theme->thumbnail}}" alt="{{ $theme->name }}">
                     <h2 class="entry-content-themes__title">{{ $theme->name }}</h2>
                 </a>
             @endforeach

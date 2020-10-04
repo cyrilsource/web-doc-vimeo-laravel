@@ -7,7 +7,7 @@
     padding-right: 0.1em;
     letter-spacing: -7px;
     font-weight: 500;
-    transition: background-color 1.5s, color 0.5s 0.5s;
+    transition: transform 1.5s ease-in-out;
     cursor: pointer;
     text-decoration: none;
     position: absolute;
@@ -16,7 +16,6 @@
     top: 0;
     left: 0;
     &:hover {
-        color: $main-color;
-        background-color: rgba($main-color, 0);
+        transform: rotate(360deg)
       }
 }
