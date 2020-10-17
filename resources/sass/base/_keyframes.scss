@@ -1,0 +1,25 @@
+@keyframes rotation-right {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(359deg);}
+}
+
+@keyframes rotation-left {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(-360deg);}
+}
+
+@keyframes gif {
+    from {opacity: 1; transform: rotate(0)}
+    to {opacity: 0; transform: rotate(360deg)}
+}
+
+@keyframes front {
+    from {opacity: 0;
+        transform: scale(0);}
+    to {opacity: 1;
+        transform: scale(1);}
+}
+
+
+
+

@@ -1,6 +1,9 @@
 
 <header class="header">
-    <a class="logo" href="{{ url('/') }}">TC</a>
+    <a id="logo" class="logo rotation-left" href="{{ url('/') }}">TC</a>
+    <div class="return" value="Go Back From Whence You Came!" onclick="history.back(-1)" />
+        <span><</span>
+    </div>
 </header>
 
 

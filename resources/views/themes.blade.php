@@ -5,12 +5,12 @@
 
 @section('content')
 @include('header')
-<main class="main">
+<main  id="swup" class="main">
+@include('gif')
     <div class="entry-content-themes">
-
         <div class="entry-content-themes__grid">
             @foreach ($themes as $theme)
-                <a href="themes/{{ $theme->id }}" class="entry-content-themes__card">
+                <a  href="{{ url('/themes') }}/{{ $theme->id }}" class="entry-content-themes__card transition-fade">
                     <img src="{{ url('/') }}/storage/img/theme/{{$theme->thumbnail}}" alt="{{ $theme->name }}">
                     <h2 class="entry-content-themes__title">{{ $theme->name }}</h2>
                 </a>
@@ -19,7 +19,6 @@
 
     </div><!-- .entry-content-themes-->
 </main>
-
 
 
 

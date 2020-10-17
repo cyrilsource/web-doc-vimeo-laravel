@@ -1,0 +1,43 @@
+.header {
+    display: flex;
+    margin: $margin;
+    align-items: center;
+
+    & .logo {
+        font-size: map-get($main-title, first-title);
+        text-decoration: none;
+        margin-right: $margin;
+        width: 100px;
+        height: 100px;
+        letter-spacing: -7px;
+        z-index: 10;
+        @include header-object;
+        &.rotation-right {
+            animation: rotation-right 1s infinite linear;
+          }
+        &.rotation-left {
+            animation: rotation-left 1s linear;
+        }
+    }
+
+    & .return {
+        position: relative;
+        font-size: map-get($main-title, first-title);
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+        @include header-object;
+        & span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        &:hover {
+            transform: scale(1.2);
+
+          }
+    }
+}
+
+

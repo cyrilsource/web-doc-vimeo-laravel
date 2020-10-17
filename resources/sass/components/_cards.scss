@@ -61,14 +61,7 @@
 		filter: saturate(1.5);
 	}
 
-	&__title {
-		@include transition;
-		display: none;
-	}
-
-	&:hover h3 {
-		display: block;
-     	animation: fade_in_show 0.5s;
+	& h3 {
         position: absolute;
         bottom: 0;
 		background-color: $main-color;
@@ -78,17 +71,15 @@
         z-index: 3;
         color: $main-white;
         font-size: map-get($main-title, third-title);
+        opacity: 0;
+        transform: scale(0);
+        transform-origin: left;
+        transition: transform 750ms, opacity 750ms;
 	}
-}
 
-@keyframes fade_in_show {
-	0% {
-		 opacity: 0;
-		 transform: scale(0)
-	}
-	100% {
-		 opacity: 1;
-		 transform: scale(1)
+	&:hover h3 {
+        opacity: 1;
+        transform: scale(1);
 	}
 }
 
@@ -101,9 +92,20 @@
         padding: 0;
         width: 600px;
 
-        &__title {
-            @include transition;
-            display: none;
+        & h3 {
+            position: absolute;
+            bottom: 0;
+            background-color: $main-color;
+            padding: 0.5rem;
+            text-align: center;
+            width: 100%;
+            z-index: 3;
+            color: $main-white;
+            font-size: map-get($main-title, third-title);
+            opacity: 0;
+            transform: scale(0);
+            transform-origin: left;
+            transition: transform 750ms, opacity 750ms;
         }
 
         img {
@@ -111,17 +113,8 @@
         }
 
         &:hover h3 {
-            display: block;
-             animation: fade_in_show 0.5s;
-            position: absolute;
-            bottom: 5px;
-            background-color: $main-color;
-            padding: 0.5rem;
-            text-align: center;
-            width: 600px;
-            z-index: 3;
-            color: $main-white;
-            font-size: map-get($main-title, third-title);
+            opacity: 1;
+            transform: scale(1);
         }
     }
 }

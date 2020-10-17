@@ -5,17 +5,19 @@
 
 @section('content')
 @include('header')
-<div class="vimeo-wrapper">
-   <iframe src="https://player.vimeo.com/video/412231490?background=1&autoplay=1&loop=1&byline=0&title=0"
-           frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-</div>
-<div class="vertical-align">
-    <div class="main-title">
-        <h1 class="entry-title">terre commune</h1>
-        <div class="horizontal-align">
-            <a href="themes" class="custom-btn custom-btn--outline">Commencez</a>
+    <main id="swup" class="">
+    @include('gif')
+        <div class="vimeo-wrapper">
+            <iframe src="https://player.vimeo.com/video/412231490?background=1&autoplay=1&loop=1&byline=0&title=0"
+                frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
         </div>
-    </div>
-</div>
-
+        <div class="vertical-align">
+            <div class="main-title">
+                <h1 class="entry-title transition-fade">terre commune</h1>
+                <div class="horizontal-align">
+                    <a href="{{ url('/themes') }}" class="custom-btn custom-btn--outline transition-fade">Commencez</a>
+                </div>
+            </div>
+        </div>
+    </main>
 @endsection

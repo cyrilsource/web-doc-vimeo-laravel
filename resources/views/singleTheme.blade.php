@@ -20,20 +20,23 @@
 @stop
 
 @section('content')
+
 @include('header')
-<div class="background-image">
+
+<main  id="swup" class="main">
+@include('gif')
+<div class="background-image transition-fade">
     <img class="background-image__image" src="{{ url('/') }}/storage/img/theme/{{$theme->thumbnail}}" alt="{{ $theme->name }}">
     <div class="background-image__blur"></div>
 </div>
-<main class="main">
-    <div class="center entry-title entry-title__page">
+    <div class="center entry-title entry-title__page transition-fade">
         <h1>{{ $theme->name }}</h1>
     </div>
-    <div class="entry-content">
+    <div class="entry-content transition-fade">
         {{ $theme->description}}
     </div>
     @if($frame !='none')
-        <section class="video-carousel">
+        <section class="video-carousel transition-fade">
             @foreach ($videos as $video)
                 <a href="{{ $video->link }}" data-lity class="video-carousel-card">
                     <h3 class="video-carousel-card__title">{{ $video->title }}</h3>
@@ -42,7 +45,7 @@
             @endforeach
         </section>
     @else
-        <section class="video-vignette horizontal-align">
+        <section class="video-vignette horizontal-align transition-fade">
             @foreach ($videos as $video)
                 <a href="{{ $video->link }}" data-lity class="video-vignette-card">
                     <h3 class="video-vignette-card__title">{{ $video->title }}</h3>
@@ -97,6 +100,36 @@ crossorigin="anonymous"></script>
             });
 
         });
+
+        document.addEventListener('swup:contentReplaced', function () {
+		jQuery( document ).ready(function( $ ){
+			$('.video-carousel').slick({
+			infinite: true,
+			slidesToShow: 3,
+			slidesToScroll: 1,
+			responsive: [
+				{
+					breakpoint: 600,
+					settings: {
+						slidesToShow: 2,
+						slidesToScroll: 2,
+					}
+				},
+				{
+					breakpoint: 480,
+					settings: {
+						slidesToShow: 1,
+						slidesToScroll: 1
+					}
+				}
+			]
+		});
+
+	});
+
+
+
+});
     </script>
     @stop
 @endif

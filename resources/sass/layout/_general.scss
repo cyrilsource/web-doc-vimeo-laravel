@@ -18,7 +18,7 @@
 }
 
 .main {
-    padding: 8rem 1rem;
+    padding: 2rem $margin;
 }
 
 .center {
@@ -27,14 +27,14 @@
 
 @media screen and (max-width : 768px)  {
 	.main {
-		padding: 7rem 1rem;
+		padding: 7rem $margin;
 	}
 
 }
 
 @media screen and (min-width : 768px) and (max-width: 1024px) {
 	.main {
-		padding: 7rem 1rem;
+		padding: 7rem $margin;
 	}
 
 }
@@ -46,4 +46,17 @@
     @include mobile-only {
         width: 100%;
     }
+}
+
+.gif {
+    font-size: 2rem;
+    width: 50px;
+    height: 50px;
+    animation: gif 1s linear;
+    opacity: 0;
+    z-index: 10;
+    position: absolute;
+    top: calc(50vh - (/* height */50px / 2));
+    left: calc(50vw - (/* width */50px / 2));
+    @include header-object;
 }
