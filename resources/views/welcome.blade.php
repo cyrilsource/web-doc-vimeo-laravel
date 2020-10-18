@@ -5,10 +5,10 @@
 
 @section('content')
 @include('header')
-    <main id="swup" class="">
+    <main id="swup" class="front">
     @include('gif')
-        <div class="vimeo-wrapper">
-            <iframe src="https://player.vimeo.com/video/412231490?background=1&autoplay=1&loop=1&byline=0&title=0"
+        <div class="vimeo-wrapper transition-slide">
+            <iframe class="vimeo-wrapper transition-fade2" src="https://player.vimeo.com/video/412231490?background=1&autoplay=1&loop=1&byline=0&title=0"
                 frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
         </div>
         <div class="vertical-align">

@@ -109,6 +109,26 @@ body {
   }
 }
 
+@-webkit-keyframes opacity {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes opacity {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 @-webkit-keyframes front {
   from {
     opacity: 0;
@@ -138,9 +158,9 @@ body {
 }
 
 .transition-fade {
-  -webkit-transition: 2s;
-  -o-transition: 2s;
-  transition: 2s;
+  -webkit-transition: 2s 1s;
+  -o-transition: 2s 1s;
+  transition: 2s 1s;
   opacity: 1;
   -webkit-transform: scale(1);
       -ms-transform: scale(1);
@@ -152,6 +172,37 @@ html.is-animating .transition-fade {
   -webkit-transform: scale(0);
       -ms-transform: scale(0);
           transform: scale(0);
+}
+
+.transition-fade2 {
+  -webkit-transition: 2s 1s;
+  -o-transition: 2s 1s;
+  transition: 2s 1s;
+  opacity: 1;
+}
+
+html.is-animating .transition-fade2 {
+  opacity: 0;
+}
+
+.transition-slide {
+  -webkit-transition: 2s 1.5s;
+  -o-transition: 2s 1.5s;
+  transition: 2s 1.5s;
+  opacity: 1;
+  -webkit-transform: scaleX(1);
+      -ms-transform: scaleX(1);
+          transform: scaleX(1);
+  -webkit-transform-origin: left;
+      -ms-transform-origin: left;
+          transform-origin: left;
+}
+
+html.is-animating .transition-slide {
+  opacity: 0;
+  -webkit-transform: scaleX(0);
+      -ms-transform: scaleX(0);
+          transform: scaleX(0);
 }
 
 .header {
@@ -529,8 +580,8 @@ html.is-animating .transition-fade {
   font-size: 2rem;
   width: 50px;
   height: 50px;
-  -webkit-animation: gif 1s linear;
-          animation: gif 1s linear;
+  -webkit-animation: gif 1s linear 0.5s;
+          animation: gif 1s linear 0.5s;
   opacity: 0;
   z-index: 10;
   position: absolute;
@@ -544,6 +595,7 @@ html.is-animating .transition-fade {
 }
 
 .vimeo-wrapper {
+  background-color: #33375F;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -553,6 +605,9 @@ html.is-animating .transition-fade {
   z-index: -1;
   pointer-events: none;
   overflow: hidden;
+  -webkit-animation: opacity 2s 1.5s backwards;
+          animation: opacity 2s 1.5s backwards;
+  opacity: 1;
 }
 
 .vimeo-wrapper iframe {
@@ -576,14 +631,5 @@ html.is-animating .transition-fade {
 
 .vimeo-wrapper--half--left {
   left: 50%;
-}
-
-.front {
-  -webkit-animation: front 2s linear;
-          animation: front 2s linear;
-  opacity: 1;
-  -webkit-transform: scaleX(1);
-      -ms-transform: scaleX(1);
-          transform: scaleX(1);
 }
 
