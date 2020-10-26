@@ -4,7 +4,6 @@
 @section('title', 'Accueil')
 
 @section('content')
-@include('header')
     <main id="swup" class="front">
     @include('gif')
         <div class="vimeo-wrapper transition-slide">
@@ -21,3 +20,4 @@
         </div>
     </main>
 @endsection
+

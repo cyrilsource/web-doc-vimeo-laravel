@@ -22,7 +22,7 @@ class ThemeController extends Controller
     {
         $themes = Theme::orderBy('name', 'asc')->get();
 
-        return view('themes', ['themes' => $themes]);
+        return view('themes', ['themes' => $themes, 'template' =>'index']);
     }
 
     /**
@@ -118,6 +118,8 @@ class ThemeController extends Controller
         //get the videos with the theme
         $videos = Theme::findOrFail($id)->videos->sortBy('title')->all();
 
+        $themes = Theme::orderBy('name', 'asc')->get();
+
         $frame = 3;
 
         $number = count($videos);
@@ -128,7 +130,7 @@ class ThemeController extends Controller
 
         $theme = Theme::findOrFail($id);
 
-        return view('singleTheme', ['theme' => $theme, 'videos' => $videos, 'frame' => $frame]);
+        return view('singleTheme', ['themes' => $themes, 'theme' => $theme, 'videos' => $videos, 'frame' => $frame, 'template' => 'show']);
     }
 
     /**

@@ -1,8 +1,27 @@
 
 <header class="header">
-    <a id="logo" class="logo rotation-left" href="{{ url('/') }}">TC</a>
-    <div class="return" value="Go Back From Whence You Came!" onclick="history.back(-1)" />
-        <span><</span>
+    <div class="header--left">
+        <a id="logo" class="logo rotation-left" href="{{ url('/') }}">TC</a>
+        @if($template =='index')
+        <a title="retour" id="logo" class="return " href="{{ url('/') }}">
+            <span><</span>
+        </a>
+        @endif
+        @if($template =='show')
+        <a title="retour" id="logo" class="return " href="{{ url('/themes') }}">
+            <span><</span>
+        </a>
+        @endif
+    </div>
+    <div class="header--right">
+        <div role="navigation" class="navigation">
+            <span>Themes</span>
+            <div class="themes-list">
+            @foreach ($themes as $theme)
+                <a href="{{ url('/themes') }}/{{ $theme->id }}">{{ $theme->name }}</a>
+            @endforeach
+            </div>
+        </div>
     </div>
 </header>
 

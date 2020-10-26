@@ -21,6 +21,32 @@
 .form-group .url:not(:focus):invalid {
   border: 2px solid #F44336;
   color: #F44336 !important;
+  -webkit-animation: headshake 100ms cubic-bezier(0.4, 0.1, 0.6, 0.9) 3;
+          animation: headshake 100ms cubic-bezier(0.4, 0.1, 0.6, 0.9) 3;
+}
+
+@-webkit-keyframes headshake {
+  25% {
+    -webkit-transform: translateX(3%);
+            transform: translateX(3%);
+  }
+
+  75% {
+    -webkit-transform: translateX(-3%);
+            transform: translateX(-3%);
+  }
+}
+
+@keyframes headshake {
+  25% {
+    -webkit-transform: translateX(3%);
+            transform: translateX(3%);
+  }
+
+  75% {
+    -webkit-transform: translateX(-3%);
+            transform: translateX(-3%);
+  }
 }
 
 .edit-image {

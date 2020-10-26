@@ -4,8 +4,8 @@
 @section('title', 'Themes')
 
 @section('content')
-@include('header')
 <main  id="swup" class="main">
+@include('header')
 @include('gif')
     <div class="entry-content-themes">
         <div class="entry-content-themes__grid">

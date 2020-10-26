@@ -3,6 +3,18 @@
         &:not(:focus):invalid {
             border: 2px solid $cd-danger;
             color: $cd-danger !important;
+            animation: headshake 100ms cubic-bezier(.4,.1,.6,.9) 3;
         }
+    }
+}
+
+@keyframes headshake {
+    25% {
+        // entièrement à droite
+        transform: translateX(3%);
+    }
+    75% {
+        // entièrement à gauche
+        transform: translateX(3% * -1);
     }
 }
