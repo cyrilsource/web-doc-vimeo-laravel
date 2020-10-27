@@ -60,7 +60,28 @@
 
 @mixin theme-title {
     width: 100%;
+}
 
+@mixin button {
+    color: $main-white;
+    background-color: $main-color;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+//wizz for light effect on buttons
+@mixin wizz {
+    background-color: light($main-color);
+    transition: none;
+    transform-origin: left;
+    transform: scaleX(0);
+    opacity: 0.6;
+}
+
+@mixin wizz-hover {
+    transform: scaleX(1);
+    opacity: 0;
+    transition: all 1s ease-in-out;
 }
 
 @mixin mobile-only {

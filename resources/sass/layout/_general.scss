@@ -40,11 +40,13 @@
 }
 
 .entry-content {
-    width: 33%;
     padding: 1rem;
     color: $main-color;
     @include mobile-only {
         width: 100%;
+    }
+    &-text {
+        width: 33%;
     }
 }
 

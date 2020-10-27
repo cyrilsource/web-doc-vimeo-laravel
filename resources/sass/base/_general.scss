@@ -15,6 +15,7 @@ body {
     text-align: center;
     &__page {
         color: $main-color;
+        margin-left: 5rem;
         font-size: map-get($main-title, title-page);
         @include mobile-only {
             font-size: map-get($main-title, title-page)*0.6;

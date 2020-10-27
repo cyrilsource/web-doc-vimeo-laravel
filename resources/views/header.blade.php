@@ -15,7 +15,9 @@
     </div>
     <div class="header--right">
         <div role="navigation" class="navigation">
-            <span>Themes</span>
+            <div class="button">
+                <span class="yep">Themes</span>
+            </div>
             <div class="themes-list">
             @foreach ($themes as $theme)
                 <a href="{{ url('/themes') }}/{{ $theme->id }}">{{ $theme->name }}</a>

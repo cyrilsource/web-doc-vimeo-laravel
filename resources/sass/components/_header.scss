@@ -24,7 +24,6 @@
                 animation: rotation-left 1s linear;
             }
         }
-
         & .return {
             position: relative;
             z-index: 20;
@@ -51,12 +50,7 @@
         position: relative;
         z-index: 10;
         & .navigation {
-            & span {
-                color: $main-white;
-                background-color: $main-color;
-                padding: 0.5rem;
-                cursor: pointer;
-
+            & .button {
                 &:after {
                     content: ">";
                     margin-left: 0.5rem;
@@ -65,18 +59,15 @@
                     transform: rotate(90deg);
                 }
             }
-
             .themes-list {
                 display: none;
                 position: absolute;
-                top: 27px;
+                top: 36px;
                 background-color: $main-white;
                 min-width: 160px;
                 box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
                 z-index: 1;
             }
-
-
             & a {
                 color: black;
                 padding: 12px 16px;
@@ -84,7 +75,6 @@
                 display: block;
                 transition: all 0.5s;
             }
-
             & a:hover {
                 background-color: $second-color;
                 color: $main-white;
