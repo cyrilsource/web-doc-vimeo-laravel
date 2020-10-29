@@ -57,7 +57,12 @@
         </div>
         <button type="submit" class="btn btn-primary">Create a theme</button>
       </form>
+
+
+
+
     </div>
+
     <div class="col-5 offset-md-1">
         <h2>List of themes</h2>
         <table class="table table-striped">
@@ -91,4 +96,5 @@
         </table>
     </div>
 </div>
+
 @endsection

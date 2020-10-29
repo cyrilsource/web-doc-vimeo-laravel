@@ -52,3 +52,12 @@ Route::post('/admin/videos', 'VideoController@store');
 
 //delete video
 Route::post('/admin/deleteVideo/{id}', 'VideoController@destroy');
+
+//edit video
+Route::get('/admin/editVideo/{id}', 'VideoController@edit');
+
+//display options page
+Route::get('/admin/options', 'OptionsController@edit');
+
+//update theme
+Route::post('/admin/options', 'OptionsController@update');

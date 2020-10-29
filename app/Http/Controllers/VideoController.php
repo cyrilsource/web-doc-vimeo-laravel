@@ -174,7 +174,9 @@ class VideoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $video = Video::findOrFail($id);
+
+        return view('admin.editVideo', ['video' => $video]);
     }
 
     /**
@@ -186,7 +188,7 @@ class VideoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**

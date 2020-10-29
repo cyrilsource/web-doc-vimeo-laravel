@@ -45,8 +45,8 @@
 }
 
 .video-carousel-card {
-	position: relative;
-
+    position: relative;
+    margin-top: 2rem;
 	img {
 		@include transition;
 	}
@@ -78,7 +78,7 @@
 }
 
 .video-vignette {
-    margin: 0;
+    margin-top: 2rem;
     padding: 0;
     &-card {
         position: relative;

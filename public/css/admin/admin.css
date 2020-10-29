@@ -107,6 +107,10 @@
   transition: all 0.3s ease-in-out;
 }
 
+.number-words {
+  margin-top: 40px;
+}
+
 /*!
  * Start Bootstrap - Simple Sidebar (https://startbootstrap.com/template-overviews/simple-sidebar)
  * Copyright 2013-2019 Start Bootstrap

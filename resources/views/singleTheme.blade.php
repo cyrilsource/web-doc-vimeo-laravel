@@ -26,8 +26,12 @@
                 </div>
             </div>
             <div class=entry-content-text>
-                {{ $theme->description}}
+                {{ $short }}
             </div>
+            <div class="button">
+                    <a class="yep" data-lity href="#long">Lire + de texte</a>
+            </div>
+            <div id="long" class="lity-hide">{{ $theme->description }}</div>
             @if($frame !='none')
                 <section class="video-carousel transition-fade">
                     @foreach ($videos as $video)

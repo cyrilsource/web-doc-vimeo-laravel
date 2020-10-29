@@ -27,7 +27,7 @@
     margin: 0;
     z-index: 1;
     position: relative;
-
+    max-width: 150px;
     &:hover .yep::after{
         @include wizz-hover;
     }

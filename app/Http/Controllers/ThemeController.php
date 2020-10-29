@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use App\Theme;
 use App\Video;
+use App\Options;
 
 class ThemeController extends Controller
 {
@@ -130,7 +131,26 @@ class ThemeController extends Controller
 
         $theme = Theme::findOrFail($id);
 
-        return view('singleTheme', ['themes' => $themes, 'theme' => $theme, 'videos' => $videos, 'frame' => $frame, 'template' => 'show']);
+        //query the number of words for the option words
+        $words = DB::table('options')->where('name', 'words')->value('field');
+
+        /*function limit number of words
+        https://stackoverflow.com/questions/965235/how-can-i-truncate-a-string-to-the-first-20-words-in-php/10091794
+        */
+        function limit_text($text, $limit) {
+            if (str_word_count($text, 0) > $limit) {
+                $words = str_word_count($text, 2);
+                $pos   = array_keys($words);
+                $text  = substr($text, 0, $pos[$limit]) . '...';
+            }
+            return $text;
+        }
+
+        $description = $theme['description'];
+
+        $short = limit_text($description, $words);
+
+        return view('singleTheme', ['themes' => $themes, 'theme' => $theme, 'short' => $short, 'videos' => $videos, 'frame' => $frame, 'template' => 'show']);
     }
 
     /**

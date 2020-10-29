@@ -380,6 +380,7 @@ html.is-animating .transition-slide {
   margin: 0;
   z-index: 1;
   position: relative;
+  max-width: 150px;
 }
 
 .button:hover .yep::after {
@@ -493,6 +494,7 @@ html.is-animating .transition-slide {
 
 .video-carousel-card {
   position: relative;
+  margin-top: 2rem;
 }
 
 .video-carousel-card img {
@@ -538,7 +540,7 @@ html.is-animating .transition-slide {
 }
 
 .video-vignette {
-  margin: 0;
+  margin-top: 2rem;
   padding: 0;
 }
 
@@ -587,6 +589,14 @@ html.is-animating .transition-slide {
 .slick-prev,
 .slick-next {
   background-color: #33375F !important;
+}
+
+#long {
+  overflow: auto;
+  background-color: #fcfcfc;
+  padding: 2rem;
+  width: 600px;
+  border-radius: 6px;
 }
 
 .background-image {
@@ -696,6 +706,8 @@ html.is-animating .transition-slide {
 
 .entry-content-text {
   width: 33%;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 
 .gif {
