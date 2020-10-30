@@ -8,23 +8,33 @@
 
 <div class="row">
     <div class="col-4">
-    <h2>Edit the video {{$video->name}}</h2>
-      <form action="" enctype="multipart/form-data" method="post">
-      @csrf
-        <div class="form-group">
-            <label for="link">video link</label>
-            <input name="link" type="text" class="url form-control @error('link') is-invalid @enderror"
-            id="link" aria-describedby="link"
-            value="{{ $video->link }}" required pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$">
-            @error('link')
-            <div class="alert alert-danger" role="alert">
-                {{ $errors->first('link') }}
+        <h2>Edit the video <strong>{{$video->title}}</strong></h2>
+        <img class="edit-video-thumbnail" src="{{ $video->thumbnail_medium }}">
+        <a href="{{ $video->link }}" class="btn btn-info" role="button" aria-pressed="true">Lien vers la vidéo</a>
+        <form action="" enctype="multipart/form-data" method="post">
+        @csrf
+            <div class="edit-pdf">
+                <a class="mb-5" href="{{ url('/') }}/storage/pdf/video/{{$video->pdf}}">{{$video->pdf}}</a>
+                <button class="btn btn-info edit-pdf__button">Change pdf</button>
             </div>
-            @enderror
+            <div class="form-group upload-pdf">
+                <label for="pdf">Add a pdf</label>
+                <input name="pdf" type="file" class="form-control-file" id="pdf">
+            </div>
+            <div class="form-group">
+            <label for="themes[]">Themes</label>
+            <select class="form-control-select" name="themes[]" multiple="multiple">
+            {{-- Comment stackoverflow laravel-edit-form-select-default-selection --}}
+                @foreach ($themes as $theme)
+
+                        <option value="{{$theme->id}}" @foreach ($themes_video as $theme_video) @if($theme_video->name=== $theme->name) selected='selected' @endif @endforeach>{{$theme->name}}</option>
+
+                @endforeach
+            </select>
         </div>
 
-        <button type="submit" class="btn btn-primary">Edit the video</button>
-      </form>
+            <button type="submit" class="btn btn-primary">Edit the video</button>
+        </form>
     </div>
 
 </div>

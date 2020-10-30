@@ -60,28 +60,30 @@ class VideoController extends Controller
         //get url and we take only vimeo id
         $vimeo_id = substr($datas['link'], 18);
 
-        // https://jamesdavidson.io/blog/getting-thumbnails-using-vimeo-api-php
-        $xml = simplexml_load_file("http://vimeo.com/api/v2/video/".$vimeo_id.".xml");
 
-        $xml = $xml->video;
+        //https://stackoverflow.com/questions/1361149/get-img-thumbnails-from-vimeo
+        function get_vimeo_data_from_id( $video_id, $data ) {
+            $request = unserialize(file_get_contents( 'http://vimeo.com/api/v2/video/' . $video_id .'.php' ));
 
-        //get title vimeo
-        $title = $xml->title->__toString();
+            return $request[0][$data];
+        }
+
+        $title = get_vimeo_data_from_id( $vimeo_id, 'title' );
 
         //creation du slug à la volée
         $slug = Str::slug($title);
 
         //get description vimeo
-        $description = $xml->description->__toString();
+        $description = get_vimeo_data_from_id( $vimeo_id, 'description' );
 
         //get thumnail_small vimeo
-        $thumbnail_small = $xml->thumbnail_small->__toString();
+        $thumbnail_small = get_vimeo_data_from_id( $vimeo_id, 'thumbnail_small' );
 
         //get thumnail_medium vimeo
-        $thumbnail_medium = $xml->thumbnail_medium->__toString();
+        $thumbnail_medium = get_vimeo_data_from_id( $vimeo_id, 'thumbnail_medium' );
 
         //get thumnail_large vimeo
-        $thumbnail_large = $xml->thumbnail_large->__toString();
+        $thumbnail_large = get_vimeo_data_from_id( $vimeo_id, 'thumbnail_large' );
 
 
         //on récupère les données pour le pdf
@@ -139,8 +141,6 @@ class VideoController extends Controller
         //on va insérer les themes_id dans la table video_theme en récuperant le dernier post inséré
         $video = Video::findOrFail($lastpost);
 
-
-
         //on insert les themes dans la table pivot
         $video->themes()->sync($datas['themes']);
 
@@ -174,9 +174,14 @@ class VideoController extends Controller
      */
     public function edit($id)
     {
+
+        $themes_video = Video::findOrFail($id)->themes->sortBy('name')->all();
+
         $video = Video::findOrFail($id);
 
-        return view('admin.editVideo', ['video' => $video]);
+        $themes = Theme::orderBy('name', 'asc')->get();
+
+        return view('admin.editVideo', ['video' => $video, 'themes' => $themes,  'themes_video' => $themes_video]);
     }
 
     /**

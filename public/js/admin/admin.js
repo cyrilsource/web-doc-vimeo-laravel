@@ -96,36 +96,44 @@
 /* preview image before uploading with fileReader Object */
 var inpFile = document.getElementById('image');
 var previewContainer = document.getElementById('imagePreview');
-var previewImage = previewContainer.querySelector('.image-preview__image');
-var previewDefaultText = previewContainer.querySelector('.image-preview__default-text');
-inpFile.addEventListener('change', function () {
-  var file = this.files[0];
 
-  if (file) {
-    var reader = new FileReader();
-    previewDefaultText.style.display = 'none';
-    previewImage.style.display = 'block';
-    reader.addEventListener('load', function () {
-      previewImage.setAttribute('src', this.result);
-    });
-    reader.readAsDataURL(file);
-  } else {
-    /* refresh upload system when someone come back without choosing a file */
-    previewDefaultText.style.display = null;
-    previewImage.style.display = null;
-    previewImage.setAttribute('src', '');
-  }
-});
+if (previewContainer != null) {
+  var previewImage = previewContainer.querySelector('.image-preview__image');
+  var previewDefaultText = previewContainer.querySelector('.image-preview__default-text');
+  inpFile.addEventListener('change', function () {
+    var file = this.files[0];
+
+    if (file) {
+      var reader = new FileReader();
+      previewDefaultText.style.display = 'none';
+      previewImage.style.display = 'block';
+      reader.addEventListener('load', function () {
+        previewImage.setAttribute('src', this.result);
+      });
+      reader.readAsDataURL(file);
+    } else {
+      /* refresh upload system when someone come back without choosing a file */
+      previewDefaultText.style.display = null;
+      previewImage.style.display = null;
+      previewImage.setAttribute('src', '');
+    }
+  });
+}
 /* change image */
 
+
 var containerEditImage = document.querySelector('.edit-image');
-var editImage = containerEditImage.querySelector('.edit-image__middle');
-var upload = document.querySelector('.upload');
-editImage.addEventListener('click', function () {
-  containerEditImage.style.display = 'none';
-  upload.style.display = 'block';
-});
+
+if (containerEditImage != null) {
+  var editImage = containerEditImage.querySelector('.edit-image__middle');
+  var upload = document.querySelector('.upload');
+  editImage.addEventListener('click', function () {
+    containerEditImage.style.display = 'none';
+    upload.style.display = 'block';
+  });
+}
 /* change pdf */
+
 
 var containerEditPdf = document.querySelector('.edit-pdf');
 var editPdf = containerEditPdf.querySelector('.edit-pdf__button');
