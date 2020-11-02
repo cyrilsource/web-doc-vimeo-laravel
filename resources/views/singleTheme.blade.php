@@ -36,6 +36,7 @@
                 <section class="video-carousel transition-fade">
                     @foreach ($videos as $video)
                         <a href="{{ $video->link }}" data-lity class="video-carousel-card">
+                            <h4>PDF</h4>
                             <h3 class="video-carousel-card__title">{{ $video->title }}</h3>
                             <img src="{{ $video->thumbnail_large }}">
                         </a>
@@ -45,6 +46,7 @@
                 <section class="video-vignette horizontal-align transition-fade">
                     @foreach ($videos as $video)
                         <a href="{{ $video->link }}" data-lity class="video-vignette-card">
+                            <h4>PDF</h4>
                             <h3 class="video-vignette-card__title">{{ $video->title }}</h3>
                             <img src="{{ $video->thumbnail_large }}">
                         </a>

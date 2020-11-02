@@ -115,6 +115,18 @@
   margin-bottom: 2rem;
 }
 
+.edit-video {
+  margin-top: 1rem;
+}
+
+.edit-video .edit-pdf {
+  margin-bottom: 1rem;
+}
+
+.edit-video label {
+  margin-bottom: -1rem;
+}
+
 /*!
  * Start Bootstrap - Simple Sidebar (https://startbootstrap.com/template-overviews/simple-sidebar)
  * Copyright 2013-2019 Start Bootstrap

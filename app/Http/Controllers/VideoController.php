@@ -193,6 +193,57 @@ class VideoController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $datas = $request->all();
+
+        //on récupère les données pour le pdf
+        $document = $request->file('pdf');
+
+        //get the current video
+        $video = Video::findOrFail($id);
+
+
+        if ($document !==null) {
+
+            //remove previous image
+            Storage::delete("public/pdf/video/".$video['pdf']);
+
+            //on récupère les données de l'image
+            $document = $request->file('pdf');
+
+            $document = $request->file('pdf');
+
+            //remove pdf extension from original name
+            $originalName = substr($document->getClientOriginalName(), 0, -4);
+
+            // Generate a file name
+            $pdf = $originalName."-".rand(1,100).".".$document->getClientOriginalExtension();
+
+            // Save the file
+            $document->storeAs('public/pdf/video', $pdf);
+
+            $datas['pdf'] = $pdf;
+
+            //On enleve le champ themes et le champ token des valeurs envoyées à la bdd
+            $datas2 = Arr::except($datas, ['_token']);
+            $values = Arr::except($datas2, ['themes']);
+
+            //update datas in database
+            DB::table('videos')
+                ->where('id', $id)
+                ->update($values);
+        }
+
+
+        //on insert les themes dans la table pivot
+        $video->themes()->sync($datas['themes']);
+
+        //pour aficher les videos
+        $videos = Video::orderBy('title', 'asc')->get();
+
+        //display themes for select input
+        $themes = Theme::orderBy('name', 'asc')->get();
+
+        return view('admin.videos', ['videos' => $videos, 'themes' => $themes]);
 
     }
 

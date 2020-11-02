@@ -53,3 +53,15 @@
 .edit-video-thumbnail {
     margin-bottom: $double-margin;
 }
+
+.edit-video {
+    margin-top: $margin;
+
+    .edit-pdf {
+        margin-bottom: $margin;
+    }
+
+    label {
+        margin-bottom: -$margin;
+    }
+}

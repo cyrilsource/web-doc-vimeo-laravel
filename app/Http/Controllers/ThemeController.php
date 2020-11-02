@@ -119,8 +119,6 @@ class ThemeController extends Controller
         //get the videos with the theme
         $videos = Theme::findOrFail($id)->videos->sortBy('title')->all();
 
-        dd($videos);
-
         $themes = Theme::orderBy('name', 'asc')->get();
 
         $frame = 3;

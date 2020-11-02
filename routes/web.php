@@ -56,6 +56,9 @@ Route::post('/admin/deleteVideo/{id}', 'VideoController@destroy');
 //edit video
 Route::get('/admin/editVideo/{id}', 'VideoController@edit');
 
+//update theme
+Route::post('/admin/editVideo/{id}', 'VideoController@update');
+
 //display options page
 Route::get('/admin/options', 'OptionsController@edit');
 
