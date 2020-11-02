@@ -118,6 +118,14 @@ jQuery(document).ready(function ($) {
     $('.themes-list').toggle('slow');
   });
 });
+var darkMode = document.getElementById('btn-dark-mode');
+
+if (darkMode) {
+  var body = document.getElementById('body');
+  darkMode.addEventListener('click', function () {
+    body.classList.toggle('bodyBcg');
+  });
+}
 
 /***/ }),
 

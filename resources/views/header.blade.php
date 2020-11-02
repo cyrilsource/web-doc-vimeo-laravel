@@ -25,6 +25,9 @@
             </div>
         </div>
     </div>
+    <div>
+        <button id="btn-dark-mode" class='btn-dark-mode'>Dark Mode</button>
+    </div>
 </header>
 
 

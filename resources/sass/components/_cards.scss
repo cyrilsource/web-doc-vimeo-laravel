@@ -8,6 +8,7 @@
     &__card {
         position: relative;
         z-index: 1;
+        transition: all 0.5s;
         &:hover img {
             filter: saturate(1.5);
         }

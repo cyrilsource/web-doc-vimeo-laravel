@@ -1,0 +1,32 @@
+.bodyBcg {
+
+    background-color: $black;
+    & .entry-content-themes__title {
+        background-color: $main-white !important;
+        color: $main-color !important;
+    }
+    & .button {
+        background-color: $main-white !important;
+        color: $main-color !important;
+            & a {
+            color: $main-color !important;
+            }
+    }
+    & #entry-title h1{
+        background-color: $main-white;
+        padding: 1rem;
+    }
+    & .entry-content-text {
+        background-color: $main-white;
+        padding: 1rem;
+    }
+}
+
+
+#body {
+    transition: all 0.5s;
+}
+
+#entry-title h1 {
+    transition: all 0.5s;
+}

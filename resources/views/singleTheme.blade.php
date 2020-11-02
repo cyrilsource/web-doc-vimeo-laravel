@@ -17,11 +17,11 @@
                 <div class="button">
                     <a class="yep" href="{{ url('/') }}/storage/pdf/theme/{{$theme->pdf}}">pdf</a>
                 </div>
-                <div class="center entry-title entry-title__page transition-fade">
+                <div id="entry-title" class="center entry-title entry-title__page transition-fade">
                     <h1>{{ $theme->name }}</h1>
                 </div>
             </div>
-            <div class=entry-content-text>
+            <div id="entry-content-text" class=entry-content-text>
                 {{ $short }}
             </div>
             <div class="button">

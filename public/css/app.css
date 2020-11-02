@@ -234,12 +234,51 @@ html.is-animating .transition-slide {
           transform: scaleX(0);
 }
 
+.bodyBcg {
+  background-color: #19212E;
+}
+
+.bodyBcg .entry-content-themes__title {
+  background-color: #fcfcfc !important;
+  color: #33375F !important;
+}
+
+.bodyBcg .button {
+  background-color: #fcfcfc !important;
+  color: #33375F !important;
+}
+
+.bodyBcg .button a {
+  color: #33375F !important;
+}
+
+.bodyBcg #entry-title h1 {
+  background-color: #fcfcfc;
+  padding: 1rem;
+}
+
+.bodyBcg .entry-content-text {
+  background-color: #fcfcfc;
+  padding: 1rem;
+}
+
+#body {
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+#entry-title h1 {
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
 .header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   margin-bottom: 2rem;
-  margin-right: 10rem;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -452,7 +491,7 @@ html.is-animating .transition-slide {
           transform: translateX(-50%) translateY(-50%);
   -webkit-box-sizing: content-box;
           box-sizing: content-box;
-  display: box;
+  display: block;
   width: 32px;
   height: 44px;
   border-radius: 50%;
@@ -521,6 +560,9 @@ html.is-animating .transition-slide {
 .entry-content-themes__card {
   position: relative;
   z-index: 1;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 .entry-content-themes__card:hover img {
@@ -807,7 +849,6 @@ html.is-animating .transition-slide {
 
 .entry-content {
   padding: 1rem;
-  color: #33375F;
   position: relative;
 }
 
@@ -821,6 +862,7 @@ html.is-animating .transition-slide {
   width: 33%;
   margin-bottom: 1rem;
   margin-top: 1rem;
+  color: #33375F;
 }
 
 .gif {

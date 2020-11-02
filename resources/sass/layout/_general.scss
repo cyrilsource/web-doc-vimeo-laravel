@@ -41,7 +41,6 @@
 
 .entry-content {
     padding: 1rem;
-    color: $main-color;
     position: relative;
     @include mobile-only {
         width: 100%;
@@ -50,6 +49,7 @@
         width: 33%;
         margin-bottom: $margin;
         margin-top: $margin;
+        color: $main-color;
     }
 }
 

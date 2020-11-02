@@ -87,6 +87,15 @@
                 $('.themes-list').toggle('slow');
             });
         });
+
+        let darkMode = document.getElementById('btn-dark-mode')
+
+        if (darkMode) {
+            let body = document.getElementById('body')
+            darkMode.addEventListener('click', function () {
+                body.classList.toggle('bodyBcg')
+            })
+        }
     });
  </script>
     </body>
