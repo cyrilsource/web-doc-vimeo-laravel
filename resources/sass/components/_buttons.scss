@@ -38,3 +38,42 @@
         @include wizz;
     }
 }
+//https://codepen.io/jaredringold/pen/zvwWyb
+.video-play-button {
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    box-sizing: content-box;
+    display: box;
+    width: 32px;
+    height: 44px;
+    border-radius: 50%;
+    padding: 18px 20px 18px 28px;
+
+    &:before {
+        @include play-button-pseudo;
+        animation: pulse-border 1500ms ease-out infinite;
+      }
+
+    &:after {
+        @include play-button-pseudo;
+        transition: all 200ms;
+    }
+
+    &:hover:after {
+        background-color: darken($main-color, 10%);
+    }
+
+    & span {
+        display: block;
+        position: relative;
+        z-index: 3;
+        width: 0;
+        height: 0;
+        border-left: 32px solid #fff;
+        border-top: 22px solid transparent;
+        border-bottom: 22px solid transparent;
+      }
+  }

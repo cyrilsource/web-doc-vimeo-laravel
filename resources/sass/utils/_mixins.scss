@@ -90,5 +90,19 @@
     }
 }
 
+@mixin play-button-pseudo {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    display: block;
+    width: 80px;
+    height: 80px;
+    background: $main-color;
+    border-radius: 50%;
+}
+
 
 

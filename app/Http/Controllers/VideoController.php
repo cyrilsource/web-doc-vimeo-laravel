@@ -163,7 +163,11 @@ class VideoController extends Controller
      */
     public function show($id)
     {
-        //
+        $video = Video::findOrFail($id);
+
+        $themes = Theme::orderBy('name', 'asc')->get();
+
+        return view('singleVideo', ['themes' => $themes, 'video' => $video, 'template' => 'show']);
     }
 
     /**

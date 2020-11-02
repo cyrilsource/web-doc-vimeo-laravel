@@ -20,8 +20,11 @@ Route::get('/', function () {
 //display themes on front end
 Route::get('/themes', 'ThemeController@index');
 
-//display themes on front end
+//display theme on front end
 Route::get('/themes/{id}', 'ThemeController@show');
+
+//display theme on front end
+Route::get('/video/{id}', 'VideoController@show');
 
 Route::get('/ways', function () {
     return view('ways');
