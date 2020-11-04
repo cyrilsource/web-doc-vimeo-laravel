@@ -357,6 +357,16 @@ html.is-animating .transition-slide {
 .header .header--right {
   position: relative;
   z-index: 10;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header .header--right-el {
+  margin-left: 3rem;
 }
 
 .header .header--right .navigation .button:after {
@@ -393,6 +403,43 @@ html.is-animating .transition-slide {
 .header .header--right .navigation a:hover {
   background-color: #4A4F7B;
   color: #fcfcfc;
+}
+
+.header .header--right .search-container form {
+  z-index: 10;
+}
+
+.header .header--right .search-container form button {
+  background-color: #fcfcfc;
+  position: relative;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+.header .header--right .search-container form button:before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 4px solid #33375F;
+  top: -15px;
+  right: 42px;
+}
+
+.header .header--right .search-container form button:after {
+  content: "";
+  position: absolute;
+  height: 8px;
+  width: 4px;
+  background-color: #33375F;
+  top: -3px;
+  right: 40px;
+  -webkit-transform: rotate(-52deg);
+      -ms-transform: rotate(-52deg);
+          transform: rotate(-52deg);
 }
 
 /*buttons */

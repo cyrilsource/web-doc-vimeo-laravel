@@ -26,6 +26,9 @@ Route::get('/themes/{id}', 'ThemeController@show');
 //display theme on front end
 Route::get('/video/{id}', 'VideoController@show');
 
+//display search
+Route::get('/search/{query?}', 'VideoController@search');
+
 Route::get('/ways', function () {
     return view('ways');
 });

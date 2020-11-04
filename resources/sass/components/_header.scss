@@ -48,6 +48,11 @@
     & .header--right {
         position: relative;
         z-index: 10;
+        display: flex;
+        align-items: center;
+        &-el {
+            margin-left: 3rem;
+        }
         & .navigation {
             & .button {
                 &:after {
@@ -79,8 +84,45 @@
                 color: $main-white;
             }
         }
+
+        & .search-container {
+
+            & form {
+                z-index: 10;
+            }
+
+            & form button {
+                background-color: $main-white;
+                position: relative;
+                cursor: pointer;
+                padding: 0;
+                margin: 0;
+                border: 0;
+
+                &:before {
+                    content: "";
+                    position: absolute;
+                    width: 10px;
+                    height: 10px;
+                    border-radius: 50%;
+                    border: 4px solid $main-color;
+                    top: -15px;
+                    right: 42px;
+                }
+
+                &:after {
+                    content: "";
+                    position: absolute;
+                    height: 8px;
+                    width: 4px;
+                    background-color: $main-color;
+                    top: -3px;
+                    right: 40px;
+                    transform: rotate(-52deg);
+                }
+            }
+
+
+        }
     }
-
 }
-
-

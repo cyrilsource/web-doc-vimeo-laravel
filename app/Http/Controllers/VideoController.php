@@ -274,4 +274,18 @@ class VideoController extends Controller
 
         return view('admin.videos', ['videos' => $videos, 'themes' => $themes]);
     }
+
+    public function search(Request $request)
+    {
+        $search = $request->input('search');
+
+        $videos = Video::where("title", "LIKE", "%".$search."%")
+        ->orWhere("description", "LIKE", "%".$search."%")
+        ->orderBy('title')
+        ->get();
+
+        $themes = Theme::orderBy('name', 'asc')->get();
+
+        return view('search', ['themes' => $themes, 'videos' => $videos, 'template' => 'show']);
+    }
 }

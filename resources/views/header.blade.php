@@ -14,7 +14,7 @@
         @endif
     </div>
     <div class="header--right">
-        <div role="navigation" class="navigation">
+        <div role="navigation" class="navigation header--right-el">
             <div class="button">
                 <span class="yep">Themes</span>
             </div>
@@ -24,9 +24,15 @@
             @endforeach
             </div>
         </div>
-    </div>
-    <div>
-        <button id="btn-dark-mode" class='btn-dark-mode'>Dark Mode</button>
+        <div class="search-container header--right-el">
+            <form action="{{ url('/search') }}" method="get">
+                <input type="text" placeholder="Recherche" name="search">
+                <button type="submit"></button>
+            </form>
+        </div>
+        <div class="header--right-el">
+            <button id="btn-dark-mode" class='btn-dark-mode'>Dark Mode</button>
+        </div>
     </div>
 </header>
 
