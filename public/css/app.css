@@ -264,6 +264,10 @@ html.is-animating .transition-slide {
   padding: 1rem;
 }
 
+.bodyBcg .btn-dark-mode {
+  background-image: url(/terrecommune/public/storage/img/icon-sun.svg) !important;
+}
+
 #body {
   -webkit-transition: all 0.5s;
   -o-transition: all 0.5s;
@@ -385,7 +389,7 @@ html.is-animating .transition-slide {
 .header .header--right .navigation .themes-list {
   display: none;
   position: absolute;
-  top: 36px;
+  top: 46px;
   background-color: #fcfcfc;
   min-width: 160px;
   -webkit-box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
@@ -450,6 +454,17 @@ html.is-animating .transition-slide {
           transform: rotate(-52deg);
 }
 
+.header .header--right .btn-dark-mode {
+  background-color: transparent;
+  border: transparent;
+  background-image: url(/terrecommune/public/storage/img/icon-moon.svg);
+  background-position: top;
+  background-repeat: no-repeat;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+}
+
 /*buttons */
 
 .custom-btn--outline {
@@ -502,7 +517,7 @@ html.is-animating .transition-slide {
   margin: 0;
   z-index: 1;
   position: relative;
-  max-width: 150px;
+  max-width: 130px;
 }
 
 .button:hover .yep::after {

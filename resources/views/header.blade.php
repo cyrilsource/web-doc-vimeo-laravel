@@ -31,7 +31,7 @@
             </form>
         </div>
         <div class="header--right-el">
-            <button id="btn-dark-mode" class='btn-dark-mode'>Dark Mode</button>
+            <button id="btn-dark-mode" class='btn-dark-mode'></button>
         </div>
     </div>
 </header>

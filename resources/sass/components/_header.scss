@@ -66,7 +66,7 @@
             .themes-list {
                 display: none;
                 position: absolute;
-                top: 36px;
+                top: 46px;
                 background-color: $main-white;
                 min-width: 160px;
                 box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -128,6 +128,18 @@
             }
 
 
+        }
+
+        .btn-dark-mode {
+            background-color: transparent;
+            border: transparent;
+            // https://stackoverflow.com/questions/42576329/linking-a-css-image-url-in-laravel
+            background-image: url(/terrecommune/public/storage/img/icon-moon.svg);
+            background-position: top;
+            background-repeat: no-repeat;
+            width: 26px;
+            height: 26px;
+            cursor: pointer;
         }
     }
 }
