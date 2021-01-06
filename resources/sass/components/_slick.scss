@@ -1,3 +1,32 @@
-.slick-prev, .slick-next {
-    background-color: $main-color !important;
+.slick-arrow {
+    font-size: 0;
+    line-height: 0;
+    position: absolute;
+    top: 50%;
+    display: block;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    -webkit-transform: translate(0,-50%);
+    -ms-transform: translate(0,-50%);
+    transform: translate(0,-50%);
+    cursor: pointer;
+    color: transparent;
+    border: none;
+    outline: 0;
+    background: 0 0;
+    border: solid white;
+    border-width: 0 6px 6px 0;
+    display: inline-block;
+    padding: 3px;
+        &.next-arrow {
+            right: 10px;
+            transform: rotate(-45deg);
+        }
+        &.prev-arrow {
+            z-index: 100;
+            left: 10px;
+            transform: rotate(135deg);
+        }
+
 }

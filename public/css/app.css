@@ -1,5 +1,3 @@
-@charset "UTF-8";
-
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -380,10 +378,13 @@ html.is-animating .transition-slide {
 }
 
 .header .header--right .navigation .button:after {
-  content: "\25BC";
-  margin-left: 0.5rem;
-  font-weight: bold;
+  border: solid white;
+  border-width: 0 3px 3px 0;
   display: inline-block;
+  padding: 3px;
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
 }
 
 .header .header--right .navigation .themes-list {
@@ -810,9 +811,42 @@ html.is-animating .transition-slide {
           transform: scale(1);
 }
 
-.slick-prev,
-.slick-next {
-  background-color: #33375F !important;
+.slick-arrow {
+  font-size: 0;
+  line-height: 0;
+  position: absolute;
+  top: 50%;
+  display: block;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  -webkit-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  cursor: pointer;
+  color: transparent;
+  border: none;
+  outline: 0;
+  background: 0 0;
+  border: solid white;
+  border-width: 0 6px 6px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.slick-arrow.next-arrow {
+  right: 10px;
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.slick-arrow.prev-arrow {
+  z-index: 100;
+  left: 10px;
+  -webkit-transform: rotate(135deg);
+      -ms-transform: rotate(135deg);
+          transform: rotate(135deg);
 }
 
 #long {
@@ -821,6 +855,24 @@ html.is-animating .transition-slide {
   padding: 2rem;
   width: 600px;
   border-radius: 6px;
+}
+
+.arrow {
+  display: inline-block;
+  padding: 3px;
+}
+
+.arrow--select {
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  margin-left: 9px;
+  margin-bottom: 1px;
+}
+
+.arrow.down {
+  -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
 }
 
 .background-image {

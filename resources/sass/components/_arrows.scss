@@ -1,0 +1,14 @@
+.arrow {
+    display: inline-block;
+    padding: 3px;
+    &--select {
+        border: solid white;
+        border-width: 0 3px 3px 0;
+        margin-left: 9px;
+        margin-bottom: 1px;
+    }
+    &.down {
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+      }
+  }

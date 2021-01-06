@@ -16,7 +16,7 @@
     <div class="header--right">
         <div role="navigation" class="navigation header--right-el">
             <div class="button">
-                <span class="yep">Themes</span>
+                <span class="yep">Themes<i class="arrow down arrow--select"></i></span>
             </div>
             <div class="themes-list">
             @foreach ($themes as $theme)

@@ -57,10 +57,11 @@
             & .button {
                 padding: 14px 16px;
                 &:after {
-                    content: "▼";
-                    margin-left: 0.5rem;
-                    font-weight: bold;
+                    border: solid white;
+                    border-width: 0 3px 3px 0;
                     display: inline-block;
+                    padding: 3px;
+                    transform: rotate(45deg);
                 }
             }
             .themes-list {
