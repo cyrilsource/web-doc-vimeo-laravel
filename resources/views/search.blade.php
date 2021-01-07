@@ -6,7 +6,6 @@
 @section('content')
 <main  id="swup" class="main">
 @include('header')
-@include('gif')
     <div class="entry-content-themes">
         <div class="entry-content-themes__grid">
             @if(count($videos) > 0)

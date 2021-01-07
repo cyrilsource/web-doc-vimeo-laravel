@@ -20,7 +20,7 @@
             </div>
             <div class="themes-list">
             @foreach ($themes as $theme)
-                <a href="{{ url('/themes') }}/{{ $theme->id }}">{{ $theme->name }}</a>
+                <a href="{{ url('/themes') }}/{{ $theme->slug }}/{{ $theme->id }}">{{ $theme->name }}</a>
             @endforeach
             </div>
         </div>

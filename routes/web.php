@@ -21,10 +21,10 @@ Route::get('/', function () {
 Route::get('/themes', 'ThemeController@index');
 
 //display theme on front end
-Route::get('/themes/{id}', 'ThemeController@show');
+Route::get('/themes/{slug}/{id}', 'ThemeController@show');
 
-//display theme on front end
-Route::get('/video/{id}', 'VideoController@show');
+//display video on front end
+Route::get('/video/{slug}/{id}', 'VideoController@show');
 
 //display search
 Route::get('/search/{query?}', 'VideoController@search');

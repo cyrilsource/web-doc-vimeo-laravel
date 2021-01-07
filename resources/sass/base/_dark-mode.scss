@@ -23,6 +23,15 @@
     .btn-dark-mode {
         background-image: url(/terrecommune/public/storage/img/icon-sun.svg) !important;
     }
+
+    .arrow {
+        &--select {
+            border: solid $main-color;
+            border-width: 0 3px 3px 0;
+        }
+
+      }
+
 }
 
 

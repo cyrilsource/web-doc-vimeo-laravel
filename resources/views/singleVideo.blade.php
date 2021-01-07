@@ -17,16 +17,20 @@
     </a>
         <div class="entry-content transition-fade">
             <div class="header-theme">
-                <div class="button">
-                    <a class="yep" href="{{ url('/') }}/storage/pdf/video/{{$video->pdf ?? ''}}">pdf</a>
-                </div>
+                @if (!empty($video->pdf))
+                    <div class="button">
+                        <a class="yep" href="{{ url('/') }}/storage/pdf/video/{{$video->pdf ?? ''}}">pdf</a>
+                    </div>
+                @endif
                 <div id="entry-title" class="center entry-title entry-title__page transition-fade">
                     <h1>{{ $video->title }}</h1>
                 </div>
             </div>
-            <div id="entry-content-text" class=entry-content-text>
-                {{ $video->description ?? '' }}
-            </div>
+            @if (!empty($video->description))
+                <div id="entry-content-text" class=entry-content-text>
+                    {{ $video->description ?? '' }}
+                </div>
+            @endif
 
 
         </div>

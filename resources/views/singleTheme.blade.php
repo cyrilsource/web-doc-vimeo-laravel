@@ -14,9 +14,12 @@
     </div>
         <div class="entry-content transition-fade">
             <div class="header-theme">
-                <div class="button">
-                    <a class="yep" href="{{ url('/') }}/storage/pdf/theme/{{$theme->pdf}}">pdf</a>
-                </div>
+                {{-- https://www.xspdf.com/resolution/53718494.html --}}
+                @if (!empty($theme->pdf))
+                    <div class="button">
+                        <a class="yep" href="{{ url('/') }}/storage/pdf/theme/{{$theme->pdf}}">pdf</a>
+                    </div>
+                @endif
                 <div id="entry-title" class="center entry-title entry-title__page transition-fade">
                     <h1>{{ $theme->name }}</h1>
                 </div>
@@ -25,13 +28,13 @@
                 {{ $short }}
             </div>
             <div class="button">
-                    <a class="yep" data-lity href="#long">Lire + de texte</a>
+                <a class="yep" data-lity href="#long">Lire + de texte</a>
             </div>
             <div id="long" class="lity-hide">{{ $theme->description }}</div>
             @if($frame !='none')
                 <section class="video-carousel transition-fade">
                     @foreach ($videos as $video)
-                        <a href="{{ url('/video') }}/{{ $video->id }}" class="video-carousel-card">
+                        <a href="{{ url('/video') }}/{{ $video->slug }}/{{ $video->id }}" class="video-carousel-card">
                             <h3 class="video-carousel-card__title">{{ $video->title }}</h3>
                             <img src="{{ $video->thumbnail_large }}">
                         </a>
@@ -40,7 +43,7 @@
             @else
                 <section class="video-vignette horizontal-align transition-fade">
                     @foreach ($videos as $video)
-                        <a href="{{ url('/video') }}/{{ $video->id }}" class="video-vignette-card">
+                        <a href="{{ url('/video') }}/{{ $video->slug }}/{{ $video->id }}" class="video-vignette-card">
                             <h3 class="video-vignette-card__title">{{ $video->title }}</h3>
                             <img src="{{ $video->thumbnail_large }}">
                         </a>
