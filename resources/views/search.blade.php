@@ -10,7 +10,7 @@
         <div class="entry-content-themes__grid">
             @if(count($videos) > 0)
                 @foreach ($videos as $video)
-                    <a  href="{{ url('/video') }}/{{ $video->id }}" class="entry-content-themes__card transition-fade">
+                    <a  href="{{ url('/video') }}/{{ $video->slug }}/{{ $video->id }}" class="entry-content-themes__card transition-fade">
                         <img src="{{ $video->thumbnail_large }}" alt="{{ $video->title }}">
                         <h2 class="entry-content-themes__title">{{ $video->title }}</h2>
                     </a>

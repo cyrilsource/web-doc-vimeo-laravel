@@ -253,13 +253,11 @@ html.is-animating .transition-slide {
 }
 
 .bodyBcg #entry-title h1 {
-  background-color: #fcfcfc;
-  padding: 1rem;
+  color: #fcfcfc;
 }
 
 .bodyBcg .entry-content-text {
-  background-color: #fcfcfc;
-  padding: 1rem;
+  color: #fcfcfc;
 }
 
 .bodyBcg .btn-dark-mode {
@@ -269,6 +267,15 @@ html.is-animating .transition-slide {
 .bodyBcg .arrow--select {
   border: solid #33375F;
   border-width: 0 3px 3px 0;
+}
+
+.bodyBcg .background-image__image {
+  opacity: 0.5;
+}
+
+.bodyBcg .background-image__blur {
+  -webkit-box-shadow: inset 84px -62px 87px -8px #19212E;
+          box-shadow: inset 84px -62px 87px -8px #19212E;
 }
 
 #body {

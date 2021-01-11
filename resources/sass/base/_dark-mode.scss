@@ -12,12 +12,10 @@
             }
     }
     & #entry-title h1{
-        background-color: $main-white;
-        padding: 1rem;
+        color: $main-white;
     }
     & .entry-content-text {
-        background-color: $main-white;
-        padding: 1rem;
+        color: $main-white;
     }
 
     .btn-dark-mode {
@@ -29,11 +27,16 @@
             border: solid $main-color;
             border-width: 0 3px 3px 0;
         }
-
-      }
-
+    }
+    .background-image {
+        &__image {
+            opacity: 0.5;
+        }
+        &__blur {
+            box-shadow: inset 84px -62px 87px -8px $black;
+        }
+    }
 }
-
 
 #body {
     transition: all 0.5s;
