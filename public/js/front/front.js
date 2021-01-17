@@ -127,6 +127,16 @@ if (darkMode) {
   });
 }
 
+var darkModeMobile = document.getElementById('btn-dark-mode-mobile');
+
+if (darkModeMobile) {
+  var _body = document.getElementById('body');
+
+  darkModeMobile.addEventListener('click', function () {
+    _body.classList.toggle('bodyBcg');
+  });
+}
+
 /***/ }),
 
 /***/ 1:

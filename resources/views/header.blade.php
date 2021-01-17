@@ -35,6 +35,22 @@
         </div>
     </div>
 </header>
+<header class="header-mobile">
+        <a id="logo" class="logo rotation-left" href="{{ url('/') }}">TC</a>
+        <div role="navigation" class="navigation">
+            <div class="button">
+                <span class="yep">Themes<i class="arrow down arrow--select"></i></span>
+            </div>
+            <div class="themes-list">
+            @foreach ($themes as $theme)
+                <a href="{{ url('/themes') }}/{{ $theme->slug }}/{{ $theme->id }}">{{ $theme->name }}</a>
+            @endforeach
+            </div>
+        </div>
+        <div>
+            <button id="btn-dark-mode-mobile" class='btn-dark-mode'></button>
+        </div>
+</header>
 
 
 

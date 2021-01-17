@@ -28,7 +28,7 @@
                 {{ $short }}
             </div>
             <div class="button">
-                <a class="yep" data-lity href="#long">Lire + de texte</a>
+                <span class="yep" data-lity href="#long">Lire + de texte</span>
             </div>
             <div id="long" class="lity-hide">{{ $theme->description }}</div>
             @if($frame !='none')

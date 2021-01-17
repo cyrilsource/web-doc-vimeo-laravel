@@ -4,9 +4,13 @@
     align-items: center;
     z-index: 10;
     justify-content: space-between;
+    @include mobile-only {
+        display: none;
+    }
     & .header--left {
         display: flex;
         align-items: center;
+
         & .logo {
             font-size: map-get($main-title, first-title);
             text-decoration: none;
@@ -16,6 +20,11 @@
             letter-spacing: -7px;
             z-index: 10;
             @include header-object;
+            @include ipad-only {
+                width: 75px;
+                height: 75px;
+                font-size: 3.6rem;
+            }
             &.rotation-right {
                 animation: rotation-right 1s infinite linear;
               }
@@ -31,6 +40,9 @@
             height: 50px;
             cursor: pointer;
             @include header-object;
+            @include ipad-only {
+                display: none;
+            }
             transition: 0.5s;
             & span {
                 position: absolute;
@@ -40,8 +52,7 @@
             }
             &:hover {
                 transform: scale(1.2);
-
-              }
+            }
         }
     }
 
@@ -87,7 +98,9 @@
         }
 
         & .search-container {
-
+            @include mobile-only {
+                display: none;
+            }
             input {
                 border: 2px solid $main-color;
                 padding: 12px 16px;
@@ -127,9 +140,7 @@
                     transform: rotate(-52deg);
                 }
             }
-
         }
-
         .btn-dark-mode {
             background-color: transparent;
             border: transparent;
@@ -141,5 +152,78 @@
             height: 26px;
             cursor: pointer;
         }
+    }
+}
+
+
+.header-mobile {
+    display: none;
+    @include mobile-only {
+        display: flex;
+        margin-bottom: 2rem;
+        align-items: center;
+        z-index: 200;
+        justify-content: space-between;
+    }
+
+    & .logo {
+        font-size: 3.6rem;
+        text-decoration: none;
+        width: 75px;
+        height: 75px;
+        letter-spacing: -7px;
+        z-index: 10;
+        @include header-object;
+        &.rotation-right {
+            animation: rotation-right 1s infinite linear;
+          }
+        &.rotation-left {
+            animation: rotation-left 1s linear;
+        }
+    }
+
+    & .navigation {
+        & .button {
+            padding: 14px 75px;
+            &:after {
+                border: solid white;
+                border-width: 0 3px 3px 0;
+                display: inline-block;
+                padding: 3px;
+                transform: rotate(45deg);
+            }
+        }
+        .themes-list {
+            display: none;
+            position: absolute;
+            top: 46px;
+            background-color: $main-white;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        & a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: all 0.5s;
+        }
+        & a:hover {
+            background-color: $second-color;
+            color: $main-white;
+        }
+    }
+
+    .btn-dark-mode {
+        background-color: transparent;
+        border: transparent;
+        // https://stackoverflow.com/questions/42576329/linking-a-css-image-url-in-laravel
+        background-image: url(/terrecommune/public/storage/img/icon-moon.svg);
+        background-position: top;
+        background-repeat: no-repeat;
+        width: 26px;
+        height: 26px;
+        cursor: pointer;
     }
 }

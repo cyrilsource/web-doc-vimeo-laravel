@@ -8,22 +8,6 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
-.entry-title {
-    text-transform: uppercase;
-    color: $main-white;
-    font-size: map-get($main-title, first-title);
-    text-align: center;
-    &__page {
-        color: $main-color;
-        margin-left: 5rem;
-        font-size: map-get($main-title, title-page);
-        @include mobile-only {
-            font-size: map-get($main-title, title-page)*0.6;
-        }
-    }
-}
-
-
 .invisible-title {
     font-size: 2px;
     margin: 0;

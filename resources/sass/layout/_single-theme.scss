@@ -5,9 +5,40 @@
 .header-theme {
     display: flex;
     align-items: center;
+    @include ipad-only {
+        flex-direction: column;
+    }
+    .button {
+        @include ipad-only {
+           order: 1 !important;
+        }
+    }
 }
 
 .button a {
     text-decoration: none;
     color: $main-white;
+}
+
+.entry-content {
+    padding: 1rem;
+    position: relative;
+    @include mobile-only {
+        width: 100%;
+    }
+    &-text {
+        width: 33%;
+        margin-bottom: $margin;
+        margin-top: $margin;
+        color: $main-color;
+
+        @include ipad-only {
+            width: 100%;
+            margin-top: 6rem;
+        }
+
+        @include mobile-only {
+            margin-top: 1rem;
+        }
+    }
 }

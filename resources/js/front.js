@@ -31,3 +31,12 @@ if (darkMode) {
     body.classList.toggle('bodyBcg')
   })
 }
+
+let darkModeMobile = document.getElementById('btn-dark-mode-mobile')
+
+if (darkModeMobile) {
+  let body = document.getElementById('body')
+  darkModeMobile.addEventListener('click', function () {
+    body.classList.toggle('bodyBcg')
+  })
+}

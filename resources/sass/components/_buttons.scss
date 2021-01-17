@@ -23,26 +23,31 @@
   }
 
 .button {
-    @include button;
     margin: 0;
     z-index: 1;
     position: relative;
-    max-width: 130px;
+    transition: all 0.5s;
+    @include button;
+    // https://stackoverflow.com/questions/450903/how-can-i-make-a-div-not-larger-than-its-contents
+    width: fit-content;
     &:hover .yep::after{
         @include wizz-hover;
     }
-
-    & .yep::after {
-        @include pseudo-element;
-        z-index: -1;
-        @include wizz;
+    .yep {
+        margin: 0;
+        &::after {
+            @include pseudo-element;
+            z-index: -1;
+            @include wizz;
+        }
     }
 }
+
 //https://codepen.io/jaredringold/pen/zvwWyb
 .video-play-button {
     position: absolute;
     z-index: 10;
-    top: 50%;
+    top: 100%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
     box-sizing: content-box;
@@ -51,6 +56,11 @@
     height: 44px;
     border-radius: 50%;
     padding: 18px 20px 18px 28px;
+
+    @include ipad-only {
+        position: relative;
+        margin-top: 6rem;
+    }
 
     &:before {
         @include play-button-pseudo;
