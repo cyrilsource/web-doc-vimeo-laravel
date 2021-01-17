@@ -16,7 +16,11 @@
                     </a>
                 @endforeach
             @else
+            <section class="center">
+                <div class="not-found">
                     <h2>Désolé nous n'avons pas trouvé de résultats correspondants à votre requête</h2>
+                </div>
+            </section>
             @endif
 
         </div>

@@ -25,6 +25,13 @@
 	@include center;
 }
 
+.not-found {
+    width: fit-content;
+    h2 {
+        padding: 12px 12px;
+    }
+}
+
 .entry-title {
     text-transform: uppercase;
     color: $main-white;
@@ -58,3 +65,5 @@
     left: calc(50vw - (/* width */50px / 2));
     @include header-object;
 }
+
+

@@ -119,25 +119,15 @@
                 border: 0;
 
                 &:before {
-                    content: "";
-                    position: absolute;
-                    width: 10px;
-                    height: 10px;
-                    border-radius: 50%;
-                    border: 4px solid $main-color;
+                    @include glass1;
                     top: -15px;
                     right: 25px;
                 }
 
                 &:after {
-                    content: "";
-                    position: absolute;
-                    height: 8px;
-                    width: 4px;
-                    background-color: $main-color;
+                    @include glass2;
                     top: -3px;
                     right: 23px;
-                    transform: rotate(-52deg);
                 }
             }
         }
@@ -154,7 +144,6 @@
         }
     }
 }
-
 
 .header-mobile {
     display: none;
@@ -184,7 +173,7 @@
 
     & .navigation {
         & .button {
-            padding: 14px 75px;
+            padding: 14px 60px;
             &:after {
                 border: solid white;
                 border-width: 0 3px 3px 0;
@@ -227,3 +216,27 @@
         cursor: pointer;
     }
 }
+
+.glass-mobile {
+    position: relative;
+    cursor: pointer;
+    @include mobile-only {
+      display: block;
+    }
+    height: 10px;
+    width: 30px;
+    padding: 0;
+        margin: 0;
+        border: 0;
+    &:before {
+      @include glass1;
+      top: -5px;
+      right: 5px;
+    }
+
+    &:after {
+      @include glass2;
+      top: 9px;
+      right: 3px;
+    }
+  }

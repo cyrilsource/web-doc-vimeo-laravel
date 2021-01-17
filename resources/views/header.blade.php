@@ -47,6 +47,7 @@
             @endforeach
             </div>
         </div>
+        <p class="glass-mobile"></p>
         <div>
             <button id="btn-dark-mode-mobile" class='btn-dark-mode'></button>
         </div>
