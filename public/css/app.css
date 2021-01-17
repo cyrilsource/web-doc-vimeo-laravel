@@ -1144,20 +1144,23 @@ html.is-animating .transition-slide {
 
 .entry-title__page {
   color: #33375F;
-  margin-left: 5rem;
   font-size: 2.5rem;
 }
 
 @media screen and (max-width: 768px) {
   .entry-title__page {
-    margin-left: 0rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
   }
 }
 
+.entry-title__page-pdf {
+  margin-left: 5rem;
+}
+
 @media screen and (max-width: 768px) {
-  .entry-title__page {
-    font-size: 1.5rem;
+  .entry-title__page-pdf {
+    margin-left: 0rem;
+    margin-bottom: 0.5rem;
   }
 }
 

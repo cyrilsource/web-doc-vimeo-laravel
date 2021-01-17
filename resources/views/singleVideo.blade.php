@@ -16,12 +16,16 @@
             <div class="header-theme">
                 @if (!empty($video->pdf))
                     <div class="button">
-                        <a class="yep" href="{{ url('/') }}/storage/pdf/video/{{$video->pdf ?? ''}}">pdf</a>
+                        <a class="yep" href="{{ url('/') }}/storage/pdf/theme/{{$video->pdf}}">pdf</a>
+                    </div>
+                    <div id="entry-title" class="center entry-title entry-title__page entry-title__page-pdf transition-fade">
+                        <h1>{{ $video->title }}</h1>
+                    </div>
+                    @else
+                    <div id="entry-title" class="center entry-title entry-title__page transition-fade">
+                        <h1>{{ $video->title }}</h1>
                     </div>
                 @endif
-                <div id="entry-title" class="center entry-title entry-title__page transition-fade">
-                    <h1>{{ $video->title }}</h1>
-                </div>
             </div>
             @if (!empty($video->description))
                 <div id="entry-content-text" class=entry-content-text>
@@ -29,8 +33,8 @@
                 </div>
             @endif
             <a id="play-video" data-lity class="video-play-button transition-fade" href="{{ $video->link }}">
-                <span></span>
-            </a>
+        <span></span>
+    </a>
 
         </div>
     </div>

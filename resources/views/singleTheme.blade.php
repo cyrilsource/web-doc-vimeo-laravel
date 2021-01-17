@@ -19,10 +19,15 @@
                     <div class="button">
                         <a class="yep" href="{{ url('/') }}/storage/pdf/theme/{{$theme->pdf}}">pdf</a>
                     </div>
+                    <div id="entry-title" class="center entry-title entry-title__page entry-title__page-pdf transition-fade">
+                        <h1>{{ $theme->name }}</h1>
+                    </div>
+                    @else
+                    <div id="entry-title" class="center entry-title entry-title__page transition-fade">
+                        <h1>{{ $theme->name }}</h1>
+                    </div>
                 @endif
-                <div id="entry-title" class="center entry-title entry-title__page transition-fade">
-                    <h1>{{ $theme->name }}</h1>
-                </div>
+
             </div>
             <div id="entry-content-text" class=entry-content-text>
                 {{ $short }}

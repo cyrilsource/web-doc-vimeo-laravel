@@ -32,14 +32,16 @@
     text-align: center;
     &__page {
         color: $main-color;
-        margin-left: 5rem;
-        @include ipad-only {
-            margin-left: 0rem;
-            margin-bottom: 0.5rem;
-        }
         font-size: map-get($main-title, title-page);
         @include ipad-only {
             font-size: map-get($main-title, title-page)*0.6;
+        }
+        &-pdf {
+            margin-left: 5rem;
+            @include ipad-only {
+                margin-left: 0rem;
+                margin-bottom: 0.5rem;
+            }
         }
     }
 }
