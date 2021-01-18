@@ -97,7 +97,26 @@
         if (darkMode) {
             let body = document.getElementById('body')
             darkMode.addEventListener('click', function () {
-                body.classList.toggle('bodyBcg')
+                body.classList.toggle('dark-mode')
+                if (body.classList.contains('dark-theme')) {
+                setCookie('theme', 'dark')
+                } else {
+                setCookie('theme', 'light')
+                }
+            })
+        }
+
+        let darkModeMobile = document.getElementById('btn-dark-mode-mobile')
+
+        if (darkModeMobile) {
+            let body = document.getElementById('body')
+            darkModeMobile.addEventListener('click', function () {
+                body.classList.toggle('dark-theme')
+                if (body.classList.contains('dark-theme')) {
+                setCookie('theme', 'dark')
+                } else {
+                setCookie('theme', 'light')
+                }
             })
         }
     });

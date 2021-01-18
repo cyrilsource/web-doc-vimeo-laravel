@@ -43,6 +43,11 @@ if (darkModeMobile) {
   let body = document.getElementById('body')
   darkModeMobile.addEventListener('click', function () {
     body.classList.toggle('dark-theme')
+    if (body.classList.contains('dark-theme')) {
+      setCookie('theme', 'dark')
+    } else {
+      setCookie('theme', 'light')
+    }
   })
 }
 

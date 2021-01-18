@@ -140,6 +140,12 @@ if (darkModeMobile) {
 
   darkModeMobile.addEventListener('click', function () {
     _body.classList.toggle('dark-theme');
+
+    if (_body.classList.contains('dark-theme')) {
+      setCookie('theme', 'dark');
+    } else {
+      setCookie('theme', 'light');
+    }
   });
 }
 
