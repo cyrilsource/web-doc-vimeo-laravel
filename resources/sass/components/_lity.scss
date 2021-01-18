@@ -3,5 +3,8 @@
     background-color: $main-white;
     padding: 2rem;
     width: 600px;
+    @include mobile-only {
+        width: 100%;
+    }
     border-radius: 6px;
 }

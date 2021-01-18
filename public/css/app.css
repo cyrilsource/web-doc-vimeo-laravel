@@ -506,10 +506,10 @@ html.is-animating .transition-slide {
 }
 
 .header-mobile .logo {
-  font-size: 3.6rem;
+  font-size: 2.9rem;
   text-decoration: none;
-  width: 75px;
-  height: 75px;
+  width: 60px;
+  height: 60px;
   letter-spacing: -7px;
   z-index: 10;
   color: #fcfcfc;
@@ -530,7 +530,7 @@ html.is-animating .transition-slide {
 }
 
 .header-mobile .navigation .button {
-  padding: 14px 60px;
+  padding: 14px 45px;
 }
 
 .header-mobile .navigation .button:after {
@@ -551,7 +551,14 @@ html.is-animating .transition-slide {
   min-width: 160px;
   -webkit-box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
           box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
+  z-index: 10;
+}
+
+@media screen and (max-width: 645px) {
+  .header-mobile .navigation .themes-list {
+    top: 70px;
+    width: 172px;
+  }
 }
 
 .header-mobile .navigation a {
@@ -637,6 +644,12 @@ html.is-animating .transition-slide {
   color: #fcfcfc;
 }
 
+@media screen and (max-width: 645px) {
+  .custom-btn--outline {
+    padding: 1rem;
+  }
+}
+
 .custom-btn--outline::after {
   position: relative;
   padding: 1.5rem;
@@ -658,6 +671,12 @@ html.is-animating .transition-slide {
   -webkit-transition: opacity 700ms ease-in-out;
   -o-transition: opacity 700ms ease-in-out;
   transition: opacity 700ms ease-in-out;
+}
+
+@media screen and (max-width: 645px) {
+  .custom-btn--outline::after {
+    padding: 1rem;
+  }
 }
 
 .custom-btn--outline:hover::after {
@@ -1031,6 +1050,12 @@ html.is-animating .transition-slide {
   border-radius: 6px;
 }
 
+@media screen and (max-width: 645px) {
+  #long {
+    width: 100%;
+  }
+}
+
 .arrow {
   display: inline-block;
   padding: 3px;
@@ -1196,6 +1221,12 @@ html.is-animating .transition-slide {
   text-align: center;
 }
 
+@media screen and (max-width: 645px) {
+  .entry-title {
+    font-size: 2rem;
+  }
+}
+
 .entry-title__page {
   color: #33375F;
   font-size: 2.5rem;
@@ -1215,6 +1246,12 @@ html.is-animating .transition-slide {
   .entry-title__page-pdf {
     margin-left: 0rem;
     margin-bottom: 0.5rem;
+  }
+}
+
+@media screen and (max-width: 645px) {
+  .entry-title__page .long-text {
+    font-size: 1.6rem;
   }
 }
 

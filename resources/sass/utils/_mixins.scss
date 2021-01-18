@@ -40,6 +40,9 @@
 @mixin custom-btn {
     position: relative;
     padding: 1.5rem;
+    @include mobile-only {
+        padding: 1rem;
+    }
     background: $main-white;
     cursor: pointer;
     border-radius: 100rem;

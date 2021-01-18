@@ -66,3 +66,15 @@ if (back) {
     window.history.back()
   })
 }
+
+let title = document.querySelector('.entry-title__page h1')
+
+if (title) {
+  let text = title.textContent
+  var words = text.split(' ')
+  for (var i = 0; i < words.length; i++) {
+    if (words[i].length > 9) {
+      title.classList.add('long-text')
+    }
+  }
+}

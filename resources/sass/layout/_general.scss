@@ -36,6 +36,9 @@
     text-transform: uppercase;
     color: $main-white;
     font-size: map-get($main-title, first-title);
+    @include mobile-only {
+        font-size: 2rem;
+    }
     text-align: center;
     &__page {
         color: $main-color;
@@ -50,8 +53,14 @@
                 margin-bottom: 0.5rem;
             }
         }
+        .long-text {
+            @include mobile-only {
+                font-size: 1.6rem;
+            }
+        }
     }
 }
+
 
 .gif {
     font-size: 2rem;
