@@ -97,7 +97,7 @@
         if (darkMode) {
             let body = document.getElementById('body')
             darkMode.addEventListener('click', function () {
-                body.classList.toggle('dark-mode')
+                body.classList.toggle('dark-theme')
                 if (body.classList.contains('dark-theme')) {
                 setCookie('theme', 'dark')
                 } else {
@@ -119,6 +119,23 @@
                 }
             })
         }
+        // https://grantjam.es/light-and-dark-theme-toggle-on-a-laravel-website
+        function setCookie (name, value) {
+            var d = new Date()
+            d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000))
+            var expires = 'expires=' + d.toUTCString()
+            document.cookie = name + '=' + value + ';' + expires + ';path=/'
+        }
+
+        let back = document.getElementById('logo-back')
+        if (back) {
+            back.addEventListener('click', function (e) {
+                e.preventDefault()
+                console.log('coucou')
+                window.history.back()
+            })
+        }
+
     });
  </script>
     </body>

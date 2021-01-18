@@ -12,6 +12,7 @@
         <img class="background-image__image" src="{{ $video->thumbnail_large }}" alt="{{ $video->title }}">
         <div class="background-image__blur"></div>
     </div>
+
         <div class="entry-content transition-fade">
             <div class="header-theme">
                 @if (!empty($video->pdf))
@@ -32,11 +33,11 @@
                     {{ $video->description ?? '' }}
                 </div>
             @endif
-            <a id="play-video" data-lity class="video-play-button transition-fade" href="{{ $video->link }}">
-        <span></span>
-    </a>
 
         </div>
+        <a id="play-video" data-lity class="video-play-button transition-fade" href="{{ $video->link }}">
+            <span></span>
+        </a>
     </div>
 
 </main>

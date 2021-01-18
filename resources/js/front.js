@@ -50,10 +50,19 @@ if (darkModeMobile) {
     }
   })
 }
-
+// https://grantjam.es/light-and-dark-theme-toggle-on-a-laravel-website
 function setCookie (name, value) {
   var d = new Date()
   d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000))
   var expires = 'expires=' + d.toUTCString()
   document.cookie = name + '=' + value + ';' + expires + ';path=/'
+}
+
+let back = document.getElementById('logo-back')
+if (back) {
+  back.addEventListener('click', function (e) {
+      console.log('coucou')
+    e.preventDefault()
+    window.history.back()
+  })
 }

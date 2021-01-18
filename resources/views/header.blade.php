@@ -3,12 +3,12 @@
     <div class="header--left">
         <a id="logo" class="logo rotation-left" href="{{ url('/') }}">TC</a>
         @if($template =='index')
-        <a title="retour" id="logo" class="return " href="{{ url('/') }}">
+        <a title="retour" id="logo-back" class="return " href="{{ url('/') }}">
             <span><</span>
         </a>
         @endif
         @if($template =='show')
-        <a title="retour" id="logo" class="return " href="{{ url('/themes') }}">
+        <a title="retour" id="logo-back" class="return " href="{{ url('/themes') }}">
             <span><</span>
         </a>
         @endif

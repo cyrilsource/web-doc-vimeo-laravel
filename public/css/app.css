@@ -718,7 +718,7 @@ html.is-animating .transition-slide {
 .video-play-button {
   position: absolute;
   z-index: 10;
-  top: 100%;
+  top: 50%;
   left: 50%;
   -webkit-transform: translateX(-50%) translateY(-50%);
       -ms-transform: translateX(-50%) translateY(-50%);
@@ -807,8 +807,8 @@ html.is-animating .transition-slide {
 }
 
 .entry-content-themes__card:hover img {
-  -webkit-filter: saturate(1.5);
-          filter: saturate(1.5);
+  -webkit-filter: saturate(1);
+          filter: saturate(1);
 }
 
 .entry-content-themes__card:hover h2::after {
@@ -828,6 +828,8 @@ html.is-animating .transition-slide {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  -webkit-filter: saturate(0.6);
+          filter: saturate(0.6);
   -webkit-transition: -webkit-filter 300ms ease-in-out;
   transition: -webkit-filter 300ms ease-in-out;
   -o-transition: filter 300ms ease-in-out;
@@ -881,6 +883,8 @@ html.is-animating .transition-slide {
   -webkit-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+  -webkit-filter: saturate(0.6);
+          filter: saturate(0.6);
 }
 
 .video-carousel-card h4 {
@@ -895,8 +899,8 @@ html.is-animating .transition-slide {
 }
 
 .video-carousel-card:hover img {
-  -webkit-filter: saturate(1.5);
-          filter: saturate(1.5);
+  -webkit-filter: saturate(1);
+          filter: saturate(1);
 }
 
 .video-carousel-card:hover h4 {

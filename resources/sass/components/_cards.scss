@@ -10,7 +10,7 @@
         z-index: 1;
         transition: all 0.5s;
         &:hover img {
-            filter: saturate(1.5);
+            filter: saturate(1);
         }
         &:hover h2::after{
             @include wizz-hover;
@@ -23,6 +23,7 @@
         z-index: -1;
 		width: 100%;
         object-fit: cover;
+        filter: saturate(0.6);
         transition: filter 300ms ease-in-out;
     }
 
@@ -49,7 +50,8 @@
     position: relative;
     margin-top: 2rem;
 	img {
-		@include transition;
+        @include transition;
+        filter: saturate(0.6);
     }
 
     & h4 {
@@ -62,7 +64,7 @@
     }
 
 	&:hover img {
-		filter: saturate(1.5);
+		filter: saturate(1);
     }
 
     &:hover h4 {
