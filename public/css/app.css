@@ -215,46 +215,46 @@ html.is-animating .transition-slide {
           transform: scaleX(0);
 }
 
-.bodyBcg {
+.dark-theme {
   background-color: #19212E;
 }
 
-.bodyBcg .entry-content-themes__title {
+.dark-theme .entry-content-themes__title {
   background-color: #fcfcfc !important;
   color: #33375F !important;
 }
 
-.bodyBcg .button {
+.dark-theme .button {
   background-color: #fcfcfc !important;
   color: #33375F !important;
 }
 
-.bodyBcg .button a {
+.dark-theme .button a {
   color: #33375F !important;
 }
 
-.bodyBcg #entry-title h1 {
+.dark-theme #entry-title h1 {
   color: #fcfcfc;
 }
 
-.bodyBcg .entry-content-text {
+.dark-theme .entry-content-text {
   color: #fcfcfc;
 }
 
-.bodyBcg .btn-dark-mode {
+.dark-theme .btn-dark-mode {
   background-image: url(/terrecommune/public/storage/img/icon-sun.svg) !important;
 }
 
-.bodyBcg .arrow--select {
+.dark-theme .arrow--select {
   border: solid #33375F;
   border-width: 0 3px 3px 0;
 }
 
-.bodyBcg .background-image__image {
+.dark-theme .background-image__image {
   opacity: 0.5;
 }
 
-.bodyBcg .background-image__blur {
+.dark-theme .background-image__blur {
   -webkit-box-shadow: inset 84px -62px 87px -8px #19212E;
           box-shadow: inset 84px -62px 87px -8px #19212E;
 }

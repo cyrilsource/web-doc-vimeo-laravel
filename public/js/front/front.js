@@ -123,7 +123,13 @@ var darkMode = document.getElementById('btn-dark-mode');
 if (darkMode) {
   var body = document.getElementById('body');
   darkMode.addEventListener('click', function () {
-    body.classList.toggle('bodyBcg');
+    body.classList.toggle('dark-theme');
+
+    if (body.classList.contains('dark-theme')) {
+      setCookie('theme', 'dark');
+    } else {
+      setCookie('theme', 'light');
+    }
   });
 }
 
@@ -133,8 +139,15 @@ if (darkModeMobile) {
   var _body = document.getElementById('body');
 
   darkModeMobile.addEventListener('click', function () {
-    _body.classList.toggle('bodyBcg');
+    _body.classList.toggle('dark-theme');
   });
+}
+
+function setCookie(name, value) {
+  var d = new Date();
+  d.setTime(d.getTime() + 365 * 24 * 60 * 60 * 1000);
+  var expires = 'expires=' + d.toUTCString();
+  document.cookie = name + '=' + value + ';' + expires + ';path=/';
 }
 
 /***/ }),
