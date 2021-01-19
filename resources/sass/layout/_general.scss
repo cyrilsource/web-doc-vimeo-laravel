@@ -8,6 +8,10 @@
 .horizontal-align {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
+    @include mobile-only {
+        display: block;
+    }
 }
 
 .half-screen {

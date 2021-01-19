@@ -97,11 +97,27 @@
 .video-vignette {
     margin-top: 2rem;
     padding: 0;
+    @include mobile-only {
+        width: 100%;
+    }
+
     &-card {
         position: relative;
         margin: 0;
         padding: 0;
         width: 600px;
+        @include mobile-only {
+            width: 100%;
+
+        }
+
+        img {
+            width: 600px;
+            @include mobile-only {
+                width: 104% !important;
+                margin-bottom: 2.5rem !important;
+            }
+        }
 
         & h3 {
             position: absolute;
@@ -117,10 +133,12 @@
             transform: scale(0);
             transform-origin: left;
             transition: transform 750ms, opacity 750ms;
-        }
-
-        img {
-            width: 600px;
+            @include mobile-only {
+                font-size: map-get($main-title, third-title)*0.6;
+                opacity: 1;
+                transform: scale(1);
+                bottom: 15px;
+            }
         }
 
         &:hover h3 {

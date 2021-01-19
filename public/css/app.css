@@ -962,11 +962,34 @@ html.is-animating .transition-slide {
   padding: 0;
 }
 
+@media screen and (max-width: 645px) {
+  .video-vignette {
+    width: 100%;
+  }
+}
+
 .video-vignette-card {
   position: relative;
   margin: 0;
   padding: 0;
   width: 600px;
+}
+
+@media screen and (max-width: 645px) {
+  .video-vignette-card {
+    width: 100%;
+  }
+}
+
+.video-vignette-card img {
+  width: 600px;
+}
+
+@media screen and (max-width: 645px) {
+  .video-vignette-card img {
+    width: 104% !important;
+    margin-bottom: 2.5rem !important;
+  }
 }
 
 .video-vignette-card h3 {
@@ -993,8 +1016,15 @@ html.is-animating .transition-slide {
   transition: transform 750ms, opacity 750ms, -webkit-transform 750ms;
 }
 
-.video-vignette-card img {
-  width: 600px;
+@media screen and (max-width: 645px) {
+  .video-vignette-card h3 {
+    font-size: 1.02rem;
+    opacity: 1;
+    -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+            transform: scale(1);
+    bottom: 15px;
+  }
 }
 
 .video-vignette-card:hover h3 {
@@ -1183,6 +1213,14 @@ html.is-animating .transition-slide {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+@media screen and (max-width: 645px) {
+  .horizontal-align {
+    display: block;
+  }
 }
 
 .half-screen {
