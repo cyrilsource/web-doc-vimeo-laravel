@@ -17,6 +17,7 @@ if (logo) {
   })
 }
 
+// script: get the themes list
 jQuery(document).ready(function( $ ){
   $('.navigation').click( function () {
       $('.themes-list').toggle('slow')
@@ -30,6 +31,7 @@ if (darkMode) {
   darkMode.addEventListener('click', function () {
     body.classList.toggle('dark-theme')
     if (body.classList.contains('dark-theme')) {
+    // https://grantjam.es/light-and-dark-theme-toggle-on-a-laravel-website
       setCookie('theme', 'dark')
     } else {
       setCookie('theme', 'light')
@@ -44,6 +46,7 @@ if (darkModeMobile) {
   darkModeMobile.addEventListener('click', function () {
     body.classList.toggle('dark-theme')
     if (body.classList.contains('dark-theme')) {
+    // https://grantjam.es/light-and-dark-theme-toggle-on-a-laravel-website
       setCookie('theme', 'dark')
     } else {
       setCookie('theme', 'light')
@@ -61,12 +64,12 @@ function setCookie (name, value) {
 let back = document.getElementById('logo-back')
 if (back) {
   back.addEventListener('click', function (e) {
-      console.log('coucou')
     e.preventDefault()
     window.history.back()
   })
 }
 
+// script for long titles on the pages - reduce font size
 let title = document.querySelector('.entry-title__page h1')
 
 if (title) {
@@ -77,4 +80,19 @@ if (title) {
       title.classList.add('long-text')
     }
   }
+}
+
+// get search form on mobile
+let glass = document.getElementById('glass-mobile')
+
+if (glass) {
+  let searchContainer = document.getElementById('search-container-mobile')
+  let object = document.getElementsByClassName('header-mobile-object')
+  glass.addEventListener('click', function () {
+    searchContainer.classList.toggle('reveal')
+    glass.classList.toggle('reveal')
+    for (let index = 0; index < object.length; index++) {
+      object[index].classList.toggle('unreveal')
+    }
+  })
 }

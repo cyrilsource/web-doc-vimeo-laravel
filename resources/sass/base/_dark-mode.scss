@@ -36,6 +36,20 @@
             box-shadow: inset 84px -62px 87px -8px $black;
         }
     }
+    .glass-mobile {
+        &:before {
+            border-color: white !important;
+        }
+
+        &:after {
+            background-color: white !important;
+        }
+
+        &.reveal {
+            border: solid white !important;
+            border-width: 0 6px 6px 0 !important;
+        }
+    }
 }
 
 #body {

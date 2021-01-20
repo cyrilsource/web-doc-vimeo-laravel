@@ -111,7 +111,8 @@ if (logo) {
 
     logo.classList.add('rotation-left');
   });
-}
+} // script: get the themes list
+
 
 jQuery(document).ready(function ($) {
   $('.navigation').click(function () {
@@ -126,6 +127,7 @@ if (darkMode) {
     body.classList.toggle('dark-theme');
 
     if (body.classList.contains('dark-theme')) {
+      // https://grantjam.es/light-and-dark-theme-toggle-on-a-laravel-website
       setCookie('theme', 'dark');
     } else {
       setCookie('theme', 'light');
@@ -142,6 +144,7 @@ if (darkModeMobile) {
     _body.classList.toggle('dark-theme');
 
     if (_body.classList.contains('dark-theme')) {
+      // https://grantjam.es/light-and-dark-theme-toggle-on-a-laravel-website
       setCookie('theme', 'dark');
     } else {
       setCookie('theme', 'light');
@@ -161,11 +164,11 @@ var back = document.getElementById('logo-back');
 
 if (back) {
   back.addEventListener('click', function (e) {
-    console.log('coucou');
     e.preventDefault();
     window.history.back();
   });
-}
+} // script for long titles on the pages - reduce font size
+
 
 var title = document.querySelector('.entry-title__page h1');
 
@@ -178,6 +181,22 @@ if (title) {
       title.classList.add('long-text');
     }
   }
+} // get search form on mobile
+
+
+var glass = document.getElementById('glass-mobile');
+
+if (glass) {
+  var searchContainer = document.getElementById('search-container-mobile');
+  var object = document.getElementsByClassName('header-mobile-object');
+  glass.addEventListener('click', function () {
+    searchContainer.classList.toggle('reveal');
+    glass.classList.toggle('reveal');
+
+    for (var index = 0; index < object.length; index++) {
+      object[index].classList.toggle('unreveal');
+    }
+  });
 }
 
 /***/ }),
