@@ -148,6 +148,21 @@
             }
         }
 
+        // get search form on mobile
+        let glass = document.getElementById('glass-mobile')
+
+        if (glass) {
+            let searchContainer = document.getElementById('search-container-mobile')
+            let object = document.getElementsByClassName('header-mobile-object')
+            glass.addEventListener('click', function () {
+                searchContainer.classList.toggle('reveal')
+                glass.classList.toggle('reveal')
+                for (let index = 0; index < object.length; index++) {
+                object[index].classList.toggle('unreveal')
+                }
+            })
+        }
+
     });
  </script>
     </body>
