@@ -165,9 +165,21 @@ class VideoController extends Controller
     {
         $video = Video::findOrFail($id);
 
+        $video_id = $video['vimeo_id'];
+
+        //https://stackoverflow.com/questions/1361149/get-img-thumbnails-from-vimeo
+        function get_vimeo_data_from_id( $video_id, $data ) {
+            $request = unserialize(file_get_contents( 'http://vimeo.com/api/v2/video/' . $video_id .'.php' ));
+
+            return $request[0][$data];
+        }
+
+        //get description vimeo
+        $description = get_vimeo_data_from_id( $video_id, 'description' );
+
         $themes = Theme::orderBy('name', 'asc')->get();
 
-        return view('singleVideo', ['themes' => $themes, 'video' => $video, 'template' => 'show']);
+        return view('singleVideo', ['themes' => $themes, 'video' => $video, 'template' => 'show', 'description' => $description]);
     }
 
     /**
