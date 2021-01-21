@@ -30,7 +30,7 @@
             </div>
             @if (!empty($description))
                 <div id="entry-content-text" class=entry-content-text>
-                    {{ $description ?? '' }}
+                    {!! $description ?? '' !!}
                 </div>
             @endif
 
