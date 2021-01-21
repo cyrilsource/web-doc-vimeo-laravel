@@ -23,14 +23,6 @@ class CreateThemesTable extends Migration
             $table->timestamps();
         });
 
-        Schema::create('theme_video', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('video_id')->unsigned()->index();
-            $table->integer('theme_id')->unsigned()->index();
-            $table->foreign('video_id')->references('id')->on('videos')->onDelete('cascade');
-            $table->foreign('theme_id')->references('id')->on('themes')->onDelete('cascade');
-
-        });
     }
 
     /**
