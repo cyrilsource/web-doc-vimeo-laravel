@@ -70,7 +70,7 @@ class ThemeController extends Controller
         $thumbnail = "$slug"."-".time().".".$image->getClientOriginalExtension();
 
         // Save the file
-        $image->storeAs('public/img/theme', $thumbnail);
+        $image->storeAs('img/theme', $thumbnail);
 
         $datas['thumbnail'] = $thumbnail;
 

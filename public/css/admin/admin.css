@@ -18,6 +18,10 @@
   color: #cccccc;
 }
 
+.image-preview img {
+  width: 300px;
+}
+
 .form-group .url:not(:focus):invalid {
   border: 2px solid #F44336;
   color: #F44336 !important;
