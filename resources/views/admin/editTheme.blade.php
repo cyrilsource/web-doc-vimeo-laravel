@@ -8,9 +8,9 @@
 
 <div class="row">
     <div class="col-4">
-    <h2>Edit the theme {{$theme->name}}</h2>
-      <form action="" enctype="multipart/form-data" method="post">
-      @csrf
+        <h2>Edit the theme {{$theme->name}}</h2>
+        <form action="" enctype="multipart/form-data" method="post">
+        @csrf
         <div class="form-group">
           <label for="name">Name</label>
           <input name="name" type="text" value="{{$theme->name}}" class="form-control" id="name" aria-describedby="name">
@@ -37,11 +37,14 @@
           <label for="pdf">Add a pdf</label>
           <input name="pdf" type="file" class="form-control-file" id="pdf">
         </div>
+    </div>
+    <div class="col-6">
          <div class="form-group">
           <label for="description">Description</label>
           <textarea name="description" class="form-control" id="description" rows="3">{{$theme->description}}</textarea>
         </div>
         <button type="submit" class="btn btn-primary">Edit the theme</button>
+    </div>
       </form>
     </div>
 

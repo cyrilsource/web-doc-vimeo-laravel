@@ -4,17 +4,17 @@
 
 <h1 class="mt-4 mb-5 text-center">Themes</h1>
 <ul class="nav nav-tabs" id="myTab" role="tablist">
-    <li class="nav-item">
-      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">List of themes</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Propose a new theme</a>
-    </li>
-  </ul>
+  <li class="nav-item">
+    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">List of themes</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Propose a new theme</a>
+  </li>
+</ul>
 
 <div class="tab-content">
     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-        <div class="col-5 offset-md-1">
+        <div class="col-8 m-5">
             <h2>List of themes</h2>
             <table class="table table-striped">
               <thead>
@@ -49,10 +49,11 @@
     </div>
     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
         <div class="row">
-            <div class="col-4">
+          <div class="col-4 m-5">
             <h2>Create a theme</h2>
               <form action="{{ url('/') }}/admin" enctype="multipart/form-data" method="post">
               @csrf
+
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input name="name" type="text" class="form-control @error('name') is-invalid @enderror"
@@ -61,7 +62,7 @@
                     @error('name')
                     <div class="alert alert-danger" role="alert">
                         {{ $errors->first('name') }}
-                    </div>
+                    </div>git
                     @enderror
                 </div>
                 <div class="form-group">
@@ -86,6 +87,8 @@
                     </div>
                     @enderror
                 </div>
+              </div>
+              <div class="col-6 m-5">
                  <div class="form-group">
                     <label for="description">Description</label>
                     <textarea name="description" class="form-control @error('name') is-invalid @enderror"
@@ -99,15 +102,10 @@
                     @enderror
                 </div>
                 <button type="submit" class="btn btn-primary">Create a theme</button>
-              </form>
-
-
-
-
+              </div>
+            </form>
             </div>
-
-
-        </div>
+          </div>
     </div>
 </div>
 
