@@ -136,13 +136,16 @@ if (containerEditImage != null) {
 
 
 var containerEditPdf = document.querySelector('.edit-pdf');
-var editPdf = containerEditPdf.querySelector('.edit-pdf__button');
-var uploadPdf = document.querySelector('.upload-pdf');
-editPdf.addEventListener('click', function (e) {
-  e.preventDefault();
-  containerEditPdf.style.display = 'none';
-  uploadPdf.style.display = 'block';
-});
+
+if (containerEditPdf) {
+  var editPdf = containerEditPdf.querySelector('.edit-pdf__button');
+  var uploadPdf = document.querySelector('.upload-pdf');
+  editPdf.addEventListener('click', function (e) {
+    e.preventDefault();
+    containerEditPdf.style.display = 'none';
+    uploadPdf.style.display = 'block';
+  });
+}
 
 /***/ }),
 

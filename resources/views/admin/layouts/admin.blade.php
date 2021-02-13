@@ -11,6 +11,7 @@
         <link href="{{ asset('css/admin/admin.css') }}" rel="stylesheet">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     </head>
     <body>
 
@@ -84,7 +85,8 @@
   $("#menu-toggle").click(function(e) {
     e.preventDefault();
     $("#wrapper").toggleClass("toggled");
-  });
+  })
+
 </script>
 
 </body>

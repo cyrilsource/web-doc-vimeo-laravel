@@ -39,11 +39,15 @@ if (containerEditImage != null) {
 
 /* change pdf */
 const containerEditPdf = document.querySelector('.edit-pdf')
-const editPdf = containerEditPdf.querySelector('.edit-pdf__button')
-const uploadPdf = document.querySelector('.upload-pdf')
 
-editPdf.addEventListener('click', function (e) {
-  e.preventDefault()
-  containerEditPdf.style.display = 'none'
-  uploadPdf.style.display = 'block'
-})
+if (containerEditPdf) {
+  const editPdf = containerEditPdf.querySelector('.edit-pdf__button')
+  const uploadPdf = document.querySelector('.upload-pdf')
+
+  editPdf.addEventListener('click', function (e) {
+    e.preventDefault()
+    containerEditPdf.style.display = 'none'
+    uploadPdf.style.display = 'block'
+  })
+}
+
