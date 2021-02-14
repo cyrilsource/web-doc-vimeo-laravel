@@ -50,6 +50,11 @@
             border-width: 0 6px 6px 0 !important;
         }
     }
+    #long, .entry-content-text {
+        a {
+            color: white;
+        }
+    }
 }
 
 #body {

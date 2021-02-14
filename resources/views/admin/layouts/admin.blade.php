@@ -118,39 +118,65 @@
   line-height: 1.6;
 }
 
-blockquote::before {
-  content: "“";
-  color: #33375F;
-  font-size: 3.5em;
-  line-height: 0.1em;
-  margin-right: 0.25em;
-  vertical-align: -0.4em;
-}
+    blockquote::before {
+    content: "“";
+    color: #33375F;
+    font-size: 3.5em;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em;
+    }
 
-blockquote::after {
-  content: "”";
-  color: #33375F;
-  font-size: 3.5em;
-  line-height: 0.1em;
-  margin-left: 0.25em;
-  vertical-align: -0.4em;
-}
+    blockquote::after {
+    content: "”";
+    color: #33375F;
+    font-size: 3.5em;
+    line-height: 0.1em;
+    margin-left: 0.25em;
+    vertical-align: -0.4em;
+    }
 
-blockquote p {
-  display: inline-block;
-}
+    blockquote p {
+    display: inline-block;
+    }
 
-blockquote cite {
-  position: absolute;
-  margin-left: 1rem;
-  font-size: 1rem;
-  font-style: normal;
-  left: 50%;
-  bottom: -15px;
-  -webkit-transform: translateX(-50%);
-      -ms-transform: translateX(-50%);
-          transform: translateX(-50%);
-}
+    blockquote cite {
+    position: absolute;
+    margin-left: 1rem;
+    font-size: 1rem;
+    font-style: normal;
+    left: 50%;
+    bottom: -15px;
+    -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+            transform: translateX(-50%);
+    }
+
+    li {
+            list-style-type: none;
+        }
+    li:before {
+        content: "";
+        width: 10px;
+        height: 10px;
+        background: #33375F;
+        display: inline-block;
+        border-radius: 50%;
+        margin-right: 7px;
+    }
+
+    a {
+        color: #33375F;
+        text-decoration: none !important;
+        border-bottom: 1px solid #7A6A95;
+        box-shadow: inset 0 -0.125em 0 #7A6A95;
+        transition: box-shadow 270ms cubic-bezier(0.77, 0, 0.175, 1), color 270ms cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    a:hover {
+        box-shadow: inset 0 -1.125em 0 #7A6A95;
+        color: #33375F;
+    }
   `
    });
 
