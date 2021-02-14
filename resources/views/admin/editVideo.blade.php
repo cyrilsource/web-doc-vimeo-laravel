@@ -37,9 +37,15 @@
                 </select>
             </div>
 
-            <button type="submit" class="btn btn-primary">Edit the video</button>
-        </form>
     </div>
+    <div class="col-6">
+        <div class="form-group">
+         <label for="description">Description</label>
+         <textarea name="description" class="form-control" id="description" rows="3">{{$video->description}}</textarea>
+       </div>
+       <button type="submit" class="btn btn-primary">Edit the video</button>
+       </form>
+   </div>
 
 </div>
 @endsection

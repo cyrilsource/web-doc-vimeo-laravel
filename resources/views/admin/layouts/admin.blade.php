@@ -11,7 +11,7 @@
         <link href="{{ asset('css/admin/admin.css') }}" rel="stylesheet">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+        <script src="https://cdn.tiny.cloud/1/jxlnrmc20xgg41706k5kkku9p1x25ip6oqlo88wjm6oez1iy/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     </head>
     <body>
 
@@ -86,6 +86,12 @@
     e.preventDefault();
     $("#wrapper").toggleClass("toggled");
   })
+
+  tinymce.init({
+      selector: 'textarea',
+      plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+      toolbar_mode: 'floating',
+   });
 
 </script>
 

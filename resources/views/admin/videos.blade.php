@@ -93,7 +93,7 @@
                 <div class="form-group">
                    <label for="description">Description</label>
                    <textarea name="description" class="form-control @error('name') is-invalid @enderror"
-                   id="description" rows="3">
+                   id="description" rows="10">
                    {{ old('description') }}
                    </textarea>
                    @error('description')

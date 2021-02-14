@@ -44,8 +44,7 @@
           <textarea name="description" class="form-control" id="description" rows="3">{{$theme->description}}</textarea>
         </div>
         <button type="submit" class="btn btn-primary">Edit the theme</button>
-    </div>
-      </form>
+        </form>
     </div>
 
 </div>
