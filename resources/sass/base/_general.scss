@@ -12,3 +12,42 @@ body {
     font-size: 2px;
     margin: 0;
 }
+
+blockquote {
+    position: relative;
+    margin: 1.5em 10px;
+    padding: 0.5em 10px;
+    font-size: 1.2rem;
+    font-style: italic;
+    line-height: 1.6;
+    &::before {
+        content:"“";
+        color: #33375F;
+        font-size: 3.5em;
+        line-height: 0.1em;
+        margin-right: 0.25em;
+        vertical-align: -0.4em;
+    }
+    &::after {
+        content:"”";
+        color: #33375F;
+        font-size: 3.5em;
+        line-height: 0.1em;
+        margin-left: 0.25em;
+        vertical-align: -0.4em;
+    }
+
+    p {
+        display: inline;
+    }
+
+    cite {
+        position: absolute;
+        margin-left: 1rem;
+        font-size: 1rem;
+        font-style: normal;
+        left: 50%;
+        bottom: -15px;
+        transform: translateX(-50%);
+    }
+}

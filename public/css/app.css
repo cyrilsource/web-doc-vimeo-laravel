@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -13,6 +15,49 @@ body {
 .invisible-title {
   font-size: 2px;
   margin: 0;
+}
+
+blockquote {
+  position: relative;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  font-size: 1.2rem;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+blockquote::before {
+  content: "\201C";
+  color: #33375F;
+  font-size: 3.5em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+
+blockquote::after {
+  content: "\201D";
+  color: #33375F;
+  font-size: 3.5em;
+  line-height: 0.1em;
+  margin-left: 0.25em;
+  vertical-align: -0.4em;
+}
+
+blockquote p {
+  display: inline;
+}
+
+blockquote cite {
+  position: absolute;
+  margin-left: 1rem;
+  font-size: 1rem;
+  font-style: normal;
+  left: 50%;
+  bottom: -15px;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
 
 @-webkit-keyframes rotation-right {
@@ -1074,6 +1119,16 @@ html.is-animating .transition-slide {
   #long {
     width: 100%;
   }
+}
+
+#long p,
+#long h2,
+#long h3,
+#long h4,
+#long h5,
+#long h6,
+#long li {
+  color: #33375F;
 }
 
 .arrow {

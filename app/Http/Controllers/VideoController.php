@@ -222,15 +222,16 @@ class VideoController extends Controller
 
             $datas['pdf'] = $pdf;
 
-            //On enleve le champ themes et le champ token des valeurs envoyées à la bdd
-            $datas2 = Arr::except($datas, ['_token']);
-            $values = Arr::except($datas2, ['themes']);
-
-            //update datas in database
-            DB::table('videos')
-                ->where('id', $id)
-                ->update($values);
         }
+
+        //On enleve le champ themes et le champ token des valeurs envoyées à la bdd
+        $datas2 = Arr::except($datas, ['_token']);
+        $values = Arr::except($datas2, ['themes']);
+
+        //update datas in database
+        DB::table('videos')
+            ->where('id', $id)
+            ->update($values);
 
 
         //on insert les themes dans la table pivot

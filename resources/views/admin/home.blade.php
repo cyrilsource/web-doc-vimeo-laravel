@@ -14,7 +14,7 @@
 
 <div class="tab-content">
     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-        <div class="col-8 m-5">
+        <div class="col-8 margin-top">
             <h2>List of themes</h2>
             <table class="table table-striped">
               <thead>
@@ -49,7 +49,7 @@
     </div>
     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
         <div class="row">
-          <div class="col-4 m-5">
+          <div class="col-4 margin-top">
             <h2>Create a theme</h2>
               <form action="{{ url('/') }}/admin" enctype="multipart/form-data" method="post">
               @csrf
@@ -88,7 +88,7 @@
                     @enderror
                 </div>
               </div>
-              <div class="col-6 m-5">
+              <div class="col-6 margin-top">
                  <div class="form-group">
                     <label for="description">Description</label>
                     <textarea name="description" class="form-control @error('name') is-invalid @enderror"

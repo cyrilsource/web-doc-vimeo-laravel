@@ -14,7 +14,7 @@
 
 <div class="tab-content">
     <div class="tab-pane fade show active" id="list" role="tabpanel" aria-labelledby="home-tab">
-        <div class="col-8 m-5">
+        <div class="col-8 margin-top">
             <h2>List of videos</h2>
             <table class="table table-striped">
             <thead>
@@ -89,7 +89,7 @@
                         @enderror
                     </div>
             </div>
-            <div class="col-6 m-5">
+            <div class="col-6 margin-top">
                 <div class="form-group">
                    <label for="description">Description</label>
                    <textarea name="description" class="form-control @error('name') is-invalid @enderror"

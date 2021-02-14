@@ -90,7 +90,68 @@
   tinymce.init({
       selector: 'textarea',
       plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
-      toolbar_mode: 'floating',
+      toolbar: 'styleselect bold italic numlist bullist undo redo blockquote alignleft aligncenter alignright alignjustify',
+       // Register the cite format
+  formats: {
+    cite: {block: 'cite'}
+  },
+
+  // Populate the styleselect menu
+  style_formats: [
+    { title: 'Paragraph', format: 'p'},
+    { title: 'Title', format: 'h1'},
+    { title: 'Heading', format: 'h2'},
+    { title: 'Subheading', format: 'h3'},
+    { title: 'Blockquote', format: 'blockquote'},
+    { title: 'Cite', format: 'cite' },
+    { title: 'Code', format: 'code'}
+  ],
+  preview_styles: false,
+  content_css: false,
+  content_style: `
+  blockquote {
+  position: relative;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  font-size: 1.2rem;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+blockquote::before {
+  content: "“";
+  color: #33375F;
+  font-size: 3.5em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+
+blockquote::after {
+  content: "”";
+  color: #33375F;
+  font-size: 3.5em;
+  line-height: 0.1em;
+  margin-left: 0.25em;
+  vertical-align: -0.4em;
+}
+
+blockquote p {
+  display: inline-block;
+}
+
+blockquote cite {
+  position: absolute;
+  margin-left: 1rem;
+  font-size: 1rem;
+  font-style: normal;
+  left: 50%;
+  bottom: -15px;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+  `
    });
 
 </script>

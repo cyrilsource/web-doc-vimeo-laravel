@@ -57,6 +57,10 @@
   height: 350px !important;
 }
 
+.margin-top {
+  margin-top: 2rem;
+}
+
 .edit-image {
   position: relative;
   -webkit-transition: all 0.3s ease-in-out;

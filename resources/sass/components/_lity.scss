@@ -7,4 +7,9 @@
         width: 100%;
     }
     border-radius: 6px;
+
+    p, h2, h3, h4, h5, h6, li {
+        color: $main-color;
+    }
+
 }

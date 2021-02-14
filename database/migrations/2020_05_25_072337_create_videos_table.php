@@ -22,6 +22,7 @@ class CreateVideosTable extends Migration
             $table->string('thumbnail_large');
             $table->string('link');
             $table->integer('vimeo_id');
+            $table->integer('duration');
             $table->string('pdf')->nullable();
             $table->text('description')->nullable();;
             $table->timestamps();
