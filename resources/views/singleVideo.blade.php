@@ -28,9 +28,9 @@
                     </div>
                 @endif
             </div>
-            @if (!empty($description))
+            @if (!empty($video->description))
                 <div id="entry-content-text" class=entry-content-text>
-                    {!! $description ?? '' !!}
+                    {!! $video->description ?? '' !!}
                 </div>
             @endif
 
