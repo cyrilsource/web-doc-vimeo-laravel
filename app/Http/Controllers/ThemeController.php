@@ -150,6 +150,19 @@ class ThemeController extends Controller
 
         $short = limit_text($description, $words);
 
+        // get the duration
+       for ($i=0; $i < count($videos); $i++) {
+            $duration = $videos[$i]['duration'];
+           if ($duration < 60) {
+               $display_duration = $duration . 'sec';
+           } else {
+               $display_duration = floor($duration/60) .' '. 'min ' . $duration%60 . ' ' .'sec';
+           }
+           $videos[$i]['duration'] = $display_duration;
+
+       }
+
+
         return view('singleTheme', ['themes' => $themes, 'theme' => $theme, 'short' => $short, 'videos' => $videos, 'frame' => $frame, 'template' => 'show']);
     }
 

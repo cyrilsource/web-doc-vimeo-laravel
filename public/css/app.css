@@ -1173,6 +1173,10 @@ html.is-animating .transition-slide {
   color: #33375F;
 }
 
+#long a {
+  color: #33375F !important;
+}
+
 .arrow {
   display: inline-block;
   padding: 3px;

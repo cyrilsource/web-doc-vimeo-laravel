@@ -82,6 +82,9 @@ class VideoController extends Controller
         //get thumnail_large vimeo
         $thumbnail_large = get_vimeo_data_from_id( $vimeo_id, 'thumbnail_large' );
 
+         //get duration
+         $duration = get_vimeo_data_from_id( $vimeo_id, 'duration' );
+
 
         //on récupère les données pour le pdf
         $document = $request->file('pdf');
@@ -117,6 +120,8 @@ class VideoController extends Controller
         $datas['thumbnail_medium'] = $thumbnail_medium;
         //vimeo thumbnail_large in datas
         $datas['thumbnail_large'] = $thumbnail_large;
+        //vimeo thumbnail_large in datas
+        $datas['duration'] = $duration;
 
         //On enleve le champ themes et le champ token des valeurs envoyées à la bdd
         $datas2 = Arr::except($datas, ['_token']);
