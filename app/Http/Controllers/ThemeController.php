@@ -150,7 +150,7 @@ class ThemeController extends Controller
 
         $short = limit_text($description, $words);
 
-        // get the duration
+        // display with min and sec for duration. more readable
        for ($i=0; $i < count($videos); $i++) {
             $duration = $videos[$i]['duration'];
            if ($duration < 60) {
@@ -161,8 +161,6 @@ class ThemeController extends Controller
            $videos[$i]['duration'] = $display_duration;
 
        }
-
-
         return view('singleTheme', ['themes' => $themes, 'theme' => $theme, 'short' => $short, 'videos' => $videos, 'frame' => $frame, 'template' => 'show']);
     }
 

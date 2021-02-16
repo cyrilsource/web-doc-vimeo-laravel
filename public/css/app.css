@@ -1003,7 +1003,14 @@ html.is-animating .transition-slide {
   opacity: 1;
 }
 
-.video-carousel-card h3 {
+.video-carousel-card:hover div {
+  opacity: 1;
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+}
+
+.video-carousel-card__title {
   position: absolute;
   bottom: 0;
   background-color: #33375F;
@@ -1011,8 +1018,6 @@ html.is-animating .transition-slide {
   text-align: center;
   width: 100%;
   z-index: 3;
-  color: #fcfcfc;
-  font-size: 1.7rem;
   opacity: 0;
   -webkit-transform: scale(0);
       -ms-transform: scale(0);
@@ -1027,11 +1032,13 @@ html.is-animating .transition-slide {
   transition: transform 750ms, opacity 750ms, -webkit-transform 750ms;
 }
 
-.video-carousel-card:hover h3 {
-  opacity: 1;
-  -webkit-transform: scale(1);
-      -ms-transform: scale(1);
-          transform: scale(1);
+.video-carousel-card__title h3 {
+  color: #fcfcfc;
+  font-size: 1.7rem;
+}
+
+.video-carousel-card__title p {
+  color: #fcfcfc;
 }
 
 .video-vignette {

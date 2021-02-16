@@ -40,7 +40,10 @@
                 <section class="video-carousel transition-fade">
                     @foreach ($videos as $video)
                         <a href="{{ url('/video') }}/{{ $video->slug }}/{{ $video->id }}" class="video-carousel-card">
-                            <h3 class="video-carousel-card__title">{{ $video->title }}-{{ $video->duration }}</h3>
+                            <div class="video-carousel-card__title">
+                                <h3>{{ $video->title }}</h3>
+                                <p>{{ $video->duration }}</p>
+                            </div>
                             <img src="{{ $video->thumbnail_large }}">
                         </a>
                     @endforeach
