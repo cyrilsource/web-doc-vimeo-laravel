@@ -50,9 +50,30 @@
             border-width: 0 6px 6px 0 !important;
         }
     }
-    #long, .entry-content-text {
+    .entry-content-text {
         a {
             color: white;
+        }
+
+        blockquote {
+
+            &::before {
+                content:"“";
+                color: white !important;
+            }
+            &::after {
+                content:"”";
+                color: white !important;
+            }
+
+        }
+        li:before {
+
+            background: white !important;
+
+        }
+        hr {
+            color: white !important;
         }
     }
 }

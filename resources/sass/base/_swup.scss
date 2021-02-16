@@ -10,7 +10,7 @@ html.is-animating .transition-fade {
 }
 
 .transition-fade2 {
-    transition: 2s 1s;
+    transition: 1s 1s;
     opacity: 1;
 }
 
@@ -19,7 +19,7 @@ html.is-animating .transition-fade2 {
 }
 
 .transition-slide {
-    transition: 2s 1.5s;
+    transition: 2s 1s;
     opacity: 1;
     transform: scaleX(1);
     transform-origin: left;

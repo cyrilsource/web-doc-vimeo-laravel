@@ -153,13 +153,16 @@ class ThemeController extends Controller
         // display with min and sec for duration. more readable
        for ($i=0; $i < count($videos); $i++) {
             $duration = $videos[$i]['duration'];
-           if ($duration < 60) {
-               $display_duration = $duration . 'sec';
-           } else {
-               $display_duration = floor($duration/60) .' '. 'min ' . $duration%60 . ' ' .'sec';
-           }
-           $videos[$i]['duration'] = $display_duration;
-
+            if ($duration < 60) {
+               $display_duration = $duration . ' sec';
+            } else {
+               if ($duration%60 > 0) {
+                $display_duration = floor($duration/60) .' '. 'min ' . $duration%60 . ' ' .'sec';
+               } else {
+                $display_duration = floor($duration/60) .' '. 'min ';
+               }
+            }
+            $videos[$i]['duration'] = $display_duration;
        }
         return view('singleTheme', ['themes' => $themes, 'theme' => $theme, 'short' => $short, 'videos' => $videos, 'frame' => $frame, 'template' => 'show']);
     }

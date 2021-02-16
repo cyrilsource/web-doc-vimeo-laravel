@@ -45,19 +45,21 @@
     document.addEventListener('swup:contentReplaced', function () {
         const logo = document.getElementById('logo')
 
-        logo.addEventListener('mouseover', function () {
-        if (logo.classList.contains('rotation-left')) {
-            logo.classList.remove('rotation-left')
-        }
-        logo.classList.add('rotation-right')
-        })
+        if (logo) {
+            logo.addEventListener('mouseover', function () {
+                if (logo.classList.contains('rotation-left')) {
+                logo.classList.remove('rotation-left')
+            }
+                logo.classList.add('rotation-right')
+            })
 
-        logo.addEventListener('mouseout', function () {
-        if (logo.classList.contains('rotation-right')) {
-            logo.classList.remove('rotation-right')
+            logo.addEventListener('mouseout', function () {
+                if (logo.classList.contains('rotation-right')) {
+                logo.classList.remove('rotation-right')
+                }
+                logo.classList.add('rotation-left')
+            })
         }
-        logo.classList.add('rotation-left')
-        })
 
         jQuery( document ).ready(function( $ ){
 			$('.video-carousel').slick({
@@ -131,7 +133,6 @@
         if (back) {
             back.addEventListener('click', function (e) {
                 e.preventDefault()
-                console.log('coucou')
                 window.history.back()
             })
         }
