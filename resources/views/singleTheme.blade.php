@@ -52,7 +52,10 @@
                 <section class="video-vignette horizontal-align transition-fade">
                     @foreach ($videos as $video)
                         <a href="{{ url('/video') }}/{{ $video->slug }}/{{ $video->id }}" class="video-vignette-card">
-                            <h3 class="video-vignette-card__title">{{ $video->title }}</h3>
+                            <div class="video-vignette-card__title">
+                                <h3>{{ $video->title }}</h3>
+                                <p>{{ $video->duration }}</p>
+                            </div>
                             <img src="{{ $video->thumbnail_large }}">
                         </a>
                     @endforeach

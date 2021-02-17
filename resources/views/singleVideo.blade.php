@@ -26,7 +26,12 @@
                     <div id="entry-title" class="center entry-title entry-title__page transition-fade">
                         <h1>{{ $video->title }}</h1>
                     </div>
+
                 @endif
+
+            </div>
+            <div class="video-duration">
+                <p>{{ $video->duration }}</p>
             </div>
             @if (!empty($video->description))
                 <div id="entry-content-text" class=entry-content-text>

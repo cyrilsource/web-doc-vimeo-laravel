@@ -29,6 +29,10 @@
 	@include center;
 }
 
+.text-center {
+    text-align: center;
+}
+
 .not-found {
     width: fit-content;
     h2 {

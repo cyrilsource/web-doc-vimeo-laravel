@@ -165,6 +165,18 @@ class VideoController extends Controller
     {
         $video = Video::findOrFail($id);
 
+        $duration = $video['duration'];
+            if ($duration < 60) {
+               $display_duration = $duration . ' sec';
+            } else {
+               if ($duration%60 > 0) {
+                $display_duration = floor($duration/60) .' '. 'min ' . $duration%60 . ' ' .'sec';
+               } else {
+                $display_duration = floor($duration/60) .' '. 'min ';
+               }
+            }
+        $video['duration'] = $display_duration;
+
         $themes = Theme::orderBy('name', 'asc')->get();
 
         return view('singleVideo', ['themes' => $themes, 'video' => $video, 'template' => 'show']);
