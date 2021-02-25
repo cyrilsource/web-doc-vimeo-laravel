@@ -49,6 +49,7 @@ class VideoController extends Controller
      */
     public function store(Request $request)
     {
+
         request()->validate([
             'link' => ['required', 'url', 'max:255'],
             'themes' => 'required',
@@ -56,6 +57,7 @@ class VideoController extends Controller
         ]);
 
         $datas = $request->all();
+
 
         //get url and we take only vimeo id
         $vimeo_id = substr($datas['link'], 18);
