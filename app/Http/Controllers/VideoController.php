@@ -9,6 +9,7 @@ use App\Http\Requests\CreateThemeRequest;
 use App\Http\Requests\CreateVideoRequest;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 use App\Theme;
 use App\Video;
 
@@ -146,6 +147,8 @@ class VideoController extends Controller
         //on insert les themes dans la table pivot
         $video->themes()->sync($datas['themes']);
 
+        //pour afficher un message de succès
+        Session::flash('success', 'la vidéo a bien été publiée');
 
         //pour aficher les videos
         $videos = Video::orderBy('title', 'asc')->get();
@@ -256,13 +259,20 @@ class VideoController extends Controller
         //on insert les themes dans la table pivot
         $video->themes()->sync($datas['themes']);
 
+        //pour afficher un message de succès
+        Session::flash('success', 'la vidéo a bien été éditée');
+
         //pour aficher les videos
         $videos = Video::orderBy('title', 'asc')->get();
+
+        // pour afficher la vidéo éditée
+        $video = Video::findOrFail($id);
+        $themes_video = Video::findOrFail($id)->themes->sortBy('name')->all();
 
         //display themes for select input
         $themes = Theme::orderBy('name', 'asc')->get();
 
-        return view('admin.videos', ['videos' => $videos, 'themes' => $themes]);
+        return view('admin.editVideo', ['videos' => $videos, 'video' => $video, 'themes' => $themes, 'themes_video' => $themes_video]);
 
     }
 

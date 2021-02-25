@@ -4,7 +4,6 @@
 
 <h1 class="mt-4 mb-5 text-center">Videos</h1>
 
-
 @include('admin/error')
 
 <div class="row">

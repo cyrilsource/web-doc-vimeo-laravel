@@ -4,50 +4,17 @@
 
 <h1 class="mt-4 mb-5 text-center">Themes</h1>
 <ul class="nav nav-tabs" id="myTab" role="tablist">
-  <li class="nav-item">
-    <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">List of themes</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Propose a new theme</a>
-  </li>
+    <li class="nav-item">
+        <a class="nav-link active" id="themes-tab" data-toggle="tab" href="#themes" role="tab" aria-controls="profile" aria-selected="false">Propose a new theme</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="list-tab" data-toggle="tab" href="#list" role="tab" aria-controls="home" aria-selected="true">List of themes</a>
+    </li>
+
 </ul>
 
 <div class="tab-content">
-    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-        <div class="col-8 margin-top">
-            <h2>List of themes</h2>
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th scope="col">Thumbnail</th>
-                  <th scope="col">Name</th>
-                  <th scope="col">PDF</th>
-                  <th scope="col">Edit</th>
-                  <th scope="col">Delete</th>
-                </tr>
-              </thead>
-              <tbody>
-              @foreach ($themes as $theme)
-                  <tr>
-                      <td><img style="width: 150px" src="{{ url('/') }}/storage/img/theme/{{$theme->thumbnail}}" alt="" title="change the picture"></td>
-                      <td>{{ $theme->name }}</td>
-                      <td><a href="{{ url('/') }}/storage/pdf/theme/{{$theme->pdf}}">{{$theme->pdf}}</a></td>
-                      <td><a href="{{ url('/') }}/admin/editTheme/{{$theme->id}}" class="btn btn-info" role="button" aria-pressed="true">Edit</a></td>
-                      <td>
-                        <form action="{{ url('/') }}/admin/deleteTheme/{{$theme->id}}" method="post">
-                        @csrf
-                          <button type="submit" class="btn btn-danger">Delete</button>
-                        </form>
-                      </td>
-                  </tr>
-                @endforeach
-                <tr>
-                </tr>
-              </tbody>
-            </table>
-        </div>
-    </div>
-    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+    <div class="tab-pane fade show active" id="themes" role="tabpanel" aria-labelledby="themes-tab">
         <div class="row">
           <div class="col-4 margin-top">
             <h2>Create a theme</h2>
@@ -105,8 +72,43 @@
               </div>
             </form>
             </div>
-          </div>
+
     </div>
+    <div class="tab-pane fade show" id="list" role="tabpanel" aria-labelledby="home-tab">
+        <div class="col-8 margin-top">
+            <h2>List of themes</h2>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">Thumbnail</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">PDF</th>
+                  <th scope="col">Edit</th>
+                  <th scope="col">Delete</th>
+                </tr>
+              </thead>
+              <tbody>
+              @foreach ($themes as $theme)
+                  <tr>
+                      <td><img style="width: 150px" src="{{ url('/') }}/storage/img/theme/{{$theme->thumbnail}}" alt="" title="change the picture"></td>
+                      <td>{{ $theme->name }}</td>
+                      <td><a href="{{ url('/') }}/storage/pdf/theme/{{$theme->pdf}}">{{$theme->pdf}}</a></td>
+                      <td><a href="{{ url('/') }}/admin/editTheme/{{$theme->id}}" class="btn btn-info" role="button" aria-pressed="true">Edit</a></td>
+                      <td>
+                        <form action="{{ url('/') }}/admin/deleteTheme/{{$theme->id}}" method="post">
+                        @csrf
+                          <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                      </td>
+                  </tr>
+                @endforeach
+                <tr>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+    </div>
+
 </div>
 
 

@@ -2,6 +2,8 @@
 
 @section('content')
 
+@include('admin/error')
+
 <h1 class="mt-4 mb-5 text-center">Videos</h1>
 <ul class="nav nav-tabs" id="myTab" role="tablist">
 
@@ -54,7 +56,7 @@
                         </div>
                         @enderror
                     </div>
-            </div>
+                </div>
             <div class="col-6 margin-top">
                 <div class="form-group">
                    <label for="description">Description</label>
@@ -71,9 +73,8 @@
                <button type="submit" class="btn btn-primary">Add a video</button>
             </div>
                 </form>
-        </div>
 
-
+    </div>
     </div>
 
     <div class="tab-pane fade show" id="list" role="tabpanel" aria-labelledby="home-tab">
@@ -116,6 +117,7 @@
             </table>
         </div>
     </div>
+
 </div>
 
 
