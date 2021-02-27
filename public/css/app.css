@@ -375,6 +375,10 @@ html.is-animating .transition-slide {
   color: white !important;
 }
 
+.dark-theme .video-duration p {
+  color: #fcfcfc !important;
+}
+
 #body {
   -webkit-transition: all 0.5s;
   -o-transition: all 0.5s;
@@ -1282,6 +1286,7 @@ html.is-animating .transition-slide {
 .search-container input {
   border: 2px solid #33375F;
   padding: 12px 16px;
+  font-size: 16px;
 }
 
 .search-container form {
