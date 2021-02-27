@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use App\Http\Requests\CreateThemeRequest;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 use App\Theme;
 use App\Video;
 use App\Options;
@@ -70,7 +71,7 @@ class ThemeController extends Controller
         $thumbnail = "$slug"."-".time().".".$image->getClientOriginalExtension();
 
         // Save the file
-        $image->storeAs('img/theme', $thumbnail);
+        $image->storeAs('public/img/theme', $thumbnail);
 
         $datas['thumbnail'] = $thumbnail;
 
@@ -101,6 +102,9 @@ class ThemeController extends Controller
         $values = Arr::except($datas2, ['_token']);
 
         Theme::create($values);
+
+        //pour afficher un message de succès
+        Session::flash('success', 'le thème a bien été publié');
 
         $themes = Theme::orderBy('name', 'asc')->get();
 

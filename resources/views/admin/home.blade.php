@@ -2,6 +2,8 @@
 
 @section('content')
 
+@include('admin/error')
+
 <h1 class="mt-4 mb-5 text-center">Themes</h1>
 <ul class="nav nav-tabs" id="myTab" role="tablist">
     <li class="nav-item">
