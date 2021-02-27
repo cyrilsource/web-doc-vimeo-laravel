@@ -2,9 +2,8 @@
 
 @section('content')
 
-@include('admin/error')
-
 <h1 class="mt-4 mb-5 text-center">Videos</h1>
+@include('admin/error')
 <ul class="nav nav-tabs" id="myTab" role="tablist">
 
     <li class="nav-item">

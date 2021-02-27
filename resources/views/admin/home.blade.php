@@ -2,9 +2,9 @@
 
 @section('content')
 
-@include('admin/error')
 
 <h1 class="mt-4 mb-5 text-center">Themes</h1>
+@include('admin/error')
 <ul class="nav nav-tabs" id="myTab" role="tablist">
     <li class="nav-item">
         <a class="nav-link active" id="themes-tab" data-toggle="tab" href="#themes" role="tab" aria-controls="profile" aria-selected="false">Propose a new theme</a>

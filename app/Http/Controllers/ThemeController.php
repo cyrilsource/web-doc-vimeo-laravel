@@ -260,9 +260,14 @@ class ThemeController extends Controller
             ->where('id', $id)
             ->update($values);
 
+        //pour afficher un message de succès
+        Session::flash('success', 'le thème a bien été édité');
+
         $themes = Theme::orderBy('name', 'asc')->get();
 
-        return view('admin.home', ['themes' => $themes]);
+        $theme = Theme::findOrFail($id);
+
+        return view('admin.editTheme', ['themes' => $themes, 'theme' => $theme]);
 
     }
 
