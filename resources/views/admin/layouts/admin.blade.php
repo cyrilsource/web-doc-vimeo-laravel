@@ -89,8 +89,8 @@
 
   tinymce.init({
       selector: 'textarea',
-      plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
-      toolbar: 'styleselect bold italic numlist bullist undo redo blockquote alignleft aligncenter alignright alignjustify',
+      plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak code',
+      toolbar: 'styleselect bold italic numlist bullist undo redo blockquote alignleft aligncenter alignright alignjustify code',
        // Register the cite format
   formats: {
     cite: {block: 'cite'}
