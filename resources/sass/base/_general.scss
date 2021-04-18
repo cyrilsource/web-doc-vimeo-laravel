@@ -54,6 +54,8 @@ blockquote {
 .entry-content-text {
     li {
         list-style-type: none;
+        line-height: 1.5;
+
     }
     li:before {
         content: "";

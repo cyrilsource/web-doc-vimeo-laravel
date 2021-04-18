@@ -61,6 +61,7 @@ blockquote cite {
 
 .entry-content-text li {
   list-style-type: none;
+  line-height: 1.5;
 }
 
 .entry-content-text li:before {
@@ -1243,6 +1244,7 @@ html.is-animating .transition-slide {
 
 #long li {
   list-style-type: none;
+  line-height: 1.5;
 }
 
 #long li:before {
