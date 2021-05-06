@@ -96,3 +96,13 @@ if (glass) {
     }
   })
 }
+
+// open pdf in new tab
+let pdf = document.getElementById('pdf')
+let href = pdf.dataset.link
+
+if (pdf) {
+  pdf.addEventListener('click', function (e) {
+    window.open(href)
+  })
+}

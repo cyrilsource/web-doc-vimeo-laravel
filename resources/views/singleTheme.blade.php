@@ -17,7 +17,7 @@
                 {{-- https://www.xspdf.com/resolution/53718494.html --}}
                 @if (!empty($theme->pdf))
                     <div class="button">
-                        <a class="yep" href="{{ url('/') }}/storage/pdf/theme/{{$theme->pdf}}" download>pdf</a>
+                        <span id="pdf" class="yep" data-link="{{ url('/') }}/storage/pdf/theme/{{$theme->pdf}}">pdf</span>
                     </div>
                     <div id="entry-title" class="center entry-title entry-title__page entry-title__page-pdf transition-fade">
                         <h1>{{ $theme->name }}</h1>

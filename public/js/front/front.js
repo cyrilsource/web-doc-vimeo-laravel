@@ -197,6 +197,16 @@ if (glass) {
       object[index].classList.toggle('unreveal');
     }
   });
+} // open pdf in new tab
+
+
+var pdf = document.getElementById('pdf');
+var href = pdf.dataset.link;
+
+if (pdf) {
+  pdf.addEventListener('click', function (e) {
+    window.open(href);
+  });
 }
 
 /***/ }),
