@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'ThemeController@index');
 
 //display themes on front end
 Route::get('/themes', 'ThemeController@index');
