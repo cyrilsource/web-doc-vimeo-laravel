@@ -1005,7 +1005,7 @@ html.is-animating .transition-slide {
 }
 
 .video-carousel-card h4 {
-  opacity: 0;
+  opacity: 1;
   position: absolute;
   top: 10px;
   right: 10px;
@@ -1034,23 +1034,12 @@ html.is-animating .transition-slide {
 .video-carousel-card__title {
   position: absolute;
   bottom: 0;
-  background-color: #33375F;
+  background-color: rgba(41, 51, 156, 0.4);
   padding: 0.5rem;
   text-align: center;
   width: 100%;
   z-index: 3;
-  opacity: 0;
-  -webkit-transform: scale(0);
-      -ms-transform: scale(0);
-          transform: scale(0);
-  -webkit-transform-origin: left;
-      -ms-transform-origin: left;
-          transform-origin: left;
-  -webkit-transition: opacity 750ms, -webkit-transform 750ms;
-  transition: opacity 750ms, -webkit-transform 750ms;
-  -o-transition: transform 750ms, opacity 750ms;
-  transition: transform 750ms, opacity 750ms;
-  transition: transform 750ms, opacity 750ms, -webkit-transform 750ms;
+  opacity: 1;
 }
 
 .video-carousel-card__title h3 {
