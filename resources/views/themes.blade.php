@@ -6,13 +6,26 @@
 @section('content')
 <main  id="swup" class="main">
 @include('header')
-    <div class="entry-content-themes">
-        <div class="entry-content-themes__grid transition-fade2">
+    <div class="">
+        <div class="transition-fade2">
             @foreach ($themes as $theme)
-                <a  href="{{ url('/themes') }}/{{ $theme->slug }}/{{ $theme->id }}" class="entry-content-themes__card">
-                    <img src="{{ url('/') }}/storage/img/theme/{{$theme->thumbnail}}" alt="{{ $theme->name }}">
-                    <h2 class="entry-content-themes__title">{{ $theme->name }}</h2>
+                <a  href="{{ url('/themes') }}/{{ $theme->slug }}/{{ $theme->id }}">
+                    <h2 class="">{{ $theme->name }}</h2>
                 </a>
+                <div id="entry-content-text" class=entry-content-text>
+                    {{ $theme->excerpt }}
+                </div>
+                <section class="video-carousel transition-fade margin-bottom">
+                @foreach ($theme->videos as $video)
+                    <a href="{{ url('/video') }}/{{ $video->slug }}/{{ $video->id }}" class="video-carousel-card">
+                        <div class="video-carousel-card__title">
+                            <h3>{{ $video->title }}</h3>
+                            <p>{{ $video->duration }}</p>
+                        </div>
+                        <img src="{{ $video->thumbnail_large }}">
+                    </a>
+                @endforeach
+                </section>
             @endforeach
         </div>
 

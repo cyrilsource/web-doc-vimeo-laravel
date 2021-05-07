@@ -1541,6 +1541,10 @@ html.is-animating .transition-slide {
   font-weight: 500;
 }
 
+.margin-bottom {
+  margin-bottom: 2.5rem;
+}
+
 .vimeo-wrapper {
   background-color: #33375F;
   position: fixed;

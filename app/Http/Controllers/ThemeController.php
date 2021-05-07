@@ -24,7 +24,10 @@ class ThemeController extends Controller
     {
         $themes = Theme::orderBy('name', 'asc')->get();
 
-        return view('themes', ['themes' => $themes, 'template' =>'index']);
+        //pour aficher les videos
+        $videos = Video::orderBy('title', 'asc')->get();
+
+        return view('themes', ['themes' => $themes, 'videos' => $videos, 'template' =>'index']);
     }
 
     /**
