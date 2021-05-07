@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Theme extends Model
 {
-    protected $fillable = ['name', 'slug', 'description', 'thumbnail', 'pdf'];
+    protected $fillable = ['name', 'slug', 'description', 'thumbnail', 'pdf', 'excerpt'];
 
 	public function videos() {
 

@@ -51,3 +51,10 @@ if (containerEditPdf) {
   })
 }
 
+// count characters for excerpt textarea
+$('#excerpt').keyup(function () {
+  let characterCount = $(this).val().length
+  let current = $('#current')
+
+  current.text(characterCount)
+});

@@ -30,7 +30,7 @@
 
             </div>
             <div id="entry-content-text" class=entry-content-text>
-                {!! $short !!}
+                {{ $theme->excerpt }}
             </div>
             <div class="button">
                 <span class="yep" data-lity href="#long">Lire + de texte</span>

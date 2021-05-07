@@ -20,6 +20,7 @@ class CreateThemesTable extends Migration
             $table->string('thumbnail');
             $table->string('pdf')->nullable();
             $table->text('description');
+            $table->text('excerpt');
             $table->timestamps();
         });
 

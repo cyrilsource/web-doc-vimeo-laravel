@@ -34,9 +34,12 @@ class ThemeController extends Controller
      */
     public function create()
     {
+        //query the number of words for the option words
+        $characters = DB::table('options')->where('name', 'words')->value('field');
+
         $themes = Theme::orderBy('name', 'asc')->get();
 
-        return view('admin.home', ['themes' => $themes]);
+        return view('admin.home', ['themes' => $themes, 'characters' => $characters]);
 
     }
 
@@ -48,11 +51,15 @@ class ThemeController extends Controller
      */
     public function store(Request $request)
     {
+        //query the number of characters for the option words
+        $characters = DB::table('options')->where('name', 'words')->value('field');
+
         request()->validate([
             'name' => ['required', 'max:255'],
             'image'=> ['required', 'image', 'mimes:jpeg,jpg,png', 'max:800'],
             'pdf'=> ['mimes:pdf', 'max:800'],
-            'description' => 'required'
+            'description' => 'required',
+            'excerpt' => 'required'
         ]);
 
         $datas = $request->all();
@@ -108,7 +115,7 @@ class ThemeController extends Controller
 
         $themes = Theme::orderBy('name', 'asc')->get();
 
-        return view('admin.home', ['themes' => $themes]);
+        return view('admin.home', ['themes' => $themes, 'characters' => $characters]);
 
     }
 
@@ -279,6 +286,9 @@ class ThemeController extends Controller
      */
     public function destroy($id)
     {
+         //query the number of characters for the option words
+         $characters = DB::table('options')->where('name', 'words')->value('field');
+
         $theme = Theme::findOrFail($id);
 
         //suppression des fichiers
@@ -289,7 +299,7 @@ class ThemeController extends Controller
 
         $themes = Theme::orderBy('name', 'asc')->get();
 
-        return view('admin.home', ['themes' => $themes]);
+        return view('admin.home', ['themes' => $themes, 'characters' => $characters]);
 
     }
 }

@@ -145,7 +145,14 @@ if (containerEditPdf) {
     containerEditPdf.style.display = 'none';
     uploadPdf.style.display = 'block';
   });
-}
+} // count characters for excerpt textarea
+
+
+$('#excerpt').keyup(function () {
+  var characterCount = $(this).val().length;
+  var current = $('#current');
+  current.text(characterCount);
+});
 
 /***/ }),
 

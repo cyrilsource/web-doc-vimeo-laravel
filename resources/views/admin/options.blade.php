@@ -4,7 +4,7 @@
 
 <h1 class="mt-4 mb-5 text-center">Options</h1>
 
-<h2 class="mb-3 number-words">Change number of words for the theme page</h2>
+<h2 class="mb-3 number-words">Change number of characters for the excerpts</h2>
         <div class="row">
             <div class="col-6">
                 <form action="" method="post">

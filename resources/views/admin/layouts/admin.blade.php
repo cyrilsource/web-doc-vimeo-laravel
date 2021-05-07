@@ -88,7 +88,7 @@
   })
 
   tinymce.init({
-      selector: 'textarea',
+      selector: "#description",
       plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak code fullscreen',
       toolbar: 'styleselect bold italic numlist bullist undo redo blockquote alignleft aligncenter alignright alignjustify code fullscreen',
        // Register the cite format
