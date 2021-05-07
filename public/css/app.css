@@ -1590,3 +1590,7 @@ html.is-animating .transition-slide {
   font-size: 1.5rem;
 }
 
+.theme-list .entry-content-text {
+  margin-bottom: -1rem;
+}
+

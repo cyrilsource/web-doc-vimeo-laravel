@@ -6,16 +6,16 @@
 @section('content')
 <main  id="swup" class="main">
 @include('header')
-    <div class="">
+    <div class="theme-list">
         <div class="transition-fade2">
             @foreach ($themes as $theme)
                 <a  href="{{ url('/themes') }}/{{ $theme->slug }}/{{ $theme->id }}">
                     <h2 class="">{{ $theme->name }}</h2>
                 </a>
-                <div id="entry-content-text" class=entry-content-text>
+                <div id="entry-content-text" class="entry-content-text ">
                     {{ $theme->excerpt }}
                 </div>
-                <section class="video-carousel transition-fade margin-bottom">
+                <section class="video-carousel transition-fade2 margin-bottom">
                 @foreach ($theme->videos as $video)
                     <a href="{{ url('/video') }}/{{ $video->slug }}/{{ $video->id }}" class="video-carousel-card">
                         <div class="video-carousel-card__title">
@@ -29,7 +29,7 @@
             @endforeach
         </div>
 
-    </div><!-- .entry-content-themes-->
+    </div>
 </main>
 
 
