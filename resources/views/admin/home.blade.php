@@ -58,7 +58,7 @@
                 </div>
                 <div class="form-group">
                     <label for="excerpt">Add an excerpt</label>
-                    <textarea name="excerpt" max-length="{{ $characters }}" class="form-control @error('name') is-invalid @enderror"
+                    <textarea name="excerpt" maxlength="{{ $characters }}" class="form-control @error('name') is-invalid @enderror"
                     id="excerpt">
                     {{ old('excerpt') }}
                     </textarea>

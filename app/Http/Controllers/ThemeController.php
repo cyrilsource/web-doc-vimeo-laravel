@@ -186,9 +186,12 @@ class ThemeController extends Controller
      */
     public function edit($id)
     {
+        //query the number of characters for the option words
+        $characters = DB::table('options')->where('name', 'words')->value('field');
+
         $theme = Theme::findOrFail($id);
 
-        return view('admin.editTheme', ['theme' => $theme]);
+        return view('admin.editTheme', ['theme' => $theme, 'characters' => $characters]);
     }
 
     /**
@@ -200,6 +203,9 @@ class ThemeController extends Controller
      */
     public function update(Request $request, $id)
     {
+        //query the number of characters for the option words
+        $characters = DB::table('options')->where('name', 'words')->value('field');
+
         $datas = $request->all();
 
         $name = $datas['name'];
@@ -274,7 +280,7 @@ class ThemeController extends Controller
 
         $theme = Theme::findOrFail($id);
 
-        return view('admin.editTheme', ['themes' => $themes, 'theme' => $theme]);
+        return view('admin.editTheme', ['themes' => $themes, 'theme' => $theme, 'characters' => $characters]);
 
     }
 

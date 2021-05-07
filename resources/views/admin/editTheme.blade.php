@@ -37,6 +37,22 @@
           <label for="pdf">Add a pdf</label>
           <input name="pdf" type="file" class="form-control-file" id="pdf">
         </div>
+        <div class="form-group">
+            <label for="excerpt">Add an excerpt</label>
+            <textarea name="excerpt" maxlength="{{ $characters }}" class="form-control @error('name') is-invalid @enderror"
+            id="excerpt">
+            {{$theme->excerpt}}
+            </textarea>
+            <div id="the-count">
+                <span id="current">0</span>
+                <span id="maximum">/ {{ $characters }}</span>
+            </div>
+            @error('excerpt')
+            <div class="alert alert-danger" role="alert">
+                {{ $errors->first('excerpt') }}
+            </div>
+            @enderror
+        </div>
     </div>
     <div class="col-6">
          <div class="form-group">
