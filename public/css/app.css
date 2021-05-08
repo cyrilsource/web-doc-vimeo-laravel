@@ -267,9 +267,9 @@ html.is-animating .transition-fade {
 }
 
 .transition-fade2 {
-  -webkit-transition: 1s 1s;
-  -o-transition: 1s 1s;
-  transition: 1s 1s;
+  -webkit-transition: 0.7s 0.7s;
+  -o-transition: 0.7s 0.7s;
+  transition: 0.7s 0.7s;
   opacity: 1;
 }
 
@@ -377,6 +377,10 @@ html.is-animating .transition-slide {
 }
 
 .dark-theme .video-duration p {
+  color: #fcfcfc !important;
+}
+
+.dark-theme .theme-list__title {
   color: #fcfcfc !important;
 }
 
@@ -1588,6 +1592,14 @@ html.is-animating .transition-slide {
   color: #33375F;
   padding-left: 0.4rem;
   font-size: 1.5rem;
+}
+
+.theme-list a {
+  text-decoration: none;
+}
+
+.theme-list__title {
+  color: #33375F;
 }
 
 .theme-list .entry-content-text {

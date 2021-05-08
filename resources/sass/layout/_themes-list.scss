@@ -1,4 +1,10 @@
 .theme-list {
+    a{
+        text-decoration: none;
+    }
+    &__title {
+        color: $main-color;
+    }
     .entry-content-text {
         margin-bottom: -1rem;
     }

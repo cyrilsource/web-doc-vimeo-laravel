@@ -8,22 +8,22 @@
 @include('header')
 @include('gif')
 <div class="singleTheme">
-    <div class="background-image transition-fade">
+    <div class="background-image transition-fade2">
         <img class="background-image__image" src="{{ $video->thumbnail_large }}" alt="{{ $video->title }}">
         <div class="background-image__blur"></div>
     </div>
 
-        <div class="entry-content transition-fade">
+        <div class="entry-content transition-fade2">
             <div class="header-theme">
                 @if (!empty($video->pdf))
                     <div class="button">
                         <span id="pdf" class="yep" data-link="{{ url('/') }}/storage/pdf/video/{{$video->pdf}}">pdf</span>
                     </div>
-                    <div id="entry-title" class="center entry-title entry-title__page entry-title__page-pdf transition-fade">
+                    <div id="entry-title" class="center entry-title entry-title__page entry-title__page-pdf transition-fade2">
                         <h1>{{ $video->title }}</h1>
                     </div>
                     @else
-                    <div id="entry-title" class="center entry-title entry-title__page transition-fade">
+                    <div id="entry-title" class="center entry-title entry-title__page transition-fade2">
                         <h1>{{ $video->title }}</h1>
                     </div>
 

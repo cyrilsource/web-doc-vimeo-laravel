@@ -8,7 +8,7 @@
         </a>
         @endif
         @if($template =='show')
-        <a title="retour" id="logo-back" class="return " href="{{ url('/themes') }}">
+        <a title="retour" id="logo-back" class="return">
             <span><</span>
         </a>
         @endif
