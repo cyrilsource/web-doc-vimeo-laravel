@@ -124,18 +124,13 @@
 
         &__title {
             position: absolute;
-            bottom: 0;
-            background-color: $main-color;
+            bottom: 4px;
+            background-color: $main-color-trans;
             padding: 0.5rem;
             text-align: center;
             width: 100%;
             z-index: 3;
             color: $main-white;
-            font-size: map-get($main-title, third-title);
-            opacity: 0;
-            transform: scale(0);
-            transform-origin: left;
-            transition: transform 750ms, opacity 750ms;
             @include mobile-only {
                 opacity: 1;
                 transform: scale(1);
@@ -151,11 +146,6 @@
             p {
                 color: $main-white;
             }
-        }
-
-        &:hover div {
-            opacity: 1;
-            transform: scale(1);
         }
     }
 }

@@ -15,17 +15,50 @@
                 <div id="entry-content-text" class="entry-content-text ">
                     {{ $theme->excerpt }}
                 </div>
-                <section class="video-carousel transition-fade2 margin-bottom">
-                @foreach ($theme->videos as $video)
-                    <a href="{{ url('/video') }}/{{ $video->slug }}/{{ $video->id }}" class="video-carousel-card">
-                        <div class="video-carousel-card__title">
-                            <h3>{{ $video->title }}</h3>
-                            <p>{{ $video->duration }}</p>
-                        </div>
-                        <img src="{{ $video->thumbnail_large }}">
-                    </a>
-                @endforeach
-                </section>
+                @if (count($theme->videos) > 2)
+
+                    <section class="video-carousel transition-fade2 margin-bottom">
+                    @foreach ($theme->videos as $video)
+
+                        <a href="{{ url('/video') }}/{{ $video->slug }}/{{ $video->id }}" class="video-carousel-card">
+                            <div class="video-carousel-card__title">
+                                <h3>{{ $video->title }}</h3>
+                                @if ($video->duration < 60)
+                                <p>{{ $video->duration }} sec</p>
+                                @else
+                                    @if ($video->duration%60 > 0)
+                                        <p>@php echo floor($video->duration/60) .' '. 'min ' . $video->duration%60 . ' ' .'sec'; @endphp</p>
+                                        @else
+                                        <p>@php echo floor($video->duration/60) .' '. 'min '; @endphp</p>
+                                    @endif
+                                @endif
+
+                            </div>
+                            <img src="{{ $video->thumbnail_large }}">
+                        </a>
+                    @endforeach
+                    </section>
+                    @else
+                    <section class="video-vignette horizontal-align transition-fade2 margin-bottom">
+                        @foreach ($theme->videos as $video)
+                            <a href="{{ url('/video') }}/{{ $video->slug }}/{{ $video->id }}" class="video-vignette-card">
+                                <div class="video-vignette-card__title">
+                                    <h3>{{ $video->title }}</h3>
+                                    @if ($video->duration < 60)
+                                    <p>{{ $video->duration }} sec</p>
+                                    @else
+                                        @if ($video->duration%60 > 0)
+                                            <p>@php echo floor($video->duration/60) .' '. 'min ' . $video->duration%60 . ' ' .'sec'; @endphp</p>
+                                            @else
+                                            <p>@php echo floor($video->duration/60) .' '. 'min '; @endphp</p>
+                                        @endif
+                                    @endif
+                                </div>
+                                <img src="{{ $video->thumbnail_large }}">
+                            </a>
+                        @endforeach
+                    </section>
+                @endif
             @endforeach
         </div>
 

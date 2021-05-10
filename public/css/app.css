@@ -1092,26 +1092,13 @@ html.is-animating .transition-slide {
 
 .video-vignette-card__title {
   position: absolute;
-  bottom: 0;
-  background-color: #33375F;
+  bottom: 4px;
+  background-color: rgba(41, 51, 156, 0.4);
   padding: 0.5rem;
   text-align: center;
   width: 100%;
   z-index: 3;
   color: #fcfcfc;
-  font-size: 1.7rem;
-  opacity: 0;
-  -webkit-transform: scale(0);
-      -ms-transform: scale(0);
-          transform: scale(0);
-  -webkit-transform-origin: left;
-      -ms-transform-origin: left;
-          transform-origin: left;
-  -webkit-transition: opacity 750ms, -webkit-transform 750ms;
-  transition: opacity 750ms, -webkit-transform 750ms;
-  -o-transition: transform 750ms, opacity 750ms;
-  transition: transform 750ms, opacity 750ms;
-  transition: transform 750ms, opacity 750ms, -webkit-transform 750ms;
 }
 
 @media screen and (max-width: 645px) {
@@ -1137,13 +1124,6 @@ html.is-animating .transition-slide {
 
 .video-vignette-card__title p {
   color: #fcfcfc;
-}
-
-.video-vignette-card:hover div {
-  opacity: 1;
-  -webkit-transform: scale(1);
-      -ms-transform: scale(1);
-          transform: scale(1);
 }
 
 .slick-arrow {
