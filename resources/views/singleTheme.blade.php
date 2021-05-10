@@ -45,6 +45,7 @@
                                 <p>{{ $video->duration }}</p>
                             </div>
                             <img src="{{ $video->thumbnail_large }}">
+                            <div class="video-play-button-soft"><span></span></div>
                         </a>
                     @endforeach
                 </section>
@@ -57,6 +58,7 @@
                                 <p>{{ $video->duration }}</p>
                             </div>
                             <img src="{{ $video->thumbnail_large }}">
+                            <div class="video-play-button-soft"><span></span></div>
                         </a>
                     @endforeach
                 </section>

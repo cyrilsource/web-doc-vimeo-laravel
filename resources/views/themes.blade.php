@@ -32,9 +32,9 @@
                                         <p>@php echo floor($video->duration/60) .' '. 'min '; @endphp</p>
                                     @endif
                                 @endif
-
                             </div>
                             <img src="{{ $video->thumbnail_large }}">
+                            <div class="video-play-button-soft"><span></span></div>
                         </a>
                     @endforeach
                     </section>
@@ -55,6 +55,7 @@
                                     @endif
                                 </div>
                                 <img src="{{ $video->thumbnail_large }}">
+                                <div class="video-play-button-soft"><span></span></div>
                             </a>
                         @endforeach
                     </section>

@@ -63,19 +63,12 @@
         z-index: 5;
     }
 
-	&:hover img {
+	&:hover .video-play-button-soft {
+        opacity: 1;
+    }
+    &:hover img {
 		filter: saturate(1);
     }
-
-    &:hover h4 {
-        opacity: 1;
-
-	}
-
-    &:hover div {
-        opacity: 1;
-        transform: scale(1);
-	}
 
 	&__title {
         position: absolute;
@@ -114,8 +107,16 @@
             width: 100%;
         }
 
+        &:hover .video-play-button-soft {
+            opacity: 1;
+        }
+        &:hover img {
+            filter: saturate(1);
+        }
+
         img {
             width: 600px;
+            filter: saturate(0.6);
             @include mobile-only {
                 width: 104% !important;
                 margin-bottom: 2.5rem !important;

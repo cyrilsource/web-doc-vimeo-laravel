@@ -40,7 +40,7 @@
             @endif
 
         </div>
-        <a id="play-video" data-lity class="video-play-button transition-fade" href="{{ $video->link }}">
+        <a id="play-video" data-lity class="video-play-button transition-fade2" href="{{ $video->link }}">
             <span></span>
         </a>
     </div>
