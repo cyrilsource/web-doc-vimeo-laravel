@@ -10,7 +10,7 @@
         <div class="transition-fade2">
             @foreach ($themes as $theme)
                 <a  class="theme-list__theme-link" href="{{ url('/themes') }}/{{ $theme->slug }}/{{ $theme->id }}">
-                    <h2 class="theme-list__title">{{ $theme->name }}</h2>
+                    <h2 class="theme-list__title">{{ $theme->name }} &rarr;</h2>
                 </a>
                 <div id="entry-content-text" class="entry-content-text ">
                     {{ $theme->excerpt }}
