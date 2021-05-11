@@ -55,6 +55,5 @@ if (containerEditPdf) {
 $('#excerpt').keyup(function () {
   let characterCount = $(this).val().length
   let current = $('#current')
-
   current.text(characterCount)
 });

@@ -25,15 +25,17 @@
             nextArrow: '<button class="slide-arrow next-arrow"></button>',
             responsive: [
                 {
-                    breakpoint: 600,
+                    breakpoint: 1024,
                     settings: {
+                        centerMode: true,
                         slidesToShow: 2,
                         slidesToScroll: 1,
                     }
                 },
                 {
-                    breakpoint: 480,
+                    breakpoint: 768,
                     settings: {
+                        centerMode: true,
                         slidesToShow: 1,
                         slidesToScroll: 1
                     }
@@ -70,22 +72,24 @@
             slidesToScroll: 1,
             prevArrow: '<button class="slide-arrow prev-arrow"></button>',
             nextArrow: '<button class="slide-arrow next-arrow"></button>',
-                responsive: [
-                    {
-                        breakpoint: 600,
-                        settings: {
-                            slidesToShow: 2,
-                            slidesToScroll: 2,
-                        }
-                    },
-                    {
-                        breakpoint: 480,
-                        settings: {
-                            slidesToShow: 1,
-                            slidesToScroll: 1
-                        }
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        centerMode: true,
+                        slidesToShow: 2,
+                        slidesToScroll: 1,
                     }
-			    ]
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        centerMode: true,
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+            ]
 		    });
 
         });
