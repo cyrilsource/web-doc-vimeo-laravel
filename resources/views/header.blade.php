@@ -37,9 +37,7 @@
 </header>
 <header class="header-mobile">
         <a title="retour" id="logo-back2" class="return back-button header-mobile-object"></a>
-        <div class="logo-wrapper">
-            <a id="logo" class="logo rotation-left header-mobile-object" href="{{ url('/') }}">TC</a>
-        </div>
+        <a id="logo" class="logo rotation-left header-mobile-object" href="{{ url('/') }}">TC</a>
         <div class="header-mobile--right">
             <span id="glass-mobile" class="glass-mobile"></span>
             <div id="search-container-mobile" class="search-container">
@@ -48,9 +46,9 @@
                     <button type="submit"></button>
                 </form>
             </div>
-            <div>
-                <button id="btn-dark-mode-mobile" class="btn-dark-mode header-mobile-object"></button>
-            </div>
+            <div class="m-nav-toggle">
+                <span class="m-toggle-icon"></span>
+            </div><!--.m-nav-toggle-->
         </div>
 
 </header>
