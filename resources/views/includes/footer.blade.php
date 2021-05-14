@@ -143,6 +143,14 @@
             })
         }
 
+        let back2 = document.getElementById('logo-back2')
+            if (back2) {
+            back2.addEventListener('click', function (e) {
+                e.preventDefault()
+                window.history.back()
+            })
+        }
+
         let title = document.querySelector('.entry-title__page h1')
 
         if (title) {

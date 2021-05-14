@@ -167,6 +167,15 @@ if (back) {
     e.preventDefault();
     window.history.back();
   });
+}
+
+var back2 = document.getElementById('logo-back2');
+
+if (back2) {
+  back2.addEventListener('click', function (e) {
+    e.preventDefault();
+    window.history.back();
+  });
 } // script for long titles on the pages - reduce font size
 
 

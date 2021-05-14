@@ -36,6 +36,7 @@
     </div>
 </header>
 <header class="header-mobile">
+        <a title="retour" id="logo-back2" class="return back-button"></a>
         <a id="logo" class="logo rotation-left header-mobile-object" href="{{ url('/') }}">TC</a>
         <div role="navigation" class="navigation header-mobile-object">
             <div class="button">

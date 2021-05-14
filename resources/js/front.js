@@ -69,6 +69,14 @@ if (back) {
   })
 }
 
+let back2 = document.getElementById('logo-back2')
+if (back2) {
+  back2.addEventListener('click', function (e) {
+    e.preventDefault()
+    window.history.back()
+  })
+}
+
 // script for long titles on the pages - reduce font size
 let title = document.querySelector('.entry-title__page h1')
 
