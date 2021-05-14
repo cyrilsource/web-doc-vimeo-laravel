@@ -354,6 +354,11 @@ html.is-animating .transition-slide {
   border-width: 0 6px 6px 0 !important;
 }
 
+.dark-theme .back-button {
+  border: solid white !important;
+  border-width: 0 6px 6px 0 !important;
+}
+
 .dark-theme .entry-content-text a {
   color: white;
 }
@@ -571,14 +576,14 @@ html.is-animating .transition-slide {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     margin-bottom: 2rem;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
     z-index: 200;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
     height: 50px;
   }
 }
@@ -595,7 +600,16 @@ html.is-animating .transition-slide {
   top: 5px;
 }
 
-.header-mobile .logo {
+.header-mobile .logo-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.header-mobile .logo-wrapper .logo {
   font-size: 2.9rem;
   text-decoration: none;
   width: 60px;
@@ -609,64 +623,26 @@ html.is-animating .transition-slide {
   font-weight: 500;
 }
 
-.header-mobile .logo.rotation-right {
+.header-mobile .logo-wrapper .logo.rotation-right {
   -webkit-animation: rotation-right 1s infinite linear;
           animation: rotation-right 1s infinite linear;
 }
 
-.header-mobile .logo.rotation-left {
+.header-mobile .logo-wrapper .logo.rotation-left {
   -webkit-animation: rotation-left 1s linear;
           animation: rotation-left 1s linear;
 }
 
-.header-mobile .navigation .button {
-  padding: 14px 45px;
+.header-mobile--right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.header-mobile .navigation .button:after {
-  border: solid white;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 3px;
-  -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
-          transform: rotate(45deg);
-}
-
-.header-mobile .navigation .themes-list {
-  display: none;
-  position: absolute;
-  top: 46px;
-  background-color: #fcfcfc;
-  min-width: 160px;
-  -webkit-box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 10;
-}
-
-@media screen and (max-width: 645px) {
-  .header-mobile .navigation .themes-list {
-    top: 70px;
-    width: 172px;
-  }
-}
-
-.header-mobile .navigation a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  -webkit-transition: all 0.5s;
-  -o-transition: all 0.5s;
-  transition: all 0.5s;
-}
-
-.header-mobile .navigation a:hover {
-  background-color: #4A4F7B;
-  color: #fcfcfc;
-}
-
-.header-mobile .btn-dark-mode {
+.header-mobile--right .btn-dark-mode {
   background-color: transparent;
   border: transparent;
   background-image: url(/terrecommune/public/storage/img/icon-moon.svg);
@@ -677,11 +653,11 @@ html.is-animating .transition-slide {
   cursor: pointer;
 }
 
-.header-mobile .unreveal {
+.header-mobile--right .unreveal {
   display: none;
 }
 
-.glass-mobile {
+.header-mobile--right .glass-mobile {
   position: relative;
   cursor: pointer;
   height: 10px;
@@ -692,12 +668,12 @@ html.is-animating .transition-slide {
 }
 
 @media screen and (max-width: 645px) {
-  .glass-mobile {
+  .header-mobile--right .glass-mobile {
     display: block;
   }
 }
 
-.glass-mobile:before {
+.header-mobile--right .glass-mobile:before {
   content: "";
   position: absolute;
   width: 10px;
@@ -708,7 +684,7 @@ html.is-animating .transition-slide {
   right: 5px;
 }
 
-.glass-mobile:after {
+.header-mobile--right .glass-mobile:after {
   content: "";
   position: absolute;
   height: 8px;
@@ -721,7 +697,7 @@ html.is-animating .transition-slide {
   right: 3px;
 }
 
-.glass-mobile.reveal {
+.header-mobile--right .glass-mobile.reveal {
   height: 20px;
   width: 20px;
   border: solid #33375F;
@@ -733,11 +709,11 @@ html.is-animating .transition-slide {
   top: 5px;
 }
 
-.glass-mobile.reveal:before {
+.header-mobile--right .glass-mobile.reveal:before {
   display: none;
 }
 
-.glass-mobile.reveal:after {
+.header-mobile--right .glass-mobile.reveal:after {
   display: none;
 }
 

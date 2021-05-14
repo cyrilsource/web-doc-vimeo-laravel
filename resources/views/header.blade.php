@@ -36,28 +36,23 @@
     </div>
 </header>
 <header class="header-mobile">
-        <a title="retour" id="logo-back2" class="return back-button"></a>
-        <a id="logo" class="logo rotation-left header-mobile-object" href="{{ url('/') }}">TC</a>
-        <div role="navigation" class="navigation header-mobile-object">
-            <div class="button">
-                <span class="yep">Themes<i class="arrow down arrow--select"></i></span>
+        <a title="retour" id="logo-back2" class="return back-button header-mobile-object"></a>
+        <div class="logo-wrapper">
+            <a id="logo" class="logo rotation-left header-mobile-object" href="{{ url('/') }}">TC</a>
+        </div>
+        <div class="header-mobile--right">
+            <span id="glass-mobile" class="glass-mobile"></span>
+            <div id="search-container-mobile" class="search-container">
+                <form action="{{ url('/search') }}" method="get">
+                    <input type="text" placeholder="Rechercher une vidéo" name="search">
+                    <button type="submit"></button>
+                </form>
             </div>
-            <div class="themes-list">
-            @foreach ($themes as $theme)
-                <a href="{{ url('/themes') }}/{{ $theme->slug }}/{{ $theme->id }}">{{ $theme->name }}</a>
-            @endforeach
+            <div>
+                <button id="btn-dark-mode-mobile" class="btn-dark-mode header-mobile-object"></button>
             </div>
         </div>
-        <span id="glass-mobile" class="glass-mobile"></span>
-        <div id="search-container-mobile" class="search-container">
-            <form action="{{ url('/search') }}" method="get">
-                <input type="text" placeholder="Rechercher une vidéo" name="search">
-                <button type="submit"></button>
-            </form>
-        </div>
-        <div>
-            <button id="btn-dark-mode-mobile" class="btn-dark-mode header-mobile-object"></button>
-        </div>
+
 </header>
 
 
