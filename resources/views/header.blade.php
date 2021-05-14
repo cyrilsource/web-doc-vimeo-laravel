@@ -50,6 +50,13 @@
                 <span class="m-toggle-icon"></span>
             </div><!--.m-nav-toggle-->
         </div>
+        <div class="menu">
+            <div class="themes-list">
+                @foreach ($themes as $theme)
+                    <a href="{{ url('/themes') }}/{{ $theme->slug }}/{{ $theme->id }}">{{ $theme->name }}</a>
+                @endforeach
+            </div>
+        </div>
 
 </header>
 

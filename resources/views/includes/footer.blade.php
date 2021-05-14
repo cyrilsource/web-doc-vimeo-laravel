@@ -45,6 +45,12 @@
 
     });
 
+    var hamburger = document.querySelector('.m-nav-toggle')
+    var open = document.querySelector('.menu')
+    hamburger.addEventListener('click', function () {
+    open.classList.toggle('is-open')
+    })
+
     document.addEventListener('swup:contentReplaced', function () {
         const logo = document.getElementById('logo')
 
@@ -63,6 +69,12 @@
                 logo.classList.add('rotation-left')
             })
         }
+
+        var hamburger = document.querySelector('.m-nav-toggle')
+        var open = document.querySelector('.menu')
+        hamburger.addEventListener('click', function () {
+            open.classList.toggle('is-open')
+        })
 
         jQuery( document ).ready(function( $ ){
 			$('.video-carousel').slick({

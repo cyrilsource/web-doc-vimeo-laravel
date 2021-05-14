@@ -114,6 +114,7 @@
 .header-mobile {
     display: none;
     @include mobile-only {
+        position: relative;
         display: flex;
         justify-content: space-between;
         margin-bottom: 2rem;
@@ -127,13 +128,15 @@
     }
 
     .logo {
-        font-size: 2.9rem;
+        position: absolute;
+        font-size: 2.5rem;
         text-decoration: none;
-        width: 60px;
-        height: 60px;
+        width: 50px;
+        height: 50px;
         letter-spacing: -7px;
         z-index: 10;
         @include header-object;
+        right: 44%;
         &.rotation-right {
             animation: rotation-right 1s infinite linear;
             }
@@ -207,7 +210,6 @@
         display: flex;
         align-items: center;
         float: right;
-        margin-right: 20px;
         margin-left: 2rem;
 
         .m-toggle-icon, .m-toggle-icon:before, .m-toggle-icon:after {
@@ -227,6 +229,33 @@
             top: -14px;
           }
     }
+}
+
+//slide menu
+.menu {
+    position: fixed;
+    padding: 1em;
+    top: 90px;
+    right: 0;
+    width: 300px;
+    height: 100vh;
+    z-index: 10;
+    transform: translateX(100%);
+    transition: all 0.3s ease-in-out;
+    background-color: $main-color;
+
+		&.is-open {
+			transform: translateX(0);
+		}
+		a {
+            display: block;
+            padding: 0;
+            margin-bottom: 20px;
+            height: 30px;
+            color: white;
+            font-size: 16px;
+		}
+
 }
 
 

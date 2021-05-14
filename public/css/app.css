@@ -573,6 +573,7 @@ html.is-animating .transition-slide {
 
 @media screen and (max-width: 645px) {
   .header-mobile {
+    position: relative;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -601,10 +602,11 @@ html.is-animating .transition-slide {
 }
 
 .header-mobile .logo {
-  font-size: 2.9rem;
+  position: absolute;
+  font-size: 2.5rem;
   text-decoration: none;
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   letter-spacing: -7px;
   z-index: 10;
   color: #fcfcfc;
@@ -612,6 +614,7 @@ html.is-animating .transition-slide {
   border-radius: 50%;
   padding: 0.1em;
   font-weight: 500;
+  right: 44%;
 }
 
 .header-mobile .logo.rotation-right {
@@ -719,7 +722,6 @@ html.is-animating .transition-slide {
       -ms-flex-align: center;
           align-items: center;
   float: right;
-  margin-right: 20px;
   margin-left: 2rem;
 }
 
@@ -740,6 +742,38 @@ html.is-animating .transition-slide {
 
 .header-mobile .m-nav-toggle .m-toggle-icon:after {
   top: -14px;
+}
+
+.menu {
+  position: fixed;
+  padding: 1em;
+  top: 90px;
+  right: 0;
+  width: 300px;
+  height: 100vh;
+  z-index: 10;
+  -webkit-transform: translateX(100%);
+      -ms-transform: translateX(100%);
+          transform: translateX(100%);
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: #33375F;
+}
+
+.menu.is-open {
+  -webkit-transform: translateX(0);
+      -ms-transform: translateX(0);
+          transform: translateX(0);
+}
+
+.menu a {
+  display: block;
+  padding: 0;
+  margin-bottom: 20px;
+  height: 30px;
+  color: white;
+  font-size: 16px;
 }
 
 /*buttons */
