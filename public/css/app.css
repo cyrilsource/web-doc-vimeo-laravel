@@ -359,6 +359,12 @@ html.is-animating .transition-slide {
   border-width: 0 6px 6px 0 !important;
 }
 
+.dark-theme .m-toggle-icon,
+.dark-theme .m-toggle-icon:before,
+.dark-theme .m-toggle-icon:after {
+  background-color: #fcfcfc !important;
+}
+
 .dark-theme .entry-content-text a {
   color: white;
 }
@@ -636,17 +642,6 @@ html.is-animating .transition-slide {
           align-items: center;
 }
 
-.header-mobile--right .btn-dark-mode {
-  background-color: transparent;
-  border: transparent;
-  background-image: url(/terrecommune/public/storage/img/icon-moon.svg);
-  background-position: top;
-  background-repeat: no-repeat;
-  width: 26px;
-  height: 26px;
-  cursor: pointer;
-}
-
 .header-mobile .unreveal {
   display: none;
 }
@@ -759,6 +754,17 @@ html.is-animating .transition-slide {
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   background-color: #33375F;
+}
+
+.menu .btn-dark-mode {
+  background-color: transparent;
+  border: transparent;
+  background-image: url(/terrecommune/public/storage/img/icon-moon-white.png);
+  background-position: top;
+  background-repeat: no-repeat;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
 }
 
 .menu.is-open {

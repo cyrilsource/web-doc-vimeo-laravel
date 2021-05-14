@@ -56,6 +56,7 @@
                     <a href="{{ url('/themes') }}/{{ $theme->slug }}/{{ $theme->id }}">{{ $theme->name }}</a>
                 @endforeach
             </div>
+            <button id="btn-dark-mode-mobile" class="btn-dark-mode"></button>
         </div>
 
 </header>

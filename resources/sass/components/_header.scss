@@ -148,19 +148,6 @@
     &--right {
         display: flex;
         align-items: center;
-        .btn-dark-mode {
-            background-color: transparent;
-            border: transparent;
-            // https://stackoverflow.com/questions/42576329/linking-a-css-image-url-in-laravel
-            background-image: url(/terrecommune/public/storage/img/icon-moon.svg);
-            background-position: top;
-            background-repeat: no-repeat;
-            width: 26px;
-            height: 26px;
-            cursor: pointer;
-        }
-
-
     }
 
     .unreveal {
@@ -244,17 +231,30 @@
     transition: all 0.3s ease-in-out;
     background-color: $main-color;
 
-		&.is-open {
-			transform: translateX(0);
-		}
-		a {
-            display: block;
-            padding: 0;
-            margin-bottom: 20px;
-            height: 30px;
-            color: white;
-            font-size: 16px;
-		}
+    .btn-dark-mode {
+        background-color: transparent;
+        border: transparent;
+        // https://stackoverflow.com/questions/42576329/linking-a-css-image-url-in-laravel
+        background-image: url(/terrecommune/public/storage/img/icon-moon-white.png);
+        background-position: top;
+        background-repeat: no-repeat;
+        width: 26px;
+        height: 26px;
+        cursor: pointer;
+
+    }
+
+    &.is-open {
+        transform: translateX(0);
+    }
+    a {
+        display: block;
+        padding: 0;
+        margin-bottom: 20px;
+        height: 30px;
+        color: white;
+        font-size: 16px;
+    }
 
 }
 

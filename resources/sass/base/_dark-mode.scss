@@ -55,6 +55,11 @@
         border: solid white !important;
         border-width: 0 6px 6px 0 !important;
     }
+
+    .m-toggle-icon, .m-toggle-icon:before, .m-toggle-icon:after {
+        background-color: $main-white !important;
+
+    }
     .entry-content-text {
         a {
             color: white;
