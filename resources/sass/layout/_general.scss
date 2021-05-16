@@ -48,7 +48,6 @@
     @include mobile-only {
         font-size: 2rem;
     }
-    text-align: center;
     &__page {
         color: $main-color;
         font-size: map-get($main-title, title-page);
@@ -66,6 +65,13 @@
             @include mobile-only {
                 font-size: 1.6rem;
             }
+        }
+    }
+
+    &__video {
+        font-size: 1.7rem !important;
+        @include ipad-only {
+            font-size: 1.02rem !important;
         }
     }
 }

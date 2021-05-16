@@ -3,5 +3,10 @@
         color: $main-color;
         padding-left: 0.4rem;
         font-size: 1.5rem;
+
+        @include mobile-only {
+            font-size: 1rem;
+            padding-left: 0rem;
+        }
     }
 }

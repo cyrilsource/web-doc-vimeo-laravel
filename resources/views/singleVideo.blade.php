@@ -19,11 +19,11 @@
                     <div class="button">
                         <span id="pdf" class="yep" data-link="{{ url('/') }}/storage/pdf/video/{{$video->pdf}}">pdf</span>
                     </div>
-                    <div id="entry-title" class="center entry-title entry-title__page entry-title__page-pdf transition-fade2">
+                    <div id="entry-title" class="entry-title entry-title__page entry-title__video entry-title__page-pdf transition-fade2">
                         <h1>{{ $video->title }}</h1>
                     </div>
                     @else
-                    <div id="entry-title" class="center entry-title entry-title__page transition-fade2">
+                    <div id="entry-title" class="entry-title entry-title__page entry-title__video transition-fade2">
                         <h1>{{ $video->title }}</h1>
                     </div>
 

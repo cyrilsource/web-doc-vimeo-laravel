@@ -46,8 +46,8 @@
                     <button type="submit"></button>
                 </form>
             </div>
-            <div class="m-nav-toggle">
-                <span class="m-toggle-icon"></span>
+            <div class="m-nav-toggle header-mobile-object">
+                <span class="m-toggle-icon header-mobile-object"></span>
             </div><!--.m-nav-toggle-->
         </div>
         <div class="menu">
