@@ -1500,6 +1500,7 @@ html.is-animating .transition-slide {
   border: 2px solid #33375F;
   padding: 12px 16px;
   font-size: 16px;
+  min-width: 230px;
 }
 
 .search-container form {
