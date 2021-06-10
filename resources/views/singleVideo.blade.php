@@ -1,6 +1,8 @@
 @extends("layouts.front")
 
-@section('title', 'Themes')
+@section('title')
+{{trans($video->title)}}
+@stop
 
 @section('content')
 

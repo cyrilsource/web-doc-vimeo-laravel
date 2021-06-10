@@ -1,6 +1,8 @@
 @extends("layouts.front")
-
-@section('title', 'Themes')
+<!--https://stackoverflow.com/questions/34676729/add-meta-tags-to-laravel-page-->
+@section('title')
+{{trans($theme->name)}}
+@stop
 
 @section('content')
 

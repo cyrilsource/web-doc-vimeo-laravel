@@ -1,6 +1,5 @@
 @extends("layouts.front")
 
-
 @section('title', 'Videos search')
 
 @section('content')
