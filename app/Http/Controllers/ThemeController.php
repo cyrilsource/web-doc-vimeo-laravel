@@ -27,7 +27,15 @@ class ThemeController extends Controller
         //pour aficher les videos
         $videos = Video::orderBy('title', 'asc')->get();
 
-        return view('themes', ['themes' => $themes, 'videos' => $videos, 'template' =>'index']);
+        // Make an array with the videos object
+        $videos_array = $videos->toArray();
+
+        // random an element of videos array
+        $random = array_rand($videos_array, 1);
+
+        $image = $videos[$random]['thumbnail_large'];
+
+        return view('themes', ['themes' => $themes, 'videos' => $videos,'image' => $image,  'template' =>'index']);
     }
 
     /**
@@ -160,11 +168,21 @@ class ThemeController extends Controller
             return $text;
         }
 
-        $description = $theme['description'];
+        // truncate the excerpt for meta description
+        $excerpt = $theme['excerpt'];
 
-        $short = limit_text($description, $words);
+        // https://99webtools.com/blog/truncate-a-string-in-php-without-breaking-words/
+        function Truncate($text,$length) {
+            if (preg_match('/^.{1,'.$length.'}\b/su', $text, $match)) {
+                return $match[0];
+            }
+            else
+                return $text;
+        }
 
-        // display with min and sec for duration. more readable
+        $metadescription = Truncate($excerpt, 155);
+
+        // display with min and sec for duration. themes/accueil-libre/15more readable
        for ($i=0; $i < count($videos); $i++) {
             $duration = $videos[$i]['duration'];
             if ($duration < 60) {
@@ -178,7 +196,7 @@ class ThemeController extends Controller
             }
             $videos[$i]['duration'] = $display_duration;
        }
-        return view('singleTheme', ['themes' => $themes, 'theme' => $theme, 'short' => $short, 'videos' => $videos, 'frame' => $frame, 'template' => 'show']);
+        return view('singleTheme', ['themes' => $themes, 'theme' => $theme, 'videos' => $videos, 'frame' => $frame, 'metadescription' => $metadescription, 'template' => 'show']);
     }
 
     /**

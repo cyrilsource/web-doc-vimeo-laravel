@@ -4,6 +4,14 @@
 {{trans($theme->name)}}
 @stop
 
+@section('description')
+{{trans($metadescription)}}
+@stop
+
+@section('url')
+themes/{{trans($theme->slug)}}/{{trans($theme->id)}}
+@stop
+
 @section('content')
 
 <main  id="swup" class="main">

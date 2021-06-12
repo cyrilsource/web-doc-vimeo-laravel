@@ -182,9 +182,26 @@ class VideoController extends Controller
             }
         $video['duration'] = $display_duration;
 
+        $description = $video['description'];
+
+         // https://99webtools.com/blog/truncate-a-string-in-php-without-breaking-words/
+         function Truncate($text,$length) {
+            if (preg_match('/^.{1,'.$length.'}\b/su', $text, $match)) {
+                return $match[0];
+            }
+            else
+                return $text;
+        }
+        if ($description !== null) {
+            $metadescription = Truncate($description, 155);
+        }
+        else {
+            $metadescription = 'une video de Terre Commune';
+        }
+
         $themes = Theme::orderBy('name', 'asc')->get();
 
-        return view('singleVideo', ['themes' => $themes, 'video' => $video, 'template' => 'show']);
+        return view('singleVideo', ['themes' => $themes, 'video' => $video, 'metadescription' => $metadescription, 'template' => 'show']);
     }
 
     /**

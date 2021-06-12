@@ -3,6 +3,12 @@
 
 @section('title', 'Themes')
 
+@section('description', 'Sur cette page voici la liste des différents thèmes autour de l\'animation socioculturelle à Genève')
+
+@section('image')
+{{trans($image)}}
+@stop
+
 @section('content')
 <main  id="swup" class="main">
 @include('header')

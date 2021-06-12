@@ -5,7 +5,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>@yield('title') - Terre Commune</title>
-
+        <meta name="description" content="@yield('description')"/>
+        <meta property="og:title" content="@yield('title')"/>
+        <meta property="og:url" content="{{ url('/') }}/@yield('url')" />
+        <meta property="og:image" content="@yield('image')" />
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <!-- Fonts -->

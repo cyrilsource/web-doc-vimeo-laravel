@@ -4,6 +4,14 @@
 {{trans($video->title)}}
 @stop
 
+@section('description')
+{{trans($metadescription)}}
+@stop
+
+@section('url')
+videos/{{trans($video->slug)}}/{{trans($video->id)}}
+@stop
+
 @section('content')
 
 <main  id="swup" class="main">
