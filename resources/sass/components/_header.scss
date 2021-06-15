@@ -67,6 +67,7 @@
         & .navigation {
             & .button {
                 padding: 14px 16px;
+                border: none !important;
                 &:after {
                     border: solid white;
                     border-width: 0 3px 3px 0;

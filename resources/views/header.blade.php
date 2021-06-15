@@ -8,16 +8,16 @@
         </a>
         @endif
         @if($template =='show')
-        <a title="retour" id="logo-back" class="return">
+        <a title="retour" id="logo-back" class="return" href="#">
             <span><</span>
         </a>
         @endif
     </div>
     <div class="header--right">
-        <div role="navigation" class="navigation header--right-el">
-            <div class="button">
+        <div role="navigation" class="navigation header--right-el" role="button" aria-pressed="false">
+            <button class="button">
                 <span class="yep">Themes<i class="arrow down arrow--select"></i></span>
-            </div>
+            </button>
             <div class="themes-list">
             @foreach ($themes as $theme)
                 <a href="{{ url('/themes') }}/{{ $theme->slug }}/{{ $theme->id }}">{{ $theme->name }}</a>
@@ -25,13 +25,13 @@
             </div>
         </div>
         <div class="search-container header--right-el">
-            <form action="{{ url('/search') }}" method="get">
+            <form action="{{ url('/search') }}" method="get" role="search">
                 <input type="text" placeholder="Rechercher une vidéo" name="search">
                 <button type="submit"></button>
             </form>
         </div>
         <div class="header--right-el">
-            <button id="btn-dark-mode" class='btn-dark-mode'></button>
+            <button title="mode sombre ou clair" id="btn-dark-mode" class='btn-dark-mode'></button>
         </div>
     </div>
 </header>
@@ -41,7 +41,7 @@
         <div class="header-mobile--right">
             <span id="glass-mobile" class="glass-mobile"></span>
             <div id="search-container-mobile" class="search-container">
-                <form action="{{ url('/search') }}" method="get">
+                <form action="{{ url('/search') }}" method="get" role="search">
                     <input type="text" placeholder="Rechercher une vidéo" name="search">
                     <button type="submit"></button>
                 </form>

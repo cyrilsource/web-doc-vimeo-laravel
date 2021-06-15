@@ -2,8 +2,22 @@
     a{
         text-decoration: none;
     }
+    &__theme-link {
+        display: block;
+        width: 33%;
+    }
     &__title {
         color: $main-color;
+        display: flex;
+        align-items: center;
+        span {
+            transition: all 0.5 cubic-bezier(0.86, 0, 0.07, 1);
+            margin-left: 0.3em;
+            font-size: 2rem;
+        }
+        &:hover span {
+            transform: translateX(1rem);
+        }
     }
     .entry-content-text {
         margin-bottom: -1rem;

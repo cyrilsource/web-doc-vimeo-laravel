@@ -1,0 +1,26 @@
+.logo:focus, .return:focus, .navigation .button:focus, .search-container input:focus, .btn-dark-mode:focus, .theme-list__theme-link:focus {
+    @include outline;
+}
+
+.slick-arrow:focus  {
+    font-size: 0;
+    line-height: 0;
+    position: absolute;
+    top: 50%;
+    display: block;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    -webkit-transform: translate(0,-50%);
+    -ms-transform: translate(0,-50%);
+    transform: translate(0,-50%);
+    cursor: pointer;
+    color: transparent;
+    border: none;
+    outline: 0;
+    background: 0 0;
+    border: solid $comp;
+    border-width: 0 6px 6px 0;
+    display: inline-block;
+    padding: 3px;
+}

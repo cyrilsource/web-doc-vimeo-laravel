@@ -10,13 +10,16 @@
 @stop
 
 @section('content')
-<main  id="swup" class="main">
+<main  id="swup" class="main" role="main">
 @include('header')
     <div class="theme-list">
         <div class="transition-fade2">
             @foreach ($themes as $theme)
                 <a  class="theme-list__theme-link" href="{{ url('/themes') }}/{{ $theme->slug }}/{{ $theme->id }}">
-                    <h2 class="theme-list__title">{{ $theme->name }} &rarr;</h2>
+                    <div class="theme-list__title">
+                        <h2>{{ $theme->name }}</h2>
+                        <span>&rarr;</span>
+                    </div>
                 </a>
                 <div id="entry-content-text" class="entry-content-text ">
                     {{ $theme->excerpt }}

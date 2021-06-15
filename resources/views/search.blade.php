@@ -3,7 +3,7 @@
 @section('title', 'Videos search')
 
 @section('content')
-<main  id="swup" class="main">
+<main  id="swup" class="main" role="main">
 @include('header')
     <div class="entry-content-themes">
         <div class="entry-content-themes__grid">

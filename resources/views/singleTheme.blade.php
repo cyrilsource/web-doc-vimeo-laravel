@@ -14,7 +14,7 @@ themes/{{trans($theme->slug)}}/{{trans($theme->id)}}
 
 @section('content')
 
-<main  id="swup" class="main">
+<main  id="swup" class="main" role="main">
 @include('header')
 @include('gif')
 <div class="singleTheme">
