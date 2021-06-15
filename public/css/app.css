@@ -412,7 +412,8 @@ html.is-animating .transition-slide {
 .navigation .button:focus,
 .search-container input:focus,
 .btn-dark-mode:focus,
-.theme-list__theme-link:focus {
+.theme-list__theme-link:focus,
+.entry-content a:focus {
   outline: #FFC792 solid 2px;
 }
 
@@ -882,6 +883,7 @@ html.is-animating .transition-slide {
   background-color: #33375F;
   padding: 0.5rem;
   cursor: pointer;
+  text-decoration: none;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;

@@ -1,4 +1,4 @@
-.logo:focus, .return:focus, .navigation .button:focus, .search-container input:focus, .btn-dark-mode:focus, .theme-list__theme-link:focus {
+.logo:focus, .return:focus, .navigation .button:focus, .search-container input:focus, .btn-dark-mode:focus, .theme-list__theme-link:focus, .entry-content a:focus {
     @include outline;
 }
 

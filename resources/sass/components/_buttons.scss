@@ -28,6 +28,7 @@
     position: relative;
     transition: all 0.5s;
     @include button;
+    text-decoration: none;
     // https://stackoverflow.com/questions/450903/how-can-i-make-a-div-not-larger-than-its-contents
     width: fit-content;
     &:hover .yep::after{

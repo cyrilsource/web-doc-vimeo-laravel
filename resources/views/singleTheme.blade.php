@@ -26,9 +26,9 @@ themes/{{trans($theme->slug)}}/{{trans($theme->id)}}
             <div class="header-theme">
                 {{-- https://www.xspdf.com/resolution/53718494.html --}}
                 @if (!empty($theme->pdf))
-                    <div class="button">
-                        <span id="pdf" class="yep" data-link="{{ url('/') }}/storage/pdf/theme/{{$theme->pdf}}">pdf</span>
-                    </div>
+                    <a id="pdf" class="button" href="#" data-link="{{ url('/') }}/storage/pdf/theme/{{$theme->pdf}}">
+                        <span class="yep" >pdf</span>
+                    </a>
                     <div id="entry-title" class="center entry-title entry-title__page entry-title__page-pdf transition-fade2">
                         <h1>{{ $theme->name }}</h1>
                     </div>
@@ -42,9 +42,9 @@ themes/{{trans($theme->slug)}}/{{trans($theme->id)}}
             <div id="entry-content-text" class=entry-content-text>
                 {{ $theme->excerpt }}
             </div>
-            <div class="button">
-                <span class="yep" data-lity href="#long">Lire + de texte</span>
-            </div>
+            <a href="#" class="button" data-lity href="#long">
+                <span class="yep" >Lire + de texte</span>
+            </a>
             <div id="long" class="lity-hide">{!! $theme->description !!}</div>
             @if($frame !='none')
                 <section class="video-carousel transition-fade2">
