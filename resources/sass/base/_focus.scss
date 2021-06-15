@@ -1,5 +1,9 @@
-.logo:focus, .return:focus, .navigation .button:focus, .search-container input:focus, .btn-dark-mode:focus, .theme-list__theme-link:focus, .entry-content a:focus {
+.logo:focus, .return:focus, .navigation .button:focus, .search-container input:focus, .btn-dark-mode:focus, .theme-list__theme-link:focus, .entry-content .button:focus, .entry-content-themes__card:focus h2 {
     @include outline;
+}
+
+.video-play-button:focus {
+    @include outline(7px);
 }
 
 .slick-arrow:focus  {

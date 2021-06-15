@@ -413,8 +413,13 @@ html.is-animating .transition-slide {
 .search-container input:focus,
 .btn-dark-mode:focus,
 .theme-list__theme-link:focus,
-.entry-content a:focus {
-  outline: #FFC792 solid 2px;
+.entry-content .button:focus,
+.entry-content-themes__card:focus h2 {
+  outline: #FFC792 solid 3px;
+}
+
+.video-play-button:focus {
+  outline: #FFC792 solid 7px;
 }
 
 .slick-arrow:focus {

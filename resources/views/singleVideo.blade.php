@@ -26,9 +26,9 @@ videos/{{trans($video->slug)}}/{{trans($video->id)}}
         <div class="entry-content transition-fade2">
             <div class="header-theme">
                 @if (!empty($video->pdf))
-                    <div class="button">
-                        <span id="pdf" class="yep" data-link="{{ url('/') }}/storage/pdf/video/{{$video->pdf}}">pdf</span>
-                    </div>
+                    <a id="pdf" href=#" class="button" data-link="{{ url('/') }}/storage/pdf/video/{{$video->pdf}}">
+                        <span class="yep">pdf</span>
+                    </a>
                     <div id="entry-title" class="entry-title entry-title__page entry-title__video entry-title__page-pdf transition-fade2">
                         <h1>{{ $video->title }}</h1>
                     </div>

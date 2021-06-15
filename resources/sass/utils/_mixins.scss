@@ -156,6 +156,6 @@
     top: 5px;
 }
 
-@mixin outline {
-    outline: $comp solid 2px;
+@mixin outline($width: 3px) {
+    outline: $comp solid $width;
 }
