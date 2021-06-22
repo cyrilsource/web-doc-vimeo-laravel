@@ -58,6 +58,7 @@
             </div>
             <button id="btn-dark-mode-mobile" class="btn-dark-mode"></button>
         </div>
+        <span class="close"></span>
 
 </header>
 

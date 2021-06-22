@@ -66,9 +66,15 @@
 
         var hamburger = document.querySelector('.m-nav-toggle')
         var op = document.querySelector('.menu')
+        var cross = document.querySelector('.close')
         hamburger.addEventListener('click', function () {
             op.classList.toggle('is-open')
+            cross.classList.toggle('is-open')
         })
+        cross.addEventListener('click', function () {
+            op.classList.remove('is-open')
+            cross.classList.remove('is-open')
+        });
 
         jQuery( document ).ready(function( $ ){
 			$('.video-carousel').slick({
