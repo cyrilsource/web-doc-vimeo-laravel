@@ -53,10 +53,10 @@
         <div class="menu">
             <div class="themes-list">
                 @foreach ($themes as $theme)
-                    <a href="{{ url('/themes') }}/{{ $theme->slug }}/{{ $theme->id }}">{{ $theme->name }}</a>
+                    <a class="menu-item" href="{{ url('/themes') }}/{{ $theme->slug }}/{{ $theme->id }}">{{ $theme->name }}</a>
                 @endforeach
             </div>
-            <button id="btn-dark-mode-mobile" class="btn-dark-mode"></button>
+            <button id="btn-dark-mode-mobile" class="menu-item btn-dark-mode"></button>
         </div>
         <span class="close"></span>
 

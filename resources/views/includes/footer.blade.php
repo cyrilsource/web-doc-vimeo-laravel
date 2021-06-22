@@ -40,10 +40,23 @@
     });
 
     var hamburger = document.querySelector('.m-nav-toggle')
-    var op = document.querySelector('.menu')
-    hamburger.addEventListener('click', function () {
-    op.classList.toggle('is-open')
-    })
+        var op = document.querySelector('.menu')
+        var cross = document.querySelector('.close')
+        var menuItem = document.querySelectorAll('.menu-item')
+        hamburger.addEventListener('click', function () {
+            op.classList.toggle('is-open')
+            cross.classList.toggle('is-open')
+        })
+        cross.addEventListener('click', function () {
+            op.classList.remove('is-open')
+            cross.classList.remove('is-open')
+        })
+        for (var index = 0; index < menuItem.length; index++) {
+            menuItem[index].addEventListener('click', function () {
+            op.classList.remove('is-open')
+            cross.classList.remove('is-open')
+            })
+        }
 
     document.addEventListener('swup:contentReplaced', function () {
         const logo = document.getElementById('logo')
@@ -67,6 +80,7 @@
         var hamburger = document.querySelector('.m-nav-toggle')
         var op = document.querySelector('.menu')
         var cross = document.querySelector('.close')
+        var menuItem = document.querySelectorAll('.menu-item')
         hamburger.addEventListener('click', function () {
             op.classList.toggle('is-open')
             cross.classList.toggle('is-open')
@@ -74,7 +88,13 @@
         cross.addEventListener('click', function () {
             op.classList.remove('is-open')
             cross.classList.remove('is-open')
-        });
+        })
+        for (var index = 0; index < menuItem.length; index++) {
+            menuItem[index].addEventListener('click', function () {
+            op.classList.remove('is-open')
+            cross.classList.remove('is-open')
+            })
+        }
 
         jQuery( document ).ready(function( $ ){
 			$('.video-carousel').slick({
