@@ -26,7 +26,7 @@
         </div>
         <div class="search-container header--right-el">
             <form action="{{ url('/search') }}" method="get" role="search">
-                <input type="text" placeholder="Rechercher une vidéo" name="search">
+                <input title="recherche" aria-label="rechercher une vidéo" type="text" placeholder="Rechercher une vidéo" name="search">
                 <button type="submit"></button>
             </form>
         </div>

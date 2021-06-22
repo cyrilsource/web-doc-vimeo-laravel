@@ -42,7 +42,7 @@
                                     @endif
                                 @endif
                             </div>
-                            <img src="{{ $video->thumbnail_large }}">
+                            <img src="{{ $video->thumbnail_large }}" alt="{{ $video->title }}">
                             <div class="video-play-button-soft"><span></span></div>
                         </a>
                     @endforeach
@@ -63,7 +63,7 @@
                                         @endif
                                     @endif
                                 </div>
-                                <img src="{{ $video->thumbnail_large }}">
+                                <img src="{{ $video->thumbnail_large }}" alt="{{ $video->title }}">
                                 <div class="video-play-button-soft"><span></span></div>
                             </a>
                         @endforeach

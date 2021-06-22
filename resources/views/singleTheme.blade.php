@@ -42,7 +42,7 @@ themes/{{trans($theme->slug)}}/{{trans($theme->id)}}
             <div id="entry-content-text" class=entry-content-text>
                 {{ $theme->excerpt }}
             </div>
-            <a href="#" class="button" data-lity href="#long">
+            <a href="#long" class="button" data-lity href="#long">
                 <span class="yep" >Lire + de texte</span>
             </a>
             <div id="long" class="lity-hide">{!! $theme->description !!}</div>
@@ -54,7 +54,7 @@ themes/{{trans($theme->slug)}}/{{trans($theme->id)}}
                                 <h3>{{ $video->title }}</h3>
                                 <p>{{ $video->duration }}</p>
                             </div>
-                            <img src="{{ $video->thumbnail_large }}">
+                            <img src="{{ $video->thumbnail_large }}" alt="{{ $video->title }}">
                             <div class="video-play-button-soft"><span></span></div>
                         </a>
                     @endforeach
@@ -67,7 +67,7 @@ themes/{{trans($theme->slug)}}/{{trans($theme->id)}}
                                 <h3>{{ $video->title }}</h3>
                                 <p>{{ $video->duration }}</p>
                             </div>
-                            <img src="{{ $video->thumbnail_large }}">
+                            <img src="{{ $video->thumbnail_large }}" alt="{{ $video->title }}">
                             <div class="video-play-button-soft"><span></span></div>
                         </a>
                     @endforeach

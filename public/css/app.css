@@ -1171,7 +1171,7 @@ html.is-animating .transition-slide {
 .video-carousel-card__title {
   position: absolute;
   bottom: 0;
-  background-color: rgba(41, 51, 156, 0.4);
+  background-color: rgba(41, 51, 156, 0.8);
   padding: 0.5rem;
   text-align: center;
   z-index: 3;
@@ -1315,7 +1315,7 @@ html.is-animating .transition-slide {
 .video-vignette-card__title {
   position: absolute;
   bottom: 2px;
-  background-color: rgba(41, 51, 156, 0.4);
+  background-color: rgba(41, 51, 156, 0.8);
   padding: 0.5rem;
   text-align: center;
   width: 100%;
@@ -1553,6 +1553,21 @@ html.is-animating .transition-slide {
   .search-container {
     display: none;
   }
+}
+
+.search-container legend {
+  visibility: hidden;
+}
+
+.search-container .fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.search-container .label {
+  visibility: hidden;
+  width: 1px;
 }
 
 .search-container input {
