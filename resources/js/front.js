@@ -5,7 +5,7 @@ if (logo) {
   logo.addEventListener('mouseover', function () {
     if (logo.classList.contains('rotation-left')) {
       logo.classList.remove('rotation-left')
-  }
+    }
     logo.classList.add('rotation-right')
   })
 
@@ -107,9 +107,9 @@ if (glass) {
 
 // open pdf in new tab
 let pdf = document.getElementById('pdf')
-let href = pdf.dataset.link
 
 if (pdf) {
+  let href = pdf.dataset.link
   pdf.addEventListener('click', function (e) {
     window.open(href)
   })

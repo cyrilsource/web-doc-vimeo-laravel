@@ -210,9 +210,9 @@ if (glass) {
 
 
 var pdf = document.getElementById('pdf');
-var href = pdf.dataset.link;
 
 if (pdf) {
+  var href = pdf.dataset.link;
   pdf.addEventListener('click', function (e) {
     window.open(href);
   });
