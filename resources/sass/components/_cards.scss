@@ -63,7 +63,11 @@
 	img {
         @include transition;
         filter: saturate(0.6);
-        width: 97%;
+        width: 98%;
+        height: 100%;
+        @include mobile-only {
+            width: 100%;
+        }
     }
 
     & h4 {
@@ -94,7 +98,10 @@
 		text-align: center;
         z-index: 3;
         opacity: 1;
-        width: 97%;
+        width: 98%;
+        @include mobile-only {
+            width: 100%;
+        }
         h3 {
             color: $main-white;
             font-size: map-get($main-title, third-title);

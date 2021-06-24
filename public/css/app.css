@@ -439,7 +439,7 @@ html.is-animating .transition-slide {
   font-size: 0;
   line-height: 0;
   position: absolute;
-  top: 50%;
+  top: 42%;
   display: block;
   width: 30px;
   height: 30px;
@@ -1224,7 +1224,14 @@ html.is-animating .transition-slide {
   transition: all 0.3s ease-in-out;
   -webkit-filter: saturate(0.6);
           filter: saturate(0.6);
-  width: 97%;
+  width: 98%;
+  height: 100%;
+}
+
+@media screen and (max-width: 645px) {
+  .video-carousel-card img {
+    width: 100%;
+  }
 }
 
 .video-carousel-card h4 {
@@ -1263,7 +1270,13 @@ html.is-animating .transition-slide {
   text-align: center;
   z-index: 3;
   opacity: 1;
-  width: 97%;
+  width: 98%;
+}
+
+@media screen and (max-width: 645px) {
+  .video-carousel-card__title {
+    width: 100%;
+  }
 }
 
 .video-carousel-card__title h3 {
@@ -1514,7 +1527,7 @@ html.is-animating .transition-slide {
   font-size: 0;
   line-height: 0;
   position: absolute;
-  top: 50%;
+  top: 42%;
   display: block;
   width: 30px;
   height: 30px;
