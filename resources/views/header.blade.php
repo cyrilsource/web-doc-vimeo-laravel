@@ -14,16 +14,18 @@
         @endif
     </div>
     <div class="header--right">
-        <div role="navigation" class="navigation header--right-el" role="button" aria-pressed="false">
-            <button class="button">
-                <span class="yep">Themes<i class="arrow down arrow--select"></i></span>
-            </button>
-            <div class="themes-list">
-            @foreach ($themes as $theme)
-                <a href="{{ url('/themes') }}/{{ $theme->slug }}/{{ $theme->id }}">{{ $theme->name }}</a>
-            @endforeach
+        @if($template != 'error-404' )
+            <div role="navigation" class="navigation header--right-el" role="button" aria-pressed="false">
+                <button class="button">
+                    <span class="yep">Themes<i class="arrow down arrow--select"></i></span>
+                </button>
+                <div class="themes-list">
+                @foreach ($themes as $theme)
+                    <a href="{{ url('/themes') }}/{{ $theme->slug }}/{{ $theme->id }}">{{ $theme->name }}</a>
+                @endforeach
+                </div>
             </div>
-        </div>
+        @endif
         <div class="search-container header--right-el">
             <form action="{{ url('/search') }}" method="get" role="search">
                 <input title="recherche" aria-label="rechercher une vidéo" type="text" placeholder="Rechercher une vidéo" name="search">

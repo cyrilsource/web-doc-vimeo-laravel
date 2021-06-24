@@ -319,6 +319,11 @@ html.is-animating .transition-slide {
   color: #fcfcfc;
 }
 
+.dark-theme .entry-title h3,
+.dark-theme .entry-title a {
+  color: #fcfcfc !important;
+}
+
 .dark-theme .entry-content-text {
   color: #fcfcfc;
 }
@@ -2002,5 +2007,37 @@ html.is-animating .transition-slide {
 
 .theme-list .entry-content-text {
   margin-bottom: -1rem;
+}
+
+.page-error-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.page-error-container .page-error-text {
+  width: 50%;
+  margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 645px) {
+  .page-error-container .page-error-text {
+    width: 100%;
+  }
+}
+
+.page-error-container .page-error-text a {
+  color: #33375F;
+  text-decoration: underline;
 }
 

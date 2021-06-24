@@ -1,0 +1,19 @@
+.page-error-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .page-error-text {
+        width: 50%;
+        margin-bottom: $margin;
+        @include mobile-only {
+            width: 100%;
+        }
+        a {
+            color: $main-color;
+            text-decoration: underline;
+        }
+    }
+}
+
+

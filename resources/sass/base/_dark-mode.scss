@@ -14,6 +14,9 @@
     & #entry-title h1{
         color: $main-white;
     }
+    & .entry-title h3, .entry-title a {
+        color: $main-white !important;
+    }
     & .entry-content-text {
         color: $main-white;
     }
