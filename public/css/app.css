@@ -1122,6 +1122,16 @@ html.is-animating .transition-slide {
   grid-gap: 40px;
 }
 
+.entry-content-themes__single {
+  width: 50%;
+}
+
+@media screen and (max-width: 645px) {
+  .entry-content-themes__single {
+    width: 100%;
+  }
+}
+
 .entry-content-themes__card {
   position: relative;
   z-index: 1;

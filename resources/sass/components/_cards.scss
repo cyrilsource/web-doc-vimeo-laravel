@@ -5,6 +5,12 @@
 		grid-template-rows: auto;
 		grid-gap: 40px;
 	}
+    &__single {
+        width: 50%;
+        @include mobile-only {
+            width: 100%;
+        }
+    }
     &__card {
         position: relative;
         z-index: 1;
