@@ -8,10 +8,10 @@
 
 <div class="row">
     <div class="col-4">
-        <h2>Edit the video <strong>{{$video->title}}</strong></h2>
+        <h2>Edit the video <strong><a href="{{ url('/video') }}/{{ $video->slug }}/{{ $video->id }}">{{$video->title}}</a></strong></h2>
         <img class="edit-video-thumbnail" src="{{ $video->thumbnail_medium }}">
         <br>
-        <a href="{{ $video->link }}" class="btn btn-info" role="button" aria-pressed="true">Lien vers la vidéo</a>
+        <a href="{{ $video->link }}" class="btn btn-info" role="button" aria-pressed="true">Lien vers la vidéo sur Vimeo</a>
         <hr/>
         <form class="edit-video" action="" enctype="multipart/form-data" method="post">
         @csrf

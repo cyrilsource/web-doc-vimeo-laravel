@@ -126,11 +126,14 @@
 
         });
 
-        jQuery( document ).ready(function( $ ){
-            $('.navigation').click(function() {
-                $('.themes-list').toggle('slow');
-            });
-        });
+        let navigation = document.querySelector('.navigation')
+        let themesList = document.querySelector('.themes-list')
+        navigation.addEventListener('mouseover', function (e) {
+            themesList.classList.add('open-list')
+        })
+        navigation.addEventListener('mouseout', function (e) {
+            themesList.classList.remove('open-list')
+        })
 
         let darkMode = document.getElementById('btn-dark-mode')
 

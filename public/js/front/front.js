@@ -111,13 +111,15 @@ if (logo) {
 
     logo.classList.add('rotation-left');
   });
-} // script: get the themes list
+}
 
-
-jQuery(document).ready(function ($) {
-  $('.navigation').click(function () {
-    $('.themes-list').toggle('slow');
-  });
+var navigation = document.querySelector('.navigation');
+var themesList = document.querySelector('.themes-list');
+navigation.addEventListener('mouseover', function (e) {
+  themesList.classList.add('open-list');
+});
+navigation.addEventListener('mouseout', function (e) {
+  themesList.classList.remove('open-list');
 });
 var darkMode = document.getElementById('btn-dark-mode');
 

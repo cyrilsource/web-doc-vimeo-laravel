@@ -8,7 +8,7 @@
 
 <div class="row">
     <div class="col-4">
-        <h2>Edit the theme {{$theme->name}}</h2>
+        <h2>Edit the theme <a href="{{ url('/themes') }}/{{ $theme->slug }}/{{ $theme->id }}">{{$theme->name}}</a></h2>
         <form action="" enctype="multipart/form-data" method="post">
         @csrf
         <div class="form-group">
