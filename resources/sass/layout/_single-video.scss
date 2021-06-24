@@ -10,3 +10,21 @@
         }
     }
 }
+
+.video-themes {
+    margin-top: 1rem;
+    word-spacing: 5px;
+    a {
+        font-size: 1.3rem;
+        color: $main-color;
+        text-decoration: none !important;
+        border-bottom: 1px solid #7A6A95;
+        box-shadow: inset 0 -0.125em 0 #7A6A95;
+        transition: box-shadow 270ms cubic-bezier(0.77, 0, 0.175, 1), color 270ms cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    a:hover {
+        box-shadow: inset 0 -1.125em 0 #7A6A95;
+        color: $main-color;
+    }
+}

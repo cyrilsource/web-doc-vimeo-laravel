@@ -97,9 +97,9 @@
                     <td><a href="{{ url('/video') }}/{{ $video->slug }}/{{ $video->id }}">{{ $video->title }}</a></td>
                     <td><a href="{{$video->link}}">link on vimeo</a></td>
                     <td>
-                        @foreach ($video->themes as $theme)
-                            <em>{{$theme->name}},</em>
-                        @endforeach
+                    @foreach ($video->themes as $theme)
+                        <em>{{$theme->name}}@if (!$loop->last), @endif</em>
+                    @endforeach
                     </td>
                     <td><a href="{{ url('/') }}/admin/editVideo/{{$video->id}}" class="btn btn-info" role="button" aria-pressed="true">Edit</a></td>
                     <td>

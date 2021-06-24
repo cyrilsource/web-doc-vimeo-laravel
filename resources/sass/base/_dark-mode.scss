@@ -96,6 +96,15 @@
         }
     }
 
+    .video-themes {
+        a {
+            color: $main-white;
+        }
+        a:hover {
+            color: $main-white;
+        }
+    }
+
     .theme-list {
 
         &__title {

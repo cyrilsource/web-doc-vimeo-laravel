@@ -43,9 +43,11 @@ videos/{{trans($video->slug)}}/{{trans($video->id)}}
             <div class="video-duration">
                 <p>{{ $video->duration }}</p>
             </div>
-            @foreach ($video->themes as $theme)
-                <em>{{$theme->name}},</em>
-            @endforeach
+            <div class="video-themes">
+                @foreach ($video->themes as $theme)
+                    <em><a href="{{ url('/themes') }}/{{ $theme->slug }}/{{ $theme->id }}">{{$theme->name}}@if(!$loop->last),@endif</a></em>
+                @endforeach
+            </div>
             @if (!empty($video->description))
                 <div id="entry-content-text" class=entry-content-text>
                     {!! $video->description ?? '' !!}
