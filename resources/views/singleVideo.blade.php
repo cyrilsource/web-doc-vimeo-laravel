@@ -1,15 +1,19 @@
 @extends("layouts.front")
 
 @section('title')
-{{trans($video->title)}}
+{{$video->title}}
 @stop
 
 @section('description')
-{{trans($metadescription)}}
+{{ $metadescription }}
 @stop
 
 @section('url')
-videos/{{trans($video->slug)}}/{{trans($video->id)}}
+themes/{{$video->slug}}/{{$video->id}}
+@stop
+
+@section('image')
+{{$video->thumbnail_large}}
 @stop
 
 @section('content')

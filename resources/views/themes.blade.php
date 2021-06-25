@@ -1,6 +1,5 @@
 @extends("layouts.front")
 
-
 @section('title', 'Themes')
 
 @section('description', 'Sur cette page voici la liste des différents thèmes autour de l\'animation socioculturelle à Genève')

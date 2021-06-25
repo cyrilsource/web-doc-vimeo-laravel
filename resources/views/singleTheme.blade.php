@@ -1,15 +1,19 @@
 @extends("layouts.front")
 <!--https://stackoverflow.com/questions/34676729/add-meta-tags-to-laravel-page-->
 @section('title')
-{{trans($theme->name)}}
+{{$theme->name}}
 @stop
 
 @section('description')
-{{trans($metadescription)}}
+{{ $metadescription }}
 @stop
 
 @section('url')
-themes/{{trans($theme->slug)}}/{{trans($theme->id)}}
+themes/{{$theme->slug}}/{{$theme->id}}
+@stop
+
+@section('image')
+{{ url('/') }}/storage/img/theme/{{$theme->thumbnail}}
 @stop
 
 @section('content')
