@@ -33,26 +33,21 @@ class ThemeController extends Controller
             return $request[0][$data];
         }
 
-        for ($i=0; $i < count($themes); $i++) {
-            $id = $themes[$i]['id'];
-            //get the videos with the theme
-            $videos = Theme::findOrFail($id)->videos->sortBy('title')->all();
+        for ($i=0; $i < count($all_videos); $i++) {
 
-            for ($i=0; $i < count($videos); $i++) {
-                $vimeo_id = $videos[$i]['vimeo_id'];
-                $id_video = $videos[$i]['id'];
+                $vimeo_id = $all_videos[$i]['vimeo_id'];
+                $id_video = $all_videos[$i]['id'];
 
                 //get thumnail_large vimeo
                 $thumbnail_large = get_vimeo_data_from_id( $vimeo_id, 'thumbnail_large' );
 
                 // update the thumbnail link in database
-                if ($videos[$i]['thumbnail_large'] != $thumbnail_large ) {
+                if ($all_videos[$i]['thumbnail_large'] != $thumbnail_large ) {
                     //update datas in database
                     DB::table('videos')
                     ->where('id', $id_video)
                     ->update(['thumbnail_large' => $thumbnail_large]);
                 }
-            }
         }
 
         // Make an array with the videos object
