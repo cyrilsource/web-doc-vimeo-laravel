@@ -25,7 +25,7 @@ class ThemeController extends Controller
         $themes = Theme::orderBy('name', 'asc')->get();
 
         //pour aficher les videos
-        $videos = Video::orderBy('title', 'asc')->get();
+        $all_videos = Video::orderBy('title', 'asc')->get();
 
         //https://stackoverflow.com/questions/1361149/get-img-thumbnails-from-vimeo
         function get_vimeo_data_from_id( $video_id, $data ) {
@@ -33,24 +33,39 @@ class ThemeController extends Controller
             return $request[0][$data];
         }
 
-        for ($i=0; $i < count($videos); $i++) {
-            $vimeo_id = $videos[$i]['vimeo_id'];
+        for ($i=0; $i < count($themes); $i++) {
+            $id = $themes[$i]['id'];
+            //get the videos with the theme
+            $videos = Theme::findOrFail($id)->videos->sortBy('title')->all();
 
-            //get thumnail_large vimeo
-            $thumbnail_large = get_vimeo_data_from_id( $vimeo_id, 'thumbnail_large' );
+            for ($i=0; $i < count($videos); $i++) {
+                $vimeo_id = $videos[$i]['vimeo_id'];
+                $id_video = $videos[$i]['id'];
 
-            $videos[$i]['thumbnail_large'] = $thumbnail_large;
+                //get thumnail_large vimeo
+                $thumbnail_large = get_vimeo_data_from_id( $vimeo_id, 'thumbnail_large' );
+
+                if ($videos[$i]['thumbnail_large'] != $thumbnail_large ) {
+                    //update datas in database
+                    DB::table('videos')
+                    ->where('id', $id_video)
+                    ->update(['thumbnail_large' => $thumbnail_large]);
+                }
+
+
+            }
         }
 
+
         // Make an array with the videos object
-        $videos_array = $videos->toArray();
+        $videos_array = $all_videos->toArray();
 
         // random an element of videos array
         $random = array_rand($videos_array, 1);
 
-        $image = $videos[$random]['thumbnail_large'];
+        $image = $all_videos[$random]['thumbnail_large'];
 
-        return view('themes', ['themes' => $themes, 'videos' => $videos,'image' => $image,  'template' =>'index']);
+        return view('themes', ['themes' => $themes, 'image' => $image, 'template' =>'index']);
     }
 
     /**

@@ -341,6 +341,22 @@ class VideoController extends Controller
         ->orderBy('title')
         ->get();
 
+        //https://stackoverflow.com/questions/1361149/get-img-thumbnails-from-vimeo
+        function get_vimeo_data_from_id( $video_id, $data ) {
+            $request = unserialize(file_get_contents( 'http://vimeo.com/api/v2/video/' . $video_id .'.php' ));
+            return $request[0][$data];
+        }
+
+        for ($i=0; $i < count($videos); $i++) {
+            $vimeo_id = $videos[$i]['vimeo_id'];
+
+            //get thumnail_large vimeo
+            $thumbnail_large = get_vimeo_data_from_id( $vimeo_id, 'thumbnail_large' );
+
+            $videos[$i]['thumbnail_large'] = $thumbnail_large;
+        }
+
+
         $themes = Theme::orderBy('name', 'asc')->get();
 
         return view('search', ['themes' => $themes, 'videos' => $videos, 'template' => 'show']);
