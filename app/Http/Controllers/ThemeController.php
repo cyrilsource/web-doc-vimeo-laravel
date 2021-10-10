@@ -45,17 +45,15 @@ class ThemeController extends Controller
                 //get thumnail_large vimeo
                 $thumbnail_large = get_vimeo_data_from_id( $vimeo_id, 'thumbnail_large' );
 
+                // update the thumbnail link in database
                 if ($videos[$i]['thumbnail_large'] != $thumbnail_large ) {
                     //update datas in database
                     DB::table('videos')
                     ->where('id', $id_video)
                     ->update(['thumbnail_large' => $thumbnail_large]);
                 }
-
-
             }
         }
-
 
         // Make an array with the videos object
         $videos_array = $all_videos->toArray();
