@@ -27,7 +27,6 @@
 
                     <section class="video-carousel transition-fade2 margin-bottom">
                     @foreach ($theme->videos as $video)
-
                         <a href="{{ url('/video') }}/{{ $video->slug }}/{{ $video->id }}" class="video-carousel-card">
                             <div class="video-carousel-card__title">
                                 <h3>{{ $video->title }}</h3>
