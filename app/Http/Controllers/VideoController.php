@@ -223,6 +223,9 @@ class VideoController extends Controller
 
         $description = $video['description'];
 
+        //remove html tags
+        $description2 = strip_tags($description);
+
          // https://99webtools.com/blog/truncate-a-string-in-php-without-breaking-words/
          function Truncate($text,$length) {
             if (preg_match('/^.{1,'.$length.'}\b/su', $text, $match)) {
@@ -231,8 +234,8 @@ class VideoController extends Controller
             else
                 return $text;
         }
-        if ($description !== null) {
-            $metadescription = Truncate($description, 155);
+        if ($description2 !== null) {
+            $metadescription = Truncate($description2, 155);
         }
         else {
             $metadescription = 'une video de Terre Commune';
