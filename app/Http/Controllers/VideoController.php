@@ -16,13 +16,60 @@ use App\Video;
 class VideoController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * update the video thumbnail from vimeo when the link is broken.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function thumbnails()
     {
-        //
+        //pour aficher les videos
+        $videos = Video::orderBy('title', 'asc')->get();
+
+        //https://stackoverflow.com/questions/1361149/get-img-thumbnails-from-vimeo
+        function get_vimeo_data_from_id( $video_id, $data ) {
+            $request = unserialize(file_get_contents( 'http://vimeo.com/api/v2/video/' . $video_id .'.php' ));
+            return $request[0][$data];
+        }
+
+        for ($i=0; $i < count($videos); $i++) {
+
+                $vimeo_id = $videos[$i]['vimeo_id'];
+                $id_video = $videos[$i]['id'];
+
+                //get thumnail_large vimeo
+                $thumbnail_large = get_vimeo_data_from_id( $vimeo_id, 'thumbnail_large' );
+                $thumbnail_medium = get_vimeo_data_from_id( $vimeo_id, 'thumbnail_medium' );
+                $thumbnail_small = get_vimeo_data_from_id( $vimeo_id, 'thumbnail_small' );
+
+                // update the thumbnail large link in database
+                if ($videos[$i]['thumbnail_large'] != $thumbnail_large ) {
+                    //update datas in database
+                    DB::table('videos')
+                    ->where('id', $id_video)
+                    ->update(['thumbnail_large' => $thumbnail_large]);
+                }
+
+                // update the thumbnail medium link in database
+                if ($videos[$i]['thumbnail_medium'] != $thumbnail_medium ) {
+                    //update datas in database
+                    DB::table('videos')
+                    ->where('id', $id_video)
+                    ->update(['thumbnail_medium' => $thumbnail_medium]);
+                }
+
+                // update the thumbnail small link in database
+                if ($videos[$i]['thumbnail_small'] != $thumbnail_small ) {
+                    //update datas in database
+                    DB::table('videos')
+                    ->where('id', $id_video)
+                    ->update(['thumbnail_small' => $thumbnail_small]);
+                }
+        }
+
+        //display themes for select input
+        $themes = Theme::orderBy('name', 'asc')->get();
+
+        return view('admin.videos', ['videos' => $videos, 'themes' => $themes]);
     }
 
     /**

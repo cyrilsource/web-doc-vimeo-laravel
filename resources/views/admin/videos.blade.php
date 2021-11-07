@@ -114,6 +114,10 @@
                 </tr>
             </tbody>
             </table>
+            <form action="{{ url('/') }}/admin/update-thumbnails" method="post">
+                @csrf
+                <button type="submit" class="btn btn-info">Update thumbnails</button>
+            </form>
         </div>
     </div>
 
