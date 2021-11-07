@@ -27,29 +27,6 @@ class ThemeController extends Controller
         //pour aficher les videos
         $all_videos = Video::orderBy('title', 'asc')->get();
 
-        //https://stackoverflow.com/questions/1361149/get-img-thumbnails-from-vimeo
-        function get_vimeo_data_from_id( $video_id, $data ) {
-            $request = unserialize(file_get_contents( 'http://vimeo.com/api/v2/video/' . $video_id .'.php' ));
-            return $request[0][$data];
-        }
-
-        for ($i=0; $i < count($all_videos); $i++) {
-
-                $vimeo_id = $all_videos[$i]['vimeo_id'];
-                $id_video = $all_videos[$i]['id'];
-
-                //get thumnail_large vimeo
-                $thumbnail_large = get_vimeo_data_from_id( $vimeo_id, 'thumbnail_large' );
-
-                // update the thumbnail link in database
-                if ($all_videos[$i]['thumbnail_large'] != $thumbnail_large ) {
-                    //update datas in database
-                    DB::table('videos')
-                    ->where('id', $id_video)
-                    ->update(['thumbnail_large' => $thumbnail_large]);
-                }
-        }
-
         // Make an array with the videos object
         $videos_array = $all_videos->toArray();
 
@@ -214,8 +191,6 @@ class ThemeController extends Controller
         // display with min and sec for duration. themes/accueil-libre/15more readable
        for ($i=0; $i < count($videos); $i++) {
             $vimeo_id = $videos[$i]['vimeo_id'];
-            //get thumnail_large vimeo
-            $thumbnail_large = get_vimeo_data_from_id( $vimeo_id, 'thumbnail_large' );
             $duration = $videos[$i]['duration'];
             if ($duration < 60) {
                $display_duration = $duration . ' sec';
@@ -227,7 +202,6 @@ class ThemeController extends Controller
                }
             }
             $videos[$i]['duration'] = $display_duration;
-            $videos[$i]['thumbnail_large'] = $thumbnail_large;
        }
         return view('singleTheme', ['themes' => $themes, 'theme' => $theme, 'videos' => $videos, 'frame' => $frame, 'metadescription' => $metadescription, 'template' => 'show']);
     }
