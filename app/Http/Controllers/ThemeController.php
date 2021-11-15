@@ -39,6 +39,18 @@ class ThemeController extends Controller
     }
 
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexAdmin()
+    {
+        $themes = Theme::orderBy('name', 'asc')->get();
+
+        return view('admin.home', ['themes' => $themes]);
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -50,7 +62,7 @@ class ThemeController extends Controller
 
         $themes = Theme::orderBy('name', 'asc')->get();
 
-        return view('admin.home', ['themes' => $themes, 'characters' => $characters]);
+        return view('admin.createTheme', ['themes' => $themes, 'characters' => $characters]);
 
     }
 

@@ -32,10 +32,11 @@ Route::get('/ways', function () {
 });
 
 /* admin */
-
+//display list of themes
+Route::get('/admin/', 'ThemeController@indexAdmin');
 
 //display form to create themes
-Route::get('/admin/', 'ThemeController@create');
+Route::get('/admin/createTheme', 'ThemeController@create');
 
 //create a new theme
 Route::post('/admin/', 'ThemeController@store');

@@ -24,13 +24,12 @@
     <ul class="list-unstyled ps-0">
         <li class="mb-1">
           <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
-            Home
+            Themes
           </button>
           <div class="collapse show" id="home-collapse">
             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-              <li><a href="#" class="link-dark rounded">Overview</a></li>
-              <li><a href="#" class="link-dark rounded">Updates</a></li>
-              <li><a href="#" class="link-dark rounded">Reports</a></li>
+              <li><a href="{{ url('/') }}/admin" class="link-dark rounded">List of themes</a></li>
+              <li><a href="{{ url('/') }}/admin/createTheme" class="link-dark rounded">Add a new theme</a></li>
             </ul>
           </div>
         </li>
