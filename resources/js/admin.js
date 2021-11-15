@@ -57,3 +57,4 @@ $('#excerpt').keyup(function () {
   let current = $('#current')
   current.text(characterCount)
 });
+
