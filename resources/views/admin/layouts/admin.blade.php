@@ -23,29 +23,28 @@
     <div class="sidebar-heading">Terre Commune</div>
     <ul class="list-unstyled ps-0">
         <li class="mb-1">
+            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+              Videos
+            </button>
+            <div class="collapse show" id="home-collapse">
+              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li><a href="{{ url('/') }}/admin" class="link-dark rounded">List of videos</a></li>
+                <li><a href="{{ url('/') }}/admin/createVideo" class="link-dark rounded">Add a new video</a></li>
+              </ul>
+            </div>
+          </li>
+        <li class="mb-1">
           <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
             Themes
           </button>
           <div class="collapse show" id="home-collapse">
             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-              <li><a href="{{ url('/') }}/admin" class="link-dark rounded">List of themes</a></li>
+              <li><a href="{{ url('/') }}/admin/themes" class="link-dark rounded">List of themes</a></li>
               <li><a href="{{ url('/') }}/admin/createTheme" class="link-dark rounded">Add a new theme</a></li>
             </ul>
           </div>
         </li>
-        <li class="mb-1">
-          <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
-            Dashboard
-          </button>
-          <div class="collapse" id="dashboard-collapse">
-            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-              <li><a href="#" class="link-dark rounded">Overview</a></li>
-              <li><a href="#" class="link-dark rounded">Weekly</a></li>
-              <li><a href="#" class="link-dark rounded">Monthly</a></li>
-              <li><a href="#" class="link-dark rounded">Annually</a></li>
-            </ul>
-          </div>
-        </li>
+
         <li class="mb-1">
           <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
             Orders

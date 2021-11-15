@@ -15,6 +15,20 @@ use App\Video;
 
 class VideoController extends Controller
 {
+
+    /**
+     * Show the videos
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        //pour aficher les videos
+        $videos = Video::orderBy('title', 'asc')->get();
+
+        return view('admin.home', ['videos' => $videos]);
+
+    }
     /**
      * update the video thumbnail from vimeo when the link is broken.
      *
@@ -85,7 +99,7 @@ class VideoController extends Controller
         //display themes for select input
         $themes = Theme::orderBy('name', 'asc')->get();
 
-        return view('admin.videos', ['videos' => $videos, 'themes' => $themes]);
+        return view('admin.createVideo', ['videos' => $videos, 'themes' => $themes]);
 
     }
 
@@ -203,7 +217,7 @@ class VideoController extends Controller
         //display themes for select input
         $themes = Theme::orderBy('name', 'asc')->get();
 
-        return view('admin.videos', ['videos' => $videos, 'themes' => $themes]);
+        return view('admin.home', ['videos' => $videos, 'themes' => $themes]);
 
     }
 
@@ -368,7 +382,7 @@ class VideoController extends Controller
         //display themes for select input
         $themes = Theme::orderBy('name', 'asc')->get();
 
-        return view('admin.videos', ['videos' => $videos, 'themes' => $themes]);
+        return view('admin.home', ['videos' => $videos, 'themes' => $themes]);
     }
 
     public function search(Request $request)

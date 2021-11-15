@@ -47,7 +47,7 @@ class ThemeController extends Controller
     {
         $themes = Theme::orderBy('name', 'asc')->get();
 
-        return view('admin.home', ['themes' => $themes]);
+        return view('admin.themes', ['themes' => $themes]);
     }
 
     /**
@@ -138,7 +138,7 @@ class ThemeController extends Controller
 
         $themes = Theme::orderBy('name', 'asc')->get();
 
-        return view('admin.home', ['themes' => $themes, 'characters' => $characters]);
+        return view('admin.themes', ['themes' => $themes, 'characters' => $characters]);
 
     }
 
@@ -345,7 +345,7 @@ class ThemeController extends Controller
 
         $themes = Theme::orderBy('name', 'asc')->get();
 
-        return view('admin.home', ['themes' => $themes, 'characters' => $characters]);
+        return view('admin.themes', ['themes' => $themes, 'characters' => $characters]);
 
     }
 }

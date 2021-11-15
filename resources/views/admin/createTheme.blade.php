@@ -8,7 +8,7 @@
 
 <div class="row">
     <div class="col-4 margin-top">
-        <form action="{{ url('/') }}/admin" enctype="multipart/form-data" method="post">
+        <form action="{{ url('/') }}/admin/themes" enctype="multipart/form-data" method="post">
         @csrf
 
           <div class="form-group m-4">

@@ -32,29 +32,15 @@ Route::get('/ways', function () {
 });
 
 /* admin */
-//display list of themes
-Route::get('/admin/', 'ThemeController@indexAdmin');
 
-//display form to create themes
-Route::get('/admin/createTheme', 'ThemeController@create');
-
-//create a new theme
-Route::post('/admin/', 'ThemeController@store');
-
-//edit theme
-Route::get('/admin/editTheme/{id}', 'ThemeController@edit');
-
-//update theme
-Route::post('/admin/editTheme/{id}', 'ThemeController@update');
-
-//delete theme
-Route::post('/admin/deleteTheme/{id}', 'ThemeController@destroy');
+//display list of videos
+Route::get('/admin/', 'VideoController@index');
 
 //display form to create videos
-Route::get('/admin/videos', 'VideoController@create');
+Route::get('/admin/createVideo', 'VideoController@create');
 
 //create a new video
-Route::post('/admin/videos', 'VideoController@store');
+Route::post('/admin/createVideo', 'VideoController@store');
 
 //delete video
 Route::post('/admin/deleteVideo/{id}', 'VideoController@destroy');
@@ -64,6 +50,24 @@ Route::get('/admin/editVideo/{id}', 'VideoController@edit');
 
 //update video thumbnails
 Route::post('/admin/update-thumbnails', 'VideoController@thumbnails');
+
+//display list of themes
+Route::get('/admin/themes', 'ThemeController@indexAdmin');
+
+//display form to create themes
+Route::get('/admin/createTheme', 'ThemeController@create');
+
+//create a new theme
+Route::post('/admin/themes', 'ThemeController@store');
+
+//edit theme
+Route::get('/admin/editTheme/{id}', 'ThemeController@edit');
+
+//update theme
+Route::post('/admin/editTheme/{id}', 'ThemeController@update');
+
+//delete theme
+Route::post('/admin/deleteTheme/{id}', 'ThemeController@destroy');
 
 //update theme
 Route::post('/admin/editVideo/{id}', 'VideoController@update');
