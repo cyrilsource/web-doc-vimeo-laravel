@@ -23,10 +23,10 @@
     <div class="sidebar-heading">Terre Commune</div>
     <ul class="list-unstyled ps-0">
         <li class="mb-1">
-            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#videos-collapse" aria-expanded="true">
               Videos
             </button>
-            <div class="collapse show" id="home-collapse">
+            <div class="collapse show" id="videos-collapse">
               <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                 <li><a href="{{ url('/') }}/admin" class="link-dark rounded">List of videos</a></li>
                 <li><a href="{{ url('/') }}/admin/createVideo" class="link-dark rounded">Add a new video</a></li>
@@ -34,10 +34,10 @@
             </div>
           </li>
         <li class="mb-1">
-          <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+          <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#themes-collapse" aria-expanded="true">
             Themes
           </button>
-          <div class="collapse show" id="home-collapse">
+          <div class="collapse show" id="themes-collapse">
             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
               <li><a href="{{ url('/') }}/admin/themes" class="link-dark rounded">List of themes</a></li>
               <li><a href="{{ url('/') }}/admin/createTheme" class="link-dark rounded">Add a new theme</a></li>

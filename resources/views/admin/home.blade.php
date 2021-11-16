@@ -20,7 +20,7 @@
     <tbody>
     @foreach ($videos as $video)
         <tr>
-            <td><img src="{{ $video->thumbnail_medium }}"></td>
+            <td><img src="{{ $video->thumbnail_small }}"></td>
             <td><a href="{{ url('/video') }}/{{ $video->slug }}/{{ $video->id }}">{{ $video->title }}</a></td>
             <td><a href="{{$video->link}}">link on vimeo</a></td>
             <td>
