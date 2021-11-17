@@ -3,6 +3,8 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="csrf-token" content="{{ csrf_token() }}" />
 
         <title>Terre Commune - Admin</title>
 
@@ -132,6 +134,35 @@
   $("#menu-toggle").click(function(e) {
     e.preventDefault();
     $("#wrapper").toggleClass("toggled");
+  })
+
+  //search videos
+  $('body').on('keyup', '#search-videos', function(){
+      var query = $(this).val()
+
+      $.ajax({
+          method: 'POST',
+          url: '{{ route("search-videos" )}}',
+          dataType: 'json',
+          data: {
+              '_token': '{{ csrf_token()}}',
+              query: query
+          },
+
+          success: function(res) {
+            console.log(res)
+            var tableRow = '';
+
+            $('#dynamic-row').html('')
+
+            $.each(res, function(index, value){
+                var tableRow = '<tr><td>'+value.title+'</td></tr>'
+
+                $('#dynamic-row').append(tableRow)
+                console.log(tableRow)
+            })
+          }
+      })
   })
 
   /* global bootstrap: false */

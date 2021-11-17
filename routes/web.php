@@ -36,6 +36,8 @@ Route::get('/ways', function () {
 //display list of videos
 Route::get('/admin/', 'VideoController@index');
 
+Route::post('/admin/search', ['as' => 'search-videos', 'uses' => 'VideoController@searchAdmin']);
+
 //display form to create videos
 Route::get('/admin/createVideo', 'VideoController@create');
 

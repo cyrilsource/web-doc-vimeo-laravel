@@ -29,6 +29,15 @@ class VideoController extends Controller
         return view('admin.home', ['videos' => $videos]);
 
     }
+
+    public function searchAdmin(Request $request)   {
+
+
+        $videos = Video::where('title', 'like', '%' .$request->get('query') . '%' )->get();
+
+        return json_encode($videos);
+     }
+
     /**
      * update the video thumbnail from vimeo when the link is broken.
      *

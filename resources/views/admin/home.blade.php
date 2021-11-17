@@ -4,7 +4,7 @@
 
 <h1 class="mt-4 mb-5 text-center">List of videos</h1>
 @include('admin/error')
-
+<input type="text" class="form-control" placeholder="Search video" id="search-videos">
 <div class="col-8 margin-top">
     <table class="table table-striped">
     <thead>
@@ -17,7 +17,7 @@
         <th scope="col">Delete</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody id="dynamic-row">
     @foreach ($videos as $video)
         <tr>
             <td><img src="{{ $video->thumbnail_small }}"></td>
