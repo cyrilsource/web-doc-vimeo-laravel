@@ -25,7 +25,7 @@ class VideoController extends Controller
     public function index()
     {
         //pour aficher les videos
-        $videos = Video::orderBy('title', 'asc')->get();
+        $videos = Video::with('themes')->get();
 
         return VideoResource::collection($videos);
 
@@ -36,14 +36,17 @@ class VideoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function searchAdmin()
+    public function searchAdmin(Request $request)
     {
-        if ($search = Input::get('q')) {
-            $videos = Video::where("title", "LIKE", "%".$search."%")
+        //https://www.positronx.io/create-live-search-in-laravel-vue-js-application/
+
+        if ($search = $request->q) {
+            $videos = Video::with('themes')
+            ->where("title", "LIKE", "%".$search."%")
             ->get();
         }
         else {
-            $videos = Customer::orderBy('title', 'asc')->get();
+            $videos = Video::with('themes')->get();
         }
 
         return VideoResource::collection($videos);
