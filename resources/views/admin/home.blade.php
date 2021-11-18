@@ -4,7 +4,8 @@
 
 
 <h1 class="mt-4 mb-5 text-center">List of videos</h1>
-<div id="app">
+<a href="{{ url('/') }}/admin/createVideo" class="btn btn-primary m-3">Add a new video</a>
+<div id="app" class="m-3">
     <app></app>
 </div>
 
