@@ -14,6 +14,7 @@
         <link href="{{ asset('css/admin/admin.css') }}" rel="stylesheet">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <script src="{{ asset('js/app.js') }}" defer></script>
         <script src="https://cdn.tiny.cloud/1/jxlnrmc20xgg41706k5kkku9p1x25ip6oqlo88wjm6oez1iy/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     </head>
     <body>
@@ -150,7 +151,6 @@
           },
 
           success: function(res) {
-            console.log(res)
             var tableRow = '';
 
             $('#dynamic-row').html('')
@@ -159,7 +159,7 @@
                 var tableRow = '<tr><td>'+value.title+'</td></tr>'
 
                 $('#dynamic-row').append(tableRow)
-                console.log(tableRow)
+
             })
           }
       })

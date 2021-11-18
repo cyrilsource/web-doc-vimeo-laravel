@@ -17,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+//videos list
+Route::get('videos', 'VideoController@index');
+
+//search a video in admin
+Route::get('findVideo', 'VideoController@searchAdmin');

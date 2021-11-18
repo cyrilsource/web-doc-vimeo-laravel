@@ -10,6 +10,7 @@ use App\Http\Requests\CreateVideoRequest;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use App\Http\Resources\Video as VideoResource;
 use App\Theme;
 use App\Video;
 
@@ -26,17 +27,27 @@ class VideoController extends Controller
         //pour aficher les videos
         $videos = Video::orderBy('title', 'asc')->get();
 
-        return view('admin.home', ['videos' => $videos]);
+        return VideoResource::collection($videos);
 
     }
 
-    public function searchAdmin(Request $request)   {
+    /**
+     * Search a video in admin
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function searchAdmin()
+    {
+        if ($search = Input::get('q')) {
+            $videos = Video::where("title", "LIKE", "%".$search."%")
+            ->get();
+        }
+        else {
+            $videos = Customer::orderBy('title', 'asc')->get();
+        }
 
-
-        $videos = Video::where('title', 'like', '%' .$request->get('query') . '%' )->get();
-
-        return json_encode($videos);
-     }
+        return VideoResource::collection($videos);
+    }
 
     /**
      * update the video thumbnail from vimeo when the link is broken.

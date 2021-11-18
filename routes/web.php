@@ -31,10 +31,14 @@ Route::get('/ways', function () {
     return view('ways');
 });
 
+
 /* admin */
 
 //display list of videos
-Route::get('/admin/', 'VideoController@index');
+Route::get('/admin', function () {
+    return view('admin.home');
+});
+
 
 Route::post('/admin/search', ['as' => 'search-videos', 'uses' => 'VideoController@searchAdmin']);
 
