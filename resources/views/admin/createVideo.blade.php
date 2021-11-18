@@ -7,7 +7,7 @@
 
         <div class="row">
             <div class="col-4 m-5">
-                <form action="{{ url('/') }}/admin" enctype="multipart/form-data" method="post">
+                <form action="{{ url('/') }}/admin/createVideo" enctype="multipart/form-data" method="post">
                 @csrf
                     <div class="form-group m-4">
                         <label for="link">video link</label>

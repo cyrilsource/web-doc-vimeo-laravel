@@ -133,6 +133,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 //https://stackoverflow.com/questions/42814679/vuejs-2-uncaught-referenceerror-is-not-defined-with-debounce
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -148,12 +153,14 @@ __webpack_require__.r(__webpack_exports__);
         vimeo_id: ''
       },
       search: '',
-      baseUrl: 'coucou'
+      baseUrl: '',
+      csrf: ''
     };
   },
   created: function created() {
     this.fetchVideos();
     this.getUrl();
+    this.getCsrf();
   },
   methods: {
     fetchVideos: function fetchVideos() {
@@ -168,6 +175,10 @@ __webpack_require__.r(__webpack_exports__);
     getUrl: function getUrl() {
       var baseUrl = window.location.origin;
       this.baseUrl = baseUrl;
+    },
+    getCsrf: function getCsrf() {
+      var csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+      this.csrf = csrf;
     },
     searchIt: lodash__WEBPACK_IMPORTED_MODULE_0___default.a.debounce(function () {
       var _this2 = this;
@@ -17817,62 +17828,89 @@ var render = function () {
         _vm._v(" "),
         _c(
           "tbody",
-          [
-            _vm._l(_vm.videos, function (video) {
-              return _c("tr", { key: video.id }, [
-                _c("td", [
-                  _c("img", { attrs: { src: video.thumbnail_small } }),
-                ]),
-                _vm._v(" "),
-                _c("td", [
-                  _c(
-                    "a",
-                    {
-                      attrs: {
-                        href:
-                          _vm.baseUrl + "/video/" + video.slug + "/" + video.id,
-                      },
-                    },
-                    [_vm._v(_vm._s(video.title))]
-                  ),
-                ]),
-                _vm._v(" "),
+          _vm._l(_vm.videos, function (video) {
+            return _c("tr", { key: video.id }, [
+              _c("td", [_c("img", { attrs: { src: video.thumbnail_small } })]),
+              _vm._v(" "),
+              _c("td", [
                 _c(
-                  "td",
-                  _vm._l(video.themes, function (theme) {
-                    return _c("em", { key: theme.id }, [
-                      _vm._v(_vm._s(theme.name) + ", "),
-                    ])
-                  }),
-                  0
-                ),
-                _vm._v(" "),
-                _c("td", [
-                  _c("a", { attrs: { href: video.link } }, [
-                    _vm._v("link on vimeo"),
-                  ]),
-                ]),
-                _vm._v(" "),
-                _c("td", [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "btn btn-info",
-                      attrs: {
-                        href: _vm.baseUrl + "/admin/" + video.id,
-                        role: "button",
-                        "aria-pressed": "true",
-                      },
+                  "a",
+                  {
+                    attrs: {
+                      href:
+                        _vm.baseUrl + "/video/" + video.slug + "/" + video.id,
                     },
-                    [_vm._v("Edit")]
-                  ),
+                  },
+                  [_vm._v(_vm._s(video.title))]
+                ),
+              ]),
+              _vm._v(" "),
+              _c(
+                "td",
+                _vm._l(video.themes, function (theme) {
+                  return _c("em", { key: theme.id }, [
+                    _vm._v(_vm._s(theme.name) + ", "),
+                  ])
+                }),
+                0
+              ),
+              _vm._v(" "),
+              _c("td", [
+                _c("a", { attrs: { href: video.link } }, [
+                  _vm._v("link on vimeo"),
                 ]),
-              ])
-            }),
-            _vm._v(" "),
-            _c("tr"),
-          ],
-          2
+              ]),
+              _vm._v(" "),
+              _c("td", [
+                _c(
+                  "a",
+                  {
+                    staticClass: "btn btn-info",
+                    attrs: {
+                      href:
+                        _vm.baseUrl +
+                        "/terrecommune/public/admin/editVideo/" +
+                        video.id,
+                      role: "button",
+                      "aria-pressed": "true",
+                    },
+                  },
+                  [_vm._v("Edit")]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("td", [
+                _c(
+                  "form",
+                  {
+                    attrs: {
+                      action:
+                        _vm.baseUrl +
+                        "/terrecommune/public/admin/deleteVideo/" +
+                        video.id,
+                      method: "post",
+                    },
+                  },
+                  [
+                    _c("input", {
+                      attrs: { type: "hidden", name: "_token" },
+                      domProps: { value: _vm.csrf },
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-danger",
+                        attrs: { type: "submit" },
+                      },
+                      [_vm._v("Delete")]
+                    ),
+                  ]
+                ),
+              ]),
+            ])
+          }),
+          0
         ),
       ]),
     ]),
@@ -17894,6 +17932,8 @@ var staticRenderFns = [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Video")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Edit")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Delete")]),
       ]),
     ])
   },

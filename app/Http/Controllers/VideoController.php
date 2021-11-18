@@ -234,13 +234,14 @@ class VideoController extends Controller
         //pour afficher un message de succès
         Session::flash('success', 'la vidéo a bien été publiée');
 
+
         //pour aficher les videos
-        $videos = Video::orderBy('title', 'asc')->get();
+        $videos = Video::with('themes')->get();
 
-        //display themes for select input
-        $themes = Theme::orderBy('name', 'asc')->get();
+        //https://stackoverflow.com/questions/44452535/redirect-to-view-but-change-url-in-laravel
+        return redirect('/admin');
 
-        return view('admin.home', ['videos' => $videos, 'themes' => $themes]);
+        return VideoResource::collection($videos);
 
     }
 
@@ -400,12 +401,12 @@ class VideoController extends Controller
         $video->delete();
 
         //pour aficher les videos
-        $videos = Video::orderBy('title', 'asc')->get();
+        $videos = Video::with('themes')->get();
 
-        //display themes for select input
-        $themes = Theme::orderBy('name', 'asc')->get();
+        //https://stackoverflow.com/questions/44452535/redirect-to-view-but-change-url-in-laravel
+        return redirect('/admin');
 
-        return view('admin.home', ['videos' => $videos, 'themes' => $themes]);
+        return VideoResource::collection($videos);
     }
 
     public function search(Request $request)

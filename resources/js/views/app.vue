@@ -14,6 +14,7 @@
                 <th scope="col">Themes</th>
                 <th scope="col">Video</th>
                 <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
                 </tr>
             </thead>
             <tbody>
@@ -25,9 +26,13 @@
                          <em v-for="theme in video.themes" v-bind:key="theme.id">{{ theme.name }}, </em>
                     </td>
                     <td><a v-bind:href="video.link">link on vimeo</a></td>
-                    <td><a v-bind:href="baseUrl +'/admin/' + video.id" class="btn btn-info" role="button" aria-pressed="true">Edit</a></td>
-                </tr>
-                <tr>
+                    <td><a v-bind:href="baseUrl +'/terrecommune/public/admin/editVideo/' + video.id" class="btn btn-info" role="button" aria-pressed="true">Edit</a></td>
+                    <td>
+                        <form v-bind:action="baseUrl +'/terrecommune/public/admin/deleteVideo/'+video.id" method="post">
+                        <input type="hidden" name="_token" :value="csrf">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
                 </tr>
             </tbody>
             </table>
@@ -51,13 +56,15 @@ import _ from 'lodash';
                     vimeo_id: ''
                 },
                 search: '',
-                baseUrl: 'coucou'
+                baseUrl: '',
+                csrf: ''
             }
         },
 
         created() {
-            this.fetchVideos();
-            this.getUrl();
+            this.fetchVideos()
+            this.getUrl()
+            this.getCsrf()
         },
 
         methods: {
@@ -71,6 +78,10 @@ import _ from 'lodash';
             getUrl() {
                 var baseUrl = window.location.origin
                 this.baseUrl = baseUrl
+            },
+            getCsrf() {
+                var csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                this.csrf = csrf
             },
             searchIt: _.debounce(function(){
                 let query = this.search
