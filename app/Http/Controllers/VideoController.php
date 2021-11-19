@@ -25,7 +25,9 @@ class VideoController extends Controller
     public function index()
     {
         //pour aficher les videos
-        $videos = Video::with('themes')->get();
+        $videos = Video::with('themes')
+        ->orderBy('title')
+        ->get();
 
         return VideoResource::collection($videos);
 
@@ -43,6 +45,7 @@ class VideoController extends Controller
         if ($search = $request->q) {
             $videos = Video::with('themes')
             ->where("title", "LIKE", "%".$search."%")
+            ->orderBy('title')
             ->get();
         }
         else {
