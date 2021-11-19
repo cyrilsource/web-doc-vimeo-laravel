@@ -1,17 +1,22 @@
 <template>
     <div>
-        <div class="table col-4">
+        <div class="row">
             <div class="col-4">
                 <input v-model="search"  @keyup="searchIt" type="text" class="mb-2 form-control"  placeholder="Search a video" >
             </div>
+            <div class="col-6">
+                <strong>Number of videos: {{ count }}</strong>
+            </div>
         </div>
-        <div class="margin-top">
+
+        <div class="margin-top col-11">
             <table class="table table-striped">
             <thead>
                 <tr>
                 <th scope="col">Thumbnail</th>
                 <th scope="col">Name</th>
                 <th scope="col">Themes</th>
+                <th scope="col">Is there a text ?</th>
                 <th scope="col">Video</th>
                 <th scope="col">Edit</th>
                 <th scope="col">Delete</th>
@@ -25,6 +30,8 @@
                      <td>
                          <em v-for="theme in video.themes" v-bind:key="theme.id">{{ theme.name }}, </em>
                     </td>
+                    <td v-if="video.description != NULL">YES</td>
+                    <td v-else>NO</td>
                     <td><a v-bind:href="video.link">link on vimeo</a></td>
                     <td><a v-bind:href="baseUrl +'/terrecommune/public/admin/editVideo/' + video.id" class="btn btn-info" role="button" aria-pressed="true">Edit</a></td>
                     <td>
@@ -57,7 +64,8 @@ import _ from 'lodash';
                 },
                 search: '',
                 baseUrl: '',
-                csrf: ''
+                csrf: '',
+                count: ''
             }
         },
 
@@ -73,6 +81,7 @@ import _ from 'lodash';
                 .then(res => res.json())
                 .then(res => {
                     this.videos = res.data
+                    this.count = res.lenght
                 })
             },
             getUrl() {

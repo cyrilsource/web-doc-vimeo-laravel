@@ -138,6 +138,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 //https://stackoverflow.com/questions/42814679/vuejs-2-uncaught-referenceerror-is-not-defined-with-debounce
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -154,7 +161,8 @@ __webpack_require__.r(__webpack_exports__);
       },
       search: '',
       baseUrl: '',
-      csrf: ''
+      csrf: '',
+      count: ''
     };
   },
   created: function created() {
@@ -170,6 +178,7 @@ __webpack_require__.r(__webpack_exports__);
         return res.json();
       }).then(function (res) {
         _this.videos = res.data;
+        _this.count = res.lenght;
       });
     },
     getUrl: function getUrl() {
@@ -17795,7 +17804,7 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", { staticClass: "table col-4" }, [
+    _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-4" }, [
         _c("input", {
           directives: [
@@ -17820,9 +17829,13 @@ var render = function () {
           },
         }),
       ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-6" }, [
+        _c("strong", [_vm._v("Number of videos: " + _vm._s(_vm.count))]),
+      ]),
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "margin-top" }, [
+    _c("div", { staticClass: "margin-top col-11" }, [
       _c("table", { staticClass: "table table-striped" }, [
         _vm._m(0),
         _vm._v(" "),
@@ -17854,6 +17867,10 @@ var render = function () {
                 }),
                 0
               ),
+              _vm._v(" "),
+              video.description != _vm.NULL
+                ? _c("td", [_vm._v("YES")])
+                : _c("td", [_vm._v("NO")]),
               _vm._v(" "),
               _c("td", [
                 _c("a", { attrs: { href: video.link } }, [
@@ -17928,6 +17945,8 @@ var staticRenderFns = [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Name")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Themes")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Is there a text ?")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Video")]),
         _vm._v(" "),
