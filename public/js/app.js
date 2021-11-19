@@ -178,7 +178,7 @@ __webpack_require__.r(__webpack_exports__);
         return res.json();
       }).then(function (res) {
         _this.videos = res.data;
-        _this.count = res.lenght;
+        _this.count = res.data.length;
       });
     },
     getUrl: function getUrl() {
@@ -197,6 +197,7 @@ __webpack_require__.r(__webpack_exports__);
         return res.json();
       }).then(function (res) {
         _this2.videos = res.data;
+        _this2.count = res.data.length;
       });
     }, 500)
   }
@@ -17868,7 +17869,7 @@ var render = function () {
                 0
               ),
               _vm._v(" "),
-              video.description != _vm.NULL
+              video.description !== null
                 ? _c("td", [_vm._v("YES")])
                 : _c("td", [_vm._v("NO")]),
               _vm._v(" "),

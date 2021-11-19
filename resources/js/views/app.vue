@@ -30,7 +30,7 @@
                      <td>
                          <em v-for="theme in video.themes" v-bind:key="theme.id">{{ theme.name }}, </em>
                     </td>
-                    <td v-if="video.description != NULL">YES</td>
+                    <td v-if="video.description !== null">YES</td>
                     <td v-else>NO</td>
                     <td><a v-bind:href="video.link">link on vimeo</a></td>
                     <td><a v-bind:href="baseUrl +'/terrecommune/public/admin/editVideo/' + video.id" class="btn btn-info" role="button" aria-pressed="true">Edit</a></td>
@@ -81,7 +81,8 @@ import _ from 'lodash';
                 .then(res => res.json())
                 .then(res => {
                     this.videos = res.data
-                    this.count = res.lenght
+                    this.count = res.data.length
+
                 })
             },
             getUrl() {
@@ -98,6 +99,7 @@ import _ from 'lodash';
                 .then(res => res.json())
                 .then(res => {
                     this.videos = res.data
+                    this.count = res.data.length
                 })
             }, 500)
         }
