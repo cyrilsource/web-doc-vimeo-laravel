@@ -49,7 +49,9 @@
         </li>
 
         <li class="mb-1">
-            <strong><a href="{{ url('/') }}/admin/options" class="link-dark rounded m-4">Options</a></strong>
+            <a href="{{ url('/') }}/admin/options" class="btn btn-toggle align-items-center rounded">
+                Options
+              </a>
         </li>
 
       </ul>

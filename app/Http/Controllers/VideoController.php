@@ -16,7 +16,6 @@ use App\Video;
 
 class VideoController extends Controller
 {
-
     /**
      * Show the videos
      *
@@ -30,7 +29,6 @@ class VideoController extends Controller
         ->get();
 
         return VideoResource::collection($videos);
-
     }
 
     /**
@@ -41,7 +39,6 @@ class VideoController extends Controller
     public function searchAdmin(Request $request)
     {
         //https://www.positronx.io/create-live-search-in-laravel-vue-js-application/
-
         if ($search = $request->q) {
             $videos = Video::with('themes')
             ->where("title", "LIKE", "%".$search."%")
@@ -106,10 +103,10 @@ class VideoController extends Controller
                 }
         }
 
-        //display themes for select input
-        $themes = Theme::orderBy('name', 'asc')->get();
+        //https://stackoverflow.com/questions/44452535/redirect-to-view-but-change-url-in-laravel
+        return redirect('/admin');
 
-        return view('admin.videos', ['videos' => $videos, 'themes' => $themes]);
+        return VideoResource::collection($videos);
     }
 
     /**
@@ -126,7 +123,6 @@ class VideoController extends Controller
         $themes = Theme::orderBy('name', 'asc')->get();
 
         return view('admin.createVideo', ['videos' => $videos, 'themes' => $themes]);
-
     }
 
     /**
@@ -137,7 +133,6 @@ class VideoController extends Controller
      */
     public function store(Request $request)
     {
-
         request()->validate([
             'link' => ['required', 'url', 'max:255'],
             'themes' => 'required',
@@ -146,10 +141,8 @@ class VideoController extends Controller
 
         $datas = $request->all();
 
-
         //get url and we take only vimeo id
         $vimeo_id = substr($datas['link'], 18);
-
 
         //https://stackoverflow.com/questions/1361149/get-img-thumbnails-from-vimeo
         function get_vimeo_data_from_id( $video_id, $data ) {
@@ -175,7 +168,6 @@ class VideoController extends Controller
          //get duration
          $duration = get_vimeo_data_from_id( $vimeo_id, 'duration' );
 
-
         //on récupère les données pour le pdf
         $document = $request->file('pdf');
 
@@ -195,7 +187,6 @@ class VideoController extends Controller
             $document->storeAs('public/pdf/video', $pdf);
 
             $datas['pdf'] = $pdf;
-
         }
 
         //vimeo id in datas
@@ -227,7 +218,6 @@ class VideoController extends Controller
                 ->limit(1)
                 ->value('id');
 
-
         //on va insérer les themes_id dans la table video_theme en récuperant le dernier post inséré
         $video = Video::findOrFail($lastpost);
 
@@ -237,7 +227,6 @@ class VideoController extends Controller
         //pour afficher un message de succès
         Session::flash('success', 'la vidéo a bien été publiée');
 
-
         //pour aficher les videos
         $videos = Video::with('themes')->get();
 
@@ -245,7 +234,6 @@ class VideoController extends Controller
         return redirect('/admin');
 
         return VideoResource::collection($videos);
-
     }
 
     /**
@@ -305,7 +293,6 @@ class VideoController extends Controller
      */
     public function edit($id)
     {
-
         $themes_video = Video::findOrFail($id)->themes->sortBy('name')->all();
 
         $video = Video::findOrFail($id);
@@ -390,7 +377,6 @@ class VideoController extends Controller
         $themes = Theme::orderBy('name', 'asc')->get();
 
         return view('admin.editVideo', ['videos' => $videos, 'video' => $video, 'themes' => $themes, 'themes_video' => $themes_video]);
-
     }
 
     /**

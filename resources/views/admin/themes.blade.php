@@ -5,7 +5,6 @@
 
 <h1 class="mt-4 mb-5 text-center">List of themes</h1>
 <a href="{{ url('/') }}/admin/createTheme" class="btn btn-primary">Add a new theme</a>
-@include('admin/error')
 
 <div class="col-8 margin-top">
     <table class="table table-striped">

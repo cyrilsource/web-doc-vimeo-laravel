@@ -152,7 +152,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 //https://stackoverflow.com/questions/42814679/vuejs-2-uncaught-referenceerror-is-not-defined-with-debounce
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -190,7 +189,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     getUrl: function getUrl() {
-      var baseUrl = window.location.origin;
+      var baseUrl = window.location.origin + '/terrecommune/public/';
       this.baseUrl = baseUrl;
     },
     getCsrf: function getCsrf() {
@@ -17892,9 +17891,7 @@ var render = function () {
                       {
                         attrs: {
                           action:
-                            _vm.baseUrl +
-                            "/terrecommune/public/admin/deleteVideoPdf/" +
-                            video.id,
+                            _vm.baseUrl + "admin/deleteVideoPdf/" + video.id,
                           method: "post",
                         },
                       },
@@ -17939,10 +17936,7 @@ var render = function () {
                   {
                     staticClass: "btn btn-info",
                     attrs: {
-                      href:
-                        _vm.baseUrl +
-                        "/terrecommune/public/admin/editVideo/" +
-                        video.id,
+                      href: _vm.baseUrl + "admin/editVideo/" + video.id,
                       role: "button",
                       "aria-pressed": "true",
                     },
@@ -17956,10 +17950,7 @@ var render = function () {
                   "form",
                   {
                     attrs: {
-                      action:
-                        _vm.baseUrl +
-                        "/terrecommune/public/admin/deleteVideo/" +
-                        video.id,
+                      action: _vm.baseUrl + "admin/deleteVideo/" + video.id,
                       method: "post",
                     },
                   },
@@ -17999,7 +17990,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Name")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Is there a text ?")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Text ?")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("PDF")]),
         _vm._v(" "),

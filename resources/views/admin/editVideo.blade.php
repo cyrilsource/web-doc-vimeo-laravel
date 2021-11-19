@@ -16,26 +16,25 @@
         <form class="edit-video" action="" enctype="multipart/form-data" method="post">
         @csrf
         <h3 class="m-3">You can change the pdf or the themes</h3>
-            <div class="edit-pdf m-3">
-                <a class="mb-5" href="{{ url('/') }}/storage/pdf/video/{{$video->pdf}}">{{$video->pdf}}</a>
-                <button class="btn btn-info edit-pdf__button">Change pdf</button>
-            </div>
-            <div class="form-group upload-pdf m-3">
-                <label for="pdf">Add a pdf</label>
-                <input name="pdf" type="file" class="form-control-file" id="pdf">
-            </div>
-            <div class="form-group m-3">
-                <label for="themes[]"><h4>Themes</h4></label><br>
-                <select class="form-control-select" name="themes[]" multiple="multiple">
-                {{-- Comment stackoverflow laravel-edit-form-select-default-selection --}}
-                    @foreach ($themes as $theme)
-                    <option value="{{$theme->id}}" @foreach ($themes_video as $theme_video)
-                    @if($theme_video->name=== $theme->name) selected='selected' @endif @endforeach>
-                    {{$theme->name}}</option>
-                    @endforeach
-                </select>
-            </div>
-
+        <div class="edit-pdf m-3">
+            <a class="mb-5" href="{{ url('/') }}/storage/pdf/video/{{$video->pdf}}">{{$video->pdf}}</a>
+            <button class="btn btn-info edit-pdf__button">Change pdf</button>
+        </div>
+        <div class="form-group upload-pdf m-3">
+            <label for="pdf">Add a pdf</label>
+            <input name="pdf" type="file" class="form-control-file" id="pdf">
+        </div>
+        <div class="form-group m-3">
+            <label for="themes[]"><h4>Themes</h4></label><br>
+            <select class="form-control-select" name="themes[]" multiple="multiple">
+            {{-- Comment stackoverflow laravel-edit-form-select-default-selection --}}
+                @foreach ($themes as $theme)
+                <option value="{{$theme->id}}" @foreach ($themes_video as $theme_video)
+                @if($theme_video->name=== $theme->name) selected='selected' @endif @endforeach>
+                {{$theme->name}}</option>
+                @endforeach
+            </select>
+        </div>
     </div>
     <div class="col-6">
         <div class="form-group m-3">

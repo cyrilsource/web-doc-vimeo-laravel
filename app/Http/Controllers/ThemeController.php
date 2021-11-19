@@ -63,7 +63,6 @@ class ThemeController extends Controller
         $themes = Theme::orderBy('name', 'asc')->get();
 
         return view('admin.createTheme', ['themes' => $themes, 'characters' => $characters]);
-
     }
 
     /**
@@ -139,7 +138,6 @@ class ThemeController extends Controller
         $themes = Theme::orderBy('name', 'asc')->get();
 
         return view('admin.themes', ['themes' => $themes, 'characters' => $characters]);
-
     }
 
     /**
@@ -243,6 +241,13 @@ class ThemeController extends Controller
      */
     public function update(Request $request, $id)
     {
+        request()->validate([
+            'name' => ['required', 'max:255'],
+            'pdf'=> ['mimes:pdf', 'max:800'],
+            'description' => 'required',
+            'excerpt' => 'required'
+        ]);
+
         //query the number of characters for the option words
         $characters = DB::table('options')->where('name', 'words')->value('field');
 
@@ -321,7 +326,6 @@ class ThemeController extends Controller
         $theme = Theme::findOrFail($id);
 
         return view('admin.editTheme', ['themes' => $themes, 'theme' => $theme, 'characters' => $characters]);
-
     }
 
     /**
@@ -332,7 +336,6 @@ class ThemeController extends Controller
      */
     public function destroy($id)
     {
-
         $theme = Theme::findOrFail($id);
 
         //suppression des fichiers
@@ -344,7 +347,6 @@ class ThemeController extends Controller
         $themes = Theme::orderBy('name', 'asc')->get();
 
         return view('admin.themes', ['themes' => $themes]);
-
     }
 
     /**
@@ -355,7 +357,6 @@ class ThemeController extends Controller
      */
     public function destroyPdf($id)
     {
-
         $theme = Theme::findOrFail($id);
 
         //suppression du fichier
@@ -366,6 +367,5 @@ class ThemeController extends Controller
         $themes = Theme::orderBy('name', 'asc')->get();
 
         return view('admin.themes', ['themes' => $themes]);
-
     }
 }
