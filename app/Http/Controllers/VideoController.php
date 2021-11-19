@@ -326,6 +326,11 @@ class VideoController extends Controller
      */
     public function update(Request $request, $id)
     {
+        request()->validate([
+            'themes' => 'required',
+            'pdf'=> ['mimes:pdf', 'max:800']
+        ]);
+
         $datas = $request->all();
 
         //on récupère les données pour le pdf
