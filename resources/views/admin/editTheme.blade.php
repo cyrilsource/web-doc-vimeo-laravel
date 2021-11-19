@@ -8,20 +8,20 @@
 
 <div class="row">
     <div class="col-4">
-        <h2>Edit the theme <a href="{{ url('/themes') }}/{{ $theme->slug }}/{{ $theme->id }}">{{$theme->name}}</a></h2>
+        <h2 class="m-3">Edit the theme <a href="{{ url('/themes') }}/{{ $theme->slug }}/{{ $theme->id }}">{{$theme->name}}</a></h2>
         <form action="" enctype="multipart/form-data" method="post">
         @csrf
-        <div class="form-group">
+        <div class="form-group m-3">
           <label for="name">Name</label>
           <input name="name" type="text" value="{{$theme->name}}" class="form-control" id="name" aria-describedby="name">
         </div>
-        <div class="edit-image mb-5">
+        <div class="edit-image m-3">
             <img src="{{ url('/') }}/storage/img/theme/{{$theme->thumbnail}}" >
             <div class="edit-image__middle">
                 <span class="edit-image__text">Change the picture</span>
             </div>
         </div>
-        <div class="form-group upload">
+        <div class="form-group upload m-3">
           <label for="image">Choose a new image</label>
           <input name="image" type="file" class="form-control-file" id="image">
           <div id="imagePreview" class="image-preview">
@@ -29,15 +29,15 @@
             <span class="image-preview__default-text">Image preview</span>
           </div>
         </div>
-        <div class="edit-pdf">
+        <div class="edit-pdf m-3">
             <a class="mb-5" href="{{ url('/') }}/storage/pdf/theme/{{$theme->pdf}}">{{$theme->pdf}}</a>
             <button class="btn btn-info edit-pdf__button">Change pdf</button>
         </div>
-        <div class="form-group upload-pdf">
+        <div class="form-group upload-pdf m-3">
           <label for="pdf">Add a pdf</label>
           <input name="pdf" type="file" class="form-control-file" id="pdf">
         </div>
-        <div class="form-group">
+        <div class="form-group m-3">
             <label for="excerpt">Add an excerpt</label>
             <textarea name="excerpt" maxlength="{{ $characters }}" class="form-control @error('name') is-invalid @enderror"
             id="excerpt">
@@ -55,11 +55,11 @@
         </div>
     </div>
     <div class="col-6">
-         <div class="form-group">
+         <div class="form-group m-3">
           <label for="description">Description</label>
           <textarea name="description" class="form-control" id="description" rows="3">{{$theme->description}}</textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Edit the theme</button>
+        <button type="submit" class="btn btn-primary m-3">Edit the theme</button>
         </form>
     </div>
 

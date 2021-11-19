@@ -23,7 +23,17 @@
             <tr>
                 <td><img style="width: 150px" src="{{ url('/') }}/storage/img/theme/{{$theme->thumbnail}}" alt="" title="change the picture"></td>
                 <td><a href="{{ url('/themes') }}/{{ $theme->slug }}/{{ $theme->id }}">{{ $theme->name }}</a></td>
-                <td><a href="{{ url('/') }}/storage/pdf/theme/{{$theme->pdf}}">{{$theme->pdf}}</a></td>
+                <td>
+                    <a href="{{ url('/') }}/storage/pdf/theme/{{$theme->pdf}}">{{$theme->pdf}}</a>
+                    @if ($theme->pdf != null)
+
+                    <form action="{{ url('/') }}/admin/deleteThemePdf/{{$theme->id}}" method="post">
+                        @csrf
+                        <button type="submit" class="btn btn-danger">Delete pdf</button>
+                    </form>
+
+                    @endif
+                </td>
                 <td><a href="{{ url('/') }}/admin/editTheme/{{$theme->id}}" class="btn btn-info" role="button" aria-pressed="true">Edit</a></td>
                 <td>
                 <form action="{{ url('/') }}/admin/deleteTheme/{{$theme->id}}" method="post">
@@ -31,6 +41,7 @@
                     <button type="submit" class="btn btn-danger">Delete</button>
                 </form>
                 </td>
+
             </tr>
         @endforeach
         <tr>

@@ -332,8 +332,6 @@ class ThemeController extends Controller
      */
     public function destroy($id)
     {
-         //query the number of characters for the option words
-         $characters = DB::table('options')->where('name', 'words')->value('field');
 
         $theme = Theme::findOrFail($id);
 
@@ -345,7 +343,29 @@ class ThemeController extends Controller
 
         $themes = Theme::orderBy('name', 'asc')->get();
 
-        return view('admin.themes', ['themes' => $themes, 'characters' => $characters]);
+        return view('admin.themes', ['themes' => $themes]);
+
+    }
+
+    /**
+     * Remove the pdf in theme.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroyPdf($id)
+    {
+
+        $theme = Theme::findOrFail($id);
+
+        //suppression du fichier
+        Storage::delete("public/pdf/theme/".$theme['pdf']);
+
+        $theme->update(['pdf' => null]);
+
+        $themes = Theme::orderBy('name', 'asc')->get();
+
+        return view('admin.themes', ['themes' => $themes]);
 
     }
 }

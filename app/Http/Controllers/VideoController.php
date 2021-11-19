@@ -400,8 +400,26 @@ class VideoController extends Controller
 
         $video->delete();
 
-        //pour aficher les videos
-        $videos = Video::with('themes')->get();
+        //https://stackoverflow.com/questions/44452535/redirect-to-view-but-change-url-in-laravel
+        return redirect('/admin');
+
+        return VideoResource::collection($videos);
+    }
+
+    /**
+     * Remove the pdf of a video.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroyPdf($id)
+    {
+        $video = Video::findOrFail($id);
+
+        //suppression du fichier pdf
+        Storage::delete("public/pdf/video/".$video['pdf']);
+
+        $video->update(['pdf' => null]);
 
         //https://stackoverflow.com/questions/44452535/redirect-to-view-but-change-url-in-laravel
         return redirect('/admin');

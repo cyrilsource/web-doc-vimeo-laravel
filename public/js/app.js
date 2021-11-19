@@ -145,6 +145,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 //https://stackoverflow.com/questions/42814679/vuejs-2-uncaught-referenceerror-is-not-defined-with-debounce
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -17859,6 +17867,56 @@ var render = function () {
                 ),
               ]),
               _vm._v(" "),
+              video.description !== null
+                ? _c("td", { staticStyle: { color: "#31D2F2" } }, [
+                    _vm._v("YES"),
+                  ])
+                : _c("td", { staticStyle: { color: "#BB2D3B" } }, [
+                    _vm._v("NO"),
+                  ]),
+              _vm._v(" "),
+              _c("td", [
+                _c(
+                  "a",
+                  {
+                    attrs: {
+                      href: _vm.baseUrl + "/storage/pdf/theme/" + video.pdf,
+                    },
+                  },
+                  [_vm._v(_vm._s(video.pdf))]
+                ),
+                _vm._v(" "),
+                video.pdf !== null
+                  ? _c(
+                      "form",
+                      {
+                        attrs: {
+                          action:
+                            _vm.baseUrl +
+                            "/terrecommune/public/admin/deleteVideoPdf/" +
+                            video.id,
+                          method: "post",
+                        },
+                      },
+                      [
+                        _c("input", {
+                          attrs: { type: "hidden", name: "_token" },
+                          domProps: { value: _vm.csrf },
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-danger",
+                            attrs: { type: "submit" },
+                          },
+                          [_vm._v("Delete pdf")]
+                        ),
+                      ]
+                    )
+                  : _vm._e(),
+              ]),
+              _vm._v(" "),
               _c(
                 "td",
                 _vm._l(video.themes, function (theme) {
@@ -17868,10 +17926,6 @@ var render = function () {
                 }),
                 0
               ),
-              _vm._v(" "),
-              video.description !== null
-                ? _c("td", [_vm._v("YES")])
-                : _c("td", [_vm._v("NO")]),
               _vm._v(" "),
               _c("td", [
                 _c("a", { attrs: { href: video.link } }, [
@@ -17945,9 +17999,11 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Name")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Themes")]),
-        _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Is there a text ?")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("PDF")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Themes")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Video")]),
         _vm._v(" "),

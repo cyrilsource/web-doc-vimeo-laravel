@@ -15,8 +15,9 @@
                 <tr>
                 <th scope="col">Thumbnail</th>
                 <th scope="col">Name</th>
-                <th scope="col">Themes</th>
                 <th scope="col">Is there a text ?</th>
+                <th scope="col">PDF</th>
+                <th scope="col">Themes</th>
                 <th scope="col">Video</th>
                 <th scope="col">Edit</th>
                 <th scope="col">Delete</th>
@@ -27,11 +28,18 @@
                     <td><img v-bind:src="video.thumbnail_small"></td>
 
                     <td><a v-bind:href="baseUrl +'/video/' + video.slug + '/' + video.id">{{ video.title }}</a></td>
+                    <td v-if="video.description !== null" style="color: #31D2F2;">YES</td>
+                    <td v-else style="color: #BB2D3B;">NO</td>
+                    <td>
+                        <a :href="baseUrl+'/storage/pdf/theme/'+video.pdf">{{video.pdf}}</a>
+                        <form v-if="video.pdf !== null" v-bind:action="baseUrl +'/terrecommune/public/admin/deleteVideoPdf/'+video.id" method="post">
+                            <input type="hidden" name="_token" :value="csrf">
+                            <button type="submit" class="btn btn-danger">Delete pdf</button>
+                        </form>
+                    </td>
                      <td>
                          <em v-for="theme in video.themes" v-bind:key="theme.id">{{ theme.name }}, </em>
                     </td>
-                    <td v-if="video.description !== null">YES</td>
-                    <td v-else>NO</td>
                     <td><a v-bind:href="video.link">link on vimeo</a></td>
                     <td><a v-bind:href="baseUrl +'/terrecommune/public/admin/editVideo/' + video.id" class="btn btn-info" role="button" aria-pressed="true">Edit</a></td>
                     <td>

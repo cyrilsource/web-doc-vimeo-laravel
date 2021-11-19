@@ -51,6 +51,9 @@ Route::post('/admin/createVideo', 'VideoController@store');
 //delete video
 Route::post('/admin/deleteVideo/{id}', 'VideoController@destroy');
 
+//delete video pdf
+Route::post('/admin/deleteVideoPdf/{id}', 'VideoController@destroyPdf');
+
 //edit video
 Route::get('/admin/editVideo/{id}', 'VideoController@edit');
 
@@ -74,6 +77,9 @@ Route::post('/admin/editTheme/{id}', 'ThemeController@update');
 
 //delete theme
 Route::post('/admin/deleteTheme/{id}', 'ThemeController@destroy');
+
+//delete theme-pdf
+Route::post('/admin/deleteThemePdf/{id}', 'ThemeController@destroyPdf');
 
 //update theme
 Route::post('/admin/editVideo/{id}', 'VideoController@update');
