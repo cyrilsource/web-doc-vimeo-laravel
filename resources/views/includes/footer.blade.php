@@ -215,9 +215,9 @@
 
         // open pdf in new tab
         let pdf = document.getElementById('pdf')
-        let href = pdf.dataset.link
 
         if (pdf) {
+            let href = pdf.dataset.link
             pdf.addEventListener('click', function (e) {
                 window.open(href)
             })
