@@ -1,1 +1,257 @@
-!function(e){var t={};function n(o){if(t[o])return t[o].exports;var r=t[o]={i:o,l:!1,exports:{}};return e[o].call(r.exports,r,r.exports,n),r.l=!0,r.exports}n.m=e,n.c=t,n.d=function(e,t,o){n.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:o})},n.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},n.t=function(e,t){if(1&t&&(e=n(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var o=Object.create(null);if(n.r(o),Object.defineProperty(o,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var r in e)n.d(o,r,function(t){return e[t]}.bind(null,r));return o},n.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return n.d(t,"a",t),t},n.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},n.p="/",n(n.s=9)}({10:function(e,t){var n=document.getElementById("logo");n&&(n.addEventListener("mouseover",(function(){n.classList.contains("rotation-left")&&n.classList.remove("rotation-left"),n.classList.add("rotation-right")})),n.addEventListener("mouseout",(function(){n.classList.contains("rotation-right")&&n.classList.remove("rotation-right"),n.classList.add("rotation-left")})));var o=document.querySelector(".navigation"),r=document.querySelector(".themes-list");o.addEventListener("mouseover",(function(e){r.classList.add("open-list")})),o.addEventListener("mouseout",(function(e){r.classList.remove("open-list")}));var i=document.getElementById("btn-dark-mode");if(i){var s=document.getElementById("body");i.addEventListener("click",(function(){s.classList.toggle("dark-theme"),s.classList.contains("dark-theme")?l("theme","dark"):l("theme","light")}))}var a=document.getElementById("btn-dark-mode-mobile");if(a){var c=document.getElementById("body");a.addEventListener("click",(function(){c.classList.toggle("dark-theme"),c.classList.contains("dark-theme")?l("theme","dark"):l("theme","light")}))}function l(e,t){var n=new Date;n.setTime(n.getTime()+31536e6);var o="expires="+n.toUTCString();document.cookie=e+"="+t+";"+o+";path=/"}var d=document.getElementById("logo-back");d&&d.addEventListener("click",(function(e){e.preventDefault(),window.history.back()}));var u=document.getElementById("logo-back2");u&&u.addEventListener("click",(function(e){e.preventDefault(),window.history.back()}));var m=document.querySelector(".entry-title__page h1");if(m)for(var v=m.textContent.split(" "),f=0;f<v.length;f++)v[f].length>9&&m.classList.add("long-text");var g=document.getElementById("glass-mobile");if(g){var y=document.getElementById("search-container-mobile"),L=document.getElementsByClassName("header-mobile-object");g.addEventListener("click",(function(){y.classList.toggle("reveal"),g.classList.toggle("reveal");for(var e=0;e<L.length;e++)L[e].classList.toggle("unreveal")}))}var p=document.getElementById("pdf");if(p){var b=p.dataset.link;p.addEventListener("click",(function(e){window.open(b)}))}var h=document.querySelector(".m-nav-toggle"),E=document.querySelector(".menu"),k=document.querySelector(".close"),S=document.querySelectorAll(".menu-item");h.addEventListener("click",(function(){E.classList.toggle("is-open"),k.classList.toggle("is-open")})),k.addEventListener("click",(function(){E.classList.remove("is-open"),k.classList.remove("is-open")}));for(var B=0;B<S.length;B++)S[B].addEventListener("click",(function(){E.classList.remove("is-open"),k.classList.remove("is-open")}))},9:function(e,t,n){e.exports=n(10)}});
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "/";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./resources/js/front.js":
+/*!*******************************!*\
+  !*** ./resources/js/front.js ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// script turn the logo
+var logo = document.getElementById('logo');
+
+if (logo) {
+  logo.addEventListener('mouseover', function () {
+    if (logo.classList.contains('rotation-left')) {
+      logo.classList.remove('rotation-left');
+    }
+
+    logo.classList.add('rotation-right');
+  });
+  logo.addEventListener('mouseout', function () {
+    if (logo.classList.contains('rotation-right')) {
+      logo.classList.remove('rotation-right');
+    }
+
+    logo.classList.add('rotation-left');
+  });
+}
+
+var navigation = document.querySelector('.navigation');
+var themesList = document.querySelector('.themes-list');
+navigation.addEventListener('mouseover', function (e) {
+  themesList.classList.add('open-list');
+});
+navigation.addEventListener('mouseout', function (e) {
+  themesList.classList.remove('open-list');
+});
+var darkMode = document.getElementById('btn-dark-mode');
+
+if (darkMode) {
+  var body = document.getElementById('body');
+  darkMode.addEventListener('click', function () {
+    body.classList.toggle('dark-theme');
+
+    if (body.classList.contains('dark-theme')) {
+      // https://grantjam.es/light-and-dark-theme-toggle-on-a-laravel-website
+      setCookie('theme', 'dark');
+    } else {
+      setCookie('theme', 'light');
+    }
+  });
+}
+
+var darkModeMobile = document.getElementById('btn-dark-mode-mobile');
+
+if (darkModeMobile) {
+  var _body = document.getElementById('body');
+
+  darkModeMobile.addEventListener('click', function () {
+    _body.classList.toggle('dark-theme');
+
+    if (_body.classList.contains('dark-theme')) {
+      // https://grantjam.es/light-and-dark-theme-toggle-on-a-laravel-website
+      setCookie('theme', 'dark');
+    } else {
+      setCookie('theme', 'light');
+    }
+  });
+} // https://grantjam.es/light-and-dark-theme-toggle-on-a-laravel-website
+
+
+function setCookie(name, value) {
+  var d = new Date();
+  d.setTime(d.getTime() + 365 * 24 * 60 * 60 * 1000);
+  var expires = 'expires=' + d.toUTCString();
+  document.cookie = name + '=' + value + ';' + expires + ';path=/';
+}
+
+var back = document.getElementById('logo-back');
+
+if (back) {
+  back.addEventListener('click', function (e) {
+    e.preventDefault();
+    window.history.back();
+  });
+}
+
+var back2 = document.getElementById('logo-back2');
+
+if (back2) {
+  back2.addEventListener('click', function (e) {
+    e.preventDefault();
+    window.history.back();
+  });
+} // script for long titles on the pages - reduce font size
+
+
+var title = document.querySelector('.entry-title__page h1');
+
+if (title) {
+  var text = title.textContent;
+  var words = text.split(' ');
+
+  for (var i = 0; i < words.length; i++) {
+    if (words[i].length > 9) {
+      title.classList.add('long-text');
+    }
+  }
+} // get search form on mobile
+
+
+var glass = document.getElementById('glass-mobile');
+
+if (glass) {
+  var searchContainer = document.getElementById('search-container-mobile');
+  var object = document.getElementsByClassName('header-mobile-object');
+  glass.addEventListener('click', function () {
+    searchContainer.classList.toggle('reveal');
+    glass.classList.toggle('reveal');
+
+    for (var _index = 0; _index < object.length; _index++) {
+      object[_index].classList.toggle('unreveal');
+    }
+  });
+} // open pdf in new tab
+
+
+var pdf = document.getElementById('pdf');
+
+if (pdf) {
+  var href = pdf.dataset.link;
+  pdf.addEventListener('click', function (e) {
+    window.open(href);
+  });
+}
+
+var hamburger = document.querySelector('.m-nav-toggle');
+var op = document.querySelector('.menu');
+var cross = document.querySelector('.close');
+var menuItem = document.querySelectorAll('.menu-item');
+hamburger.addEventListener('click', function () {
+  op.classList.toggle('is-open');
+  cross.classList.toggle('is-open');
+});
+cross.addEventListener('click', function () {
+  op.classList.remove('is-open');
+  cross.classList.remove('is-open');
+});
+
+for (var index = 0; index < menuItem.length; index++) {
+  menuItem[index].addEventListener('click', function () {
+    op.classList.remove('is-open');
+    cross.classList.remove('is-open');
+  });
+}
+
+/***/ }),
+
+/***/ 1:
+/*!*************************************!*\
+  !*** multi ./resources/js/front.js ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! /var/www/html/terrecommune/resources/js/front.js */"./resources/js/front.js");
+
+
+/***/ })
+
+/******/ });

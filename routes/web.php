@@ -27,6 +27,8 @@ Route::get('/video/{slug}/{id}', 'VideoController@show');
 //display search
 Route::get('/search/{query?}', 'VideoController@search');
 
+Route::get('autocomplete', 'VideoController@autocomplete')->name('autocomplete');
+
 Route::get('/ways', function () {
     return view('ways');
 });

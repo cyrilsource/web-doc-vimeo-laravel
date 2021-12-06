@@ -5,7 +5,24 @@
     crossorigin="anonymous"></script>
     <script src="https://unpkg.com/swup@latest/dist/swup.min.js"></script>
     <script src="{{ asset('js/front/front.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js">
+    </script>
     <script>
+        var path = "{{ route('autocomplete') }}";
+
+$('input.typeahead').typeahead({
+
+    source:  function (query, process) {
+
+    return $.get(path, { term: query }, function (data) {
+
+            return process(data);
+
+        });
+
+    }
+
+});
 
     const swup = new Swup();
 

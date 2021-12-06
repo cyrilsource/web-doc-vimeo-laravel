@@ -27,10 +27,8 @@
             </div>
         @endif
         <div class="search-container header--right-el">
-            <form action="{{ url('/search') }}" method="get" role="search">
-                <input title="recherche" aria-label="rechercher une vidéo" type="text" placeholder="Rechercher une vidéo" name="search">
-                <button type="submit"></button>
-            </form>
+
+            <input class="typeahead form-control" type="text">
         </div>
         <div class="header--right-el">
             <button title="mode sombre ou clair" id="btn-dark-mode" class='btn-dark-mode'></button>
