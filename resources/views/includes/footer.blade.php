@@ -34,9 +34,6 @@
   					return data.title  //Input value to be set when you select a suggestion.
   				},
   				templates: {
-  					empty: [
-  						'<div class="list-group search-results-dropdown"><div class="list-group-item">Nothing found.</div></div>'
-  					],
   					suggestion: function(data) {
   					return '<a href="'+ baseUrl + 'video/' + data.slug + '/ '+ data.id + '" class="list-group-item">' + data.title + '</a>'
   					},
@@ -260,6 +257,37 @@
                 window.open(href)
             })
         }
+
+        $(document).ready(function() {
+            var baseUrl = '/terrecommune/public/'
+      		var bloodhound = new Bloodhound({
+  				datumTokenizer: Bloodhound.tokenizers.whitespace,
+  				queryTokenizer: Bloodhound.tokenizers.whitespace,
+  				remote: {
+  					url: baseUrl + 'autocomplete?q=%QUERY%',
+  					wildcard: '%QUERY%'
+  				},
+  			});
+
+
+  			$('.search-autocomplete').typeahead({
+  				hint: true,
+  				highlight: true,
+  				minLength: 1
+  			}, {
+  				name: 'videos',
+  				source: bloodhound,
+  				display: function(data) {
+  					return data.title  //Input value to be set when you select a suggestion.
+  				},
+  				templates: {
+  					suggestion: function(data) {
+  					return '<a href="'+ baseUrl + 'video/' + data.slug + '/ '+ data.id + '" class="list-group-item">' + data.title + '</a>'
+  					},
+
+  				}
+  			});
+          });
 
     });
  </script>
