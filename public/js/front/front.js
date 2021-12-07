@@ -111,7 +111,8 @@ if (logo) {
 
     logo.classList.add('rotation-left');
   });
-}
+} // themes list button
+
 
 var navigation = document.querySelector('.navigation');
 var themesList = document.querySelector('.themes-list');

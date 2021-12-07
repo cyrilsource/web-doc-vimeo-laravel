@@ -17,6 +17,7 @@ if (logo) {
   })
 }
 
+// themes list button
 let navigation = document.querySelector('.navigation')
 let themesList = document.querySelector('.themes-list')
 navigation.addEventListener('mouseover', function (e) {
