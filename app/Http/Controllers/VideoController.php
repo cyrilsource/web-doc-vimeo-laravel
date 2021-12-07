@@ -438,12 +438,8 @@ class VideoController extends Controller
     // https://www.positronx.io/create-autocomplete-search-in-laravel-with-typeahead-js/
     // https://laracasts.com/discuss/channels/laravel/error-autocomplete-uncaught-typeerror
     public function autocomplete(Request $request)
-
     {
-
-        return Video::select('title')
-        ->where('title', 'like', "%{$request->term}%")
-        ->pluck('title');
+        return Video::where('title', 'LIKE', '%'.$request->q.'%')->get();
 
     }
 }

@@ -5,24 +5,47 @@
     crossorigin="anonymous"></script>
     <script src="https://unpkg.com/swup@latest/dist/swup.min.js"></script>
     <script src="{{ asset('js/front/front.js') }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js">
-    </script>
+    <!-- Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!-- Import typeahead.js -->
+  	<script src="https://twitter.github.io/typeahead.js/releases/latest/typeahead.bundle.js"></script>
     <script>
-        var path = "{{ route('autocomplete') }}";
 
-$('input.typeahead').typeahead({
+    $(document).ready(function() {
+            var baseUrl = '/terrecommune/public/'
+      		var bloodhound = new Bloodhound({
+  				datumTokenizer: Bloodhound.tokenizers.whitespace,
+  				queryTokenizer: Bloodhound.tokenizers.whitespace,
+  				remote: {
+  					url: baseUrl + 'autocomplete?q=%QUERY%',
+  					wildcard: '%QUERY%'
+  				},
+  			});
 
-    source:  function (query, process) {
 
-    return $.get(path, { term: query }, function (data) {
-
-            return process(data);
-
-        });
-
-    }
-
-});
+  			$('.search-autocomplete').typeahead({
+  				hint: true,
+  				highlight: true,
+  				minLength: 1
+  			}, {
+  				name: 'videos',
+  				source: bloodhound,
+  				display: function(data) {
+  					return data.title  //Input value to be set when you select a suggestion.
+  				},
+  				templates: {
+  					empty: [
+  						'<div class="list-group search-results-dropdown"><div class="list-group-item">Nothing found.</div></div>'
+  					],
+  					header: [
+  						'<div class="list-group search-results-dropdown">'
+  					],
+  					suggestion: function(data) {
+  					return '<a href="'+ baseUrl + 'video/' + data.slug + '/ '+ data.id + '" class="list-group-item">' + data.title + '</a>'
+  					}
+  				}
+  			});
+          });
 
     const swup = new Swup();
 

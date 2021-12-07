@@ -27,8 +27,10 @@
             </div>
         @endif
         <div class="search-container header--right-el">
-
-            <input class="typeahead form-control" type="text">
+            <form action="{{ url('/search') }}" method="get" role="search">
+                <input class="search-autocomplete" title="recherche" aria-label="rechercher une vidéo" type="text" placeholder="Rechercher une vidéo" name="search">
+                <button type="submit"></button>
+            </form>
         </div>
         <div class="header--right-el">
             <button title="mode sombre ou clair" id="btn-dark-mode" class='btn-dark-mode'></button>
