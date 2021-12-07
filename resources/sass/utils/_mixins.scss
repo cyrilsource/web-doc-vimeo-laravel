@@ -99,9 +99,21 @@
     }
 }
 
+@mixin laptop-only {
+    @media screen and (min-width: map-get($breakpoints, ipad2)){
+        @content;
+    }
+}
+
 
 @mixin ipad-only {
     @media screen and (max-width: map-get($breakpoints, ipad)){
+        @content;
+    }
+}
+
+@mixin no-mobile {
+    @media screen and (min-width: map-get($breakpoints, ipad)){
         @content;
     }
 }

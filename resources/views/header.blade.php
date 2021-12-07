@@ -44,7 +44,7 @@
             <span id="glass-mobile" class="glass-mobile"></span>
             <div id="search-container-mobile" class="search-container">
                 <form action="{{ url('/search') }}" method="get" role="search">
-                    <input type="text" placeholder="Rechercher une vidéo" name="search">
+                    <input class="search-autocomplete" type="text" placeholder="Rechercher une vidéo" name="search">
                     <button type="submit"></button>
                 </form>
             </div>
