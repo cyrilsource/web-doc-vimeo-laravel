@@ -1,0 +1,20 @@
+.tt-dataset-videos {
+    position: absolute;
+    background-color: $main-white;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    @include transition;
+
+    & a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        transition: all 0.5s;
+    }
+    & a:hover {
+        background-color: $second-color;
+        color: $main-white;
+    }
+}

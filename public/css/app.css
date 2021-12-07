@@ -1727,6 +1727,33 @@ html.is-animating .transition-slide {
   width: 95%;
 }
 
+.tt-dataset-videos {
+  position: absolute;
+  background-color: #fcfcfc;
+  min-width: 200px;
+  -webkit-box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.tt-dataset-videos a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.tt-dataset-videos a:hover {
+  background-color: #4A4F7B;
+  color: #fcfcfc;
+}
+
 .background-image {
   width: 74%;
   position: relative;

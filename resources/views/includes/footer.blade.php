@@ -37,12 +37,10 @@
   					empty: [
   						'<div class="list-group search-results-dropdown"><div class="list-group-item">Nothing found.</div></div>'
   					],
-  					header: [
-  						'<div class="list-group search-results-dropdown">'
-  					],
   					suggestion: function(data) {
   					return '<a href="'+ baseUrl + 'video/' + data.slug + '/ '+ data.id + '" class="list-group-item">' + data.title + '</a>'
-  					}
+  					},
+
   				}
   			});
           });
