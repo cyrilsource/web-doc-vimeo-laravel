@@ -10,7 +10,7 @@
     <!-- Import typeahead.js -->
   	<script src="https://twitter.github.io/typeahead.js/releases/latest/typeahead.bundle.js"></script>
     <script>
-
+    //https://kerneldev.com/laravel-autocomplete-search-with-typeahead-js/
     $(document).ready(function() {
             var baseUrl = '/terrecommune/public/'
       		var bloodhound = new Bloodhound({
