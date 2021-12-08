@@ -26,7 +26,7 @@
   			$('.search-autocomplete').typeahead({
   				hint: true,
   				highlight: true,
-  				minLength: 1
+  				minLength: 1,
   			}, {
   				name: 'videos',
   				source: bloodhound,
