@@ -14,6 +14,10 @@
 .video-themes {
     margin-top: 1rem;
     word-spacing: 5px;
+    max-width: 33%;
+    @include ipad-only {
+        max-width: 100%;
+    }
     a {
         font-size: 1.3rem;
         color: $main-color;

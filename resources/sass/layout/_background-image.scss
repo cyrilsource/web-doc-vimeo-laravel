@@ -17,4 +17,20 @@
         top: 0px;
         box-shadow: inset 84px -62px 87px -8px $main-white;
     }
+
+    @include mobile-only {
+        order: 3;
+        width: 100%;
+        margin-left: 0;
+        margin-top: 2rem;
+        margin-bottom: 0;
+        z-index: 0;
+        &__image {
+            opacity: 0.55;
+            border-radius: 4px;
+        }
+        &__blur {
+            box-shadow: inset 0 -60px 60px -10px $main-white;
+        }
+    }
 }

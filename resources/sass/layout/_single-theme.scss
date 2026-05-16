@@ -1,5 +1,9 @@
 .singleTheme {
     margin-top: 10rem;
+    @include mobile-only {
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 .header-theme {
