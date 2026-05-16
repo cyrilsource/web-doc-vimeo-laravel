@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
-use App\Http\Requests\CreateThemeRequest;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
@@ -16,32 +14,32 @@ use App\Options;
 class ThemeController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Truncate text to the nearest word boundary within $length characters.
      */
-    public function index()
+    private static function truncate(string $text, int $length): string
     {
-        $themes = Theme::orderBy('name', 'asc')->get();
-
-        //pour aficher les videos
-        $all_videos = Video::orderBy('title', 'asc')->get();
-
-        // Make an array with the videos object
-        $videos_array = $all_videos->toArray();
-
-        // random an element of videos array
-        $random = array_rand($videos_array, 1);
-
-        $image = $all_videos[$random]['thumbnail_large'];
-
-        return view('themes', ['themes' => $themes, 'image' => $image, 'template' =>'index']);
+        if (preg_match('/^.{1,' . $length . '}\b/su', $text, $match)) {
+            return $match[0];
+        }
+        return $text;
     }
 
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Display the themes list (front).
+     */
+    public function index()
+    {
+        $themes     = Theme::orderBy('name', 'asc')->get();
+        $all_videos = Video::orderBy('title', 'asc')->get();
+
+        $random = array_rand($all_videos->toArray(), 1);
+        $image  = $all_videos[$random]['thumbnail_large'];
+
+        return view('themes', ['themes' => $themes, 'image' => $image, 'template' => 'index']);
+    }
+
+    /**
+     * Display the themes list (admin).
      */
     public function indexAdmin()
     {
@@ -51,321 +49,175 @@ class ThemeController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Show the form for creating a new theme.
      */
     public function create()
     {
-        //query the number of words for the option words
         $characters = DB::table('options')->where('name', 'words')->value('field');
-
-        $themes = Theme::orderBy('name', 'asc')->get();
+        $themes     = Theme::orderBy('name', 'asc')->get();
 
         return view('admin.createTheme', ['themes' => $themes, 'characters' => $characters]);
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * Store a newly created theme.
      */
     public function store(Request $request)
     {
-        //query the number of characters for the option words
         $characters = DB::table('options')->where('name', 'words')->value('field');
 
-        request()->validate([
-            'name' => ['required', 'max:255'],
-            'image'=> ['required', 'image', 'mimes:jpeg,jpg,png', 'max:800'],
-            'pdf'=> ['mimes:pdf', 'max:800'],
+        $request->validate([
+            'name'        => ['required', 'max:255'],
+            'image'       => ['required', 'image', 'mimes:jpeg,jpg,png', 'max:800'],
+            'pdf'         => ['mimes:pdf', 'max:800'],
             'description' => 'required',
-            'excerpt' => 'required'
+            'excerpt'     => 'required',
         ]);
 
-        $datas = $request->all();
+        $slug = Str::slug($request->input('name'));
 
-        $name = $datas['name'];
-
-        //creation du slug à la volée
-        $slug = Str::slug($datas['name']);
-        //insertion slug dans array $values
-        $datas['slug'] = $slug;
-
-        //on récupère les données de l'image
-        $image = $request->file('image');
-
-        // Generate a file name
-        $thumbnail = "$slug"."-".time().".".$image->getClientOriginalExtension();
-
-        // Save the file
+        $image     = $request->file('image');
+        $thumbnail = $slug . '-' . time() . '.' . $image->getClientOriginalExtension();
         $image->storeAs('public/img/theme', $thumbnail);
 
-        $datas['thumbnail'] = $thumbnail;
+        $values = $request->except(['_token', 'image']);
+        $values['slug']      = $slug;
+        $values['thumbnail'] = $thumbnail;
 
-        //on récupère les données pour le pdf
         $document = $request->file('pdf');
-
-        if ($document !==null) {
-
-            /*PDF */
-            //on récupère les données pour le pdf
-            $document = $request->file('pdf');
-
-            //remove pdf extension from original name
+        if ($document !== null) {
             $originalName = substr($document->getClientOriginalName(), 0, -4);
-
-            // Generate a file name
-            $pdf = $originalName."-".rand(1,100).".".$document->getClientOriginalExtension();
-
-            // Save the file
+            $pdf          = $originalName . '-' . rand(1, 100) . '.' . $document->getClientOriginalExtension();
             $document->storeAs('public/pdf/theme', $pdf);
-
-            $datas['pdf'] = $pdf;
-
+            $values['pdf'] = $pdf;
         }
-
-        //On enleve le champ image et le champ token des valeurs envoyées à la bdd
-        $datas2 = Arr::except($datas, ['image']);
-        $values = Arr::except($datas2, ['_token']);
 
         Theme::create($values);
 
-        //pour afficher un message de succès
         Session::flash('success', 'le thème a bien été publié');
 
-        $themes = Theme::orderBy('name', 'asc')->get();
-
-        return view('admin.themes', ['themes' => $themes, 'characters' => $characters]);
+        return view('admin.themes', [
+            'themes'     => Theme::orderBy('name', 'asc')->get(),
+            'characters' => $characters,
+        ]);
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Display a single theme with its videos (front).
      */
     public function show($slug, $id)
     {
-        //get the videos with the theme
-        $videos = Theme::findOrFail($id)->videos->sortBy('title')->all();
-
+        $theme  = Theme::findOrFail($id);
         $themes = Theme::orderBy('name', 'asc')->get();
+        $videos = $theme->videos->sortBy('title')->all();
 
-        $frame = 3;
+        $frame  = count($videos) < 3 ? 'none' : 3;
 
-        $number = count($videos);
+        $words          = DB::table('options')->where('name', 'words')->value('field');
+        $metadescription = self::truncate($theme->excerpt ?? '', 155);
 
-        if ($number < 3) {
-            $frame = 'none';
-        }
-
-        $theme = Theme::findOrFail($id);
-
-        //query the number of words for the option words
-        $words = DB::table('options')->where('name', 'words')->value('field');
-
-        /*function limit number of words
-        https://stackoverflow.com/questions/965235/how-can-i-truncate-a-string-to-the-first-20-words-in-php/10091794
-        */
-        function limit_text($text, $limit) {
-            if (str_word_count($text, 0) > $limit) {
-                $words = str_word_count($text, 2);
-                $pos   = array_keys($words);
-                $text  = substr($text, 0, $pos[$limit]) . '...';
-            }
-            return $text;
-        }
-
-        // truncate the excerpt for meta description
-        $excerpt = $theme['excerpt'];
-
-        // https://99webtools.com/blog/truncate-a-string-in-php-without-breaking-words/
-        function Truncate($text,$length) {
-            if (preg_match('/^.{1,'.$length.'}\b/su', $text, $match)) {
-                return $match[0];
-            }
-            else
-                return $text;
-        }
-
-        $metadescription = Truncate($excerpt, 155);
-
-        //https://stackoverflow.com/questions/1361149/get-img-thumbnails-from-vimeo
-        function get_vimeo_data_from_id( $video_id, $data ) {
-            $request = unserialize(file_get_contents( 'http://vimeo.com/api/v2/video/' . $video_id .'.php' ));
-            return $request[0][$data];
-        }
-
-        // display with min and sec for duration. themes/accueil-libre/15more readable
-       for ($i=0; $i < count($videos); $i++) {
-            $vimeo_id = $videos[$i]['vimeo_id'];
-            $duration = $videos[$i]['duration'];
+        // Format duration for each video
+        foreach ($videos as &$video) {
+            $duration = $video['duration'];
             if ($duration < 60) {
-               $display_duration = $duration . ' sec';
+                $video['duration'] = $duration . ' sec';
+            } elseif ($duration % 60 > 0) {
+                $video['duration'] = floor($duration / 60) . ' min ' . ($duration % 60) . ' sec';
             } else {
-               if ($duration%60 > 0) {
-                $display_duration = floor($duration/60) .' '. 'min ' . $duration%60 . ' ' .'sec';
-               } else {
-                $display_duration = floor($duration/60) .' '. 'min ';
-               }
+                $video['duration'] = floor($duration / 60) . ' min';
             }
-            $videos[$i]['duration'] = $display_duration;
-       }
-        return view('singleTheme', ['themes' => $themes, 'theme' => $theme, 'videos' => $videos, 'frame' => $frame, 'metadescription' => $metadescription, 'template' => 'show']);
+        }
+
+        return view('singleTheme', [
+            'themes'          => $themes,
+            'theme'           => $theme,
+            'videos'          => $videos,
+            'frame'           => $frame,
+            'metadescription' => $metadescription,
+            'template'        => 'show',
+        ]);
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Show the edit form for a theme.
      */
     public function edit($id)
     {
-        //query the number of characters for the option words
         $characters = DB::table('options')->where('name', 'words')->value('field');
-
-        $theme = Theme::findOrFail($id);
+        $theme      = Theme::findOrFail($id);
 
         return view('admin.editTheme', ['theme' => $theme, 'characters' => $characters]);
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Update a theme.
      */
     public function update(Request $request, $id)
     {
-        request()->validate([
-            'name' => ['required', 'max:255'],
-            'pdf'=> ['mimes:pdf', 'max:800'],
+        $request->validate([
+            'name'        => ['required', 'max:255'],
+            'pdf'         => ['mimes:pdf', 'max:800'],
             'description' => 'required',
-            'excerpt' => 'required'
+            'excerpt'     => 'required',
         ]);
 
-        //query the number of characters for the option words
         $characters = DB::table('options')->where('name', 'words')->value('field');
+        $theme      = Theme::findOrFail($id);
+        $slug       = Str::slug($request->input('name'));
 
-        $datas = $request->all();
+        $values = $request->except(['_token', 'image']);
+        $values['slug'] = $slug;
 
-        $name = $datas['name'];
-
-        //creation du slug à la volée
-        $slug = Str::slug($datas['name']);
-        //insertion slug dans array $values
-        $datas['slug'] = $slug;
-
-        //on récupère les données de l'image
         $image = $request->file('image');
-
-        if ($image !==null) {
-            //get the current theme
-            $theme = Theme::findOrFail($id);
-
-            //remove previous image
-            Storage::delete("public/img/theme/".$theme['thumbnail']);
-
-            //on récupère les données de l'image
-            $image = $request->file('image');
-
-            // Generate a file name
-            $thumbnail = "$slug"."-".time().".".$image->getClientOriginalExtension();
-
-            // Save the file
+        if ($image !== null) {
+            Storage::delete('public/img/theme/' . $theme->thumbnail);
+            $thumbnail        = $slug . '-' . time() . '.' . $image->getClientOriginalExtension();
             $image->storeAs('public/img/theme', $thumbnail);
-
-            $datas['thumbnail'] = $thumbnail;
+            $values['thumbnail'] = $thumbnail;
         }
 
-        //on récupère les données pour le pdf
         $document = $request->file('pdf');
-
-        if ($document !==null) {
-            //get the current theme
-            $theme = Theme::findOrFail($id);
-
-            //remove previous image
-            Storage::delete("public/pdf/theme/".$theme['pdf']);
-
-            //on récupère les données de l'image
-            $document = $request->file('pdf');
-
-            $document = $request->file('pdf');
-
-            //remove pdf extension from original name
+        if ($document !== null) {
+            Storage::delete('public/pdf/theme/' . $theme->pdf);
             $originalName = substr($document->getClientOriginalName(), 0, -4);
-
-            // Generate a file name
-            $pdf = $originalName."-".rand(1,100).".".$document->getClientOriginalExtension();
-
-            // Save the file
+            $pdf          = $originalName . '-' . rand(1, 100) . '.' . $document->getClientOriginalExtension();
             $document->storeAs('public/pdf/theme', $pdf);
-
-            $datas['pdf'] = $pdf;
+            $values['pdf'] = $pdf;
         }
 
-        //On enleve le champ image et le champ token des valeurs envoyées à la bdd
-        $datas2 = Arr::except($datas, ['image']);
-        $values = Arr::except($datas2, ['_token']);
+        DB::table('themes')->where('id', $id)->update($values);
 
-        //update datas in database
-        DB::table('themes')
-            ->where('id', $id)
-            ->update($values);
-
-        //pour afficher un message de succès
         Session::flash('success', 'le thème a bien été édité');
 
-        $themes = Theme::orderBy('name', 'asc')->get();
-
-        $theme = Theme::findOrFail($id);
-
-        return view('admin.editTheme', ['themes' => $themes, 'theme' => $theme, 'characters' => $characters]);
+        return view('admin.editTheme', [
+            'themes'     => Theme::orderBy('name', 'asc')->get(),
+            'theme'      => Theme::findOrFail($id),
+            'characters' => $characters,
+        ]);
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Delete a theme and its files.
      */
     public function destroy($id)
     {
         $theme = Theme::findOrFail($id);
-
-        //suppression des fichiers
-        Storage::delete("public/img/theme/".$theme['thumbnail']);
-        Storage::delete("public/pdf/theme/".$theme['pdf']);
-
+        Storage::delete('public/img/theme/' . $theme->thumbnail);
+        Storage::delete('public/pdf/theme/' . $theme->pdf);
         $theme->delete();
 
-        $themes = Theme::orderBy('name', 'asc')->get();
-
-        return view('admin.themes', ['themes' => $themes]);
+        return view('admin.themes', ['themes' => Theme::orderBy('name', 'asc')->get()]);
     }
 
     /**
-     * Remove the pdf in theme.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Remove only the PDF of a theme.
      */
     public function destroyPdf($id)
     {
         $theme = Theme::findOrFail($id);
-
-        //suppression du fichier
-        Storage::delete("public/pdf/theme/".$theme['pdf']);
-
+        Storage::delete('public/pdf/theme/' . $theme->pdf);
         $theme->update(['pdf' => null]);
 
-        $themes = Theme::orderBy('name', 'asc')->get();
-
-        return view('admin.themes', ['themes' => $themes]);
+        return view('admin.themes', ['themes' => Theme::orderBy('name', 'asc')->get()]);
     }
 }

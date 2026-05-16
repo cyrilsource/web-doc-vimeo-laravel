@@ -94,8 +94,7 @@
         .btn-dark-mode {
             background-color: transparent;
             border: transparent;
-            // https://stackoverflow.com/questions/42576329/linking-a-css-image-url-in-laravel
-            background-image: url(/terrecommune/public/storage/img/icon-moon.svg);
+            background-image: url(/web-doc/images/icon-moon.svg);
             background-position: top;
             background-repeat: no-repeat;
             width: 26px;
@@ -232,8 +231,7 @@
     .btn-dark-mode {
         background-color: transparent;
         border: transparent;
-        // https://stackoverflow.com/questions/42576329/linking-a-css-image-url-in-laravel
-        background-image: url(/terrecommune/public/storage/img/icon-moon-white.png);
+        background-image: url(/web-doc/images/icon-moon-white.svg);
         background-position: top;
         background-repeat: no-repeat;
         width: 26px;

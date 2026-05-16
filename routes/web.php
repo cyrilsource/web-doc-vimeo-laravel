@@ -2,92 +2,104 @@
 
 use Illuminate\Support\Facades\Route;
 
+// Import des contrôleurs (namespace par défaut)
+use App\Http\Controllers\ThemeController;
+use App\Http\Controllers\VideoController;
+use App\Http\Controllers\OptionsController;
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
+| Routes web de l’application (syntaxe Laravel 8 avec ::class).
 |
 */
 
-Route::get('/', 'ThemeController@index');
+// Accueil
+Route::get('/', [ThemeController::class, 'index']);
 
-//display themes on front end
-Route::get('/themes', 'ThemeController@index');
+// Affichage des thèmes (front)
+Route::get('/themes', [ThemeController::class, 'index']);
 
-//display theme on front end
-Route::get('/themes/{slug}/{id}', 'ThemeController@show');
+// Affichage d’un thème (front)
+Route::get('/themes/{slug}/{id}', [ThemeController::class, 'show']);
 
-//display video on front end
-Route::get('/video/{slug}/{id}', 'VideoController@show');
+// Affichage d’une vidéo (front)
+Route::get('/video/{slug}/{id}', [VideoController::class, 'show']);
 
-//display search
-Route::get('/search/{query?}', 'VideoController@search');
+// Recherche (front)
+Route::get('/search/{query?}', [VideoController::class, 'search']);
 
-Route::get('/autocomplete', 'VideoController@autocomplete');
+// Autocomplete (front)
+Route::get('/autocomplete', [VideoController::class, 'autocomplete']);
 
+// Page ways (vue statique)
 Route::get('/ways', function () {
     return view('ways');
 });
 
 
-/* admin */
+/*
+|--------------------------------------------------------------------------
+| Admin
+|--------------------------------------------------------------------------
+*/
 
-//display list of videos
-Route::get('/admin', function () {
-    return view('admin.home');
-});
+// Accueil admin → nouvelle vue sans Vue.js
+Route::get('/admin', fn () => view('admin.home'))->name('admin.home');
 
 
-Route::post('/admin/search', ['as' => 'search-videos', 'uses' => 'VideoController@searchAdmin']);
+Route::match(['GET','POST'], '/admin/search', [VideoController::class, 'searchAdmin'])
+    ->name('search-videos');
 
-//display form to create videos
-Route::get('/admin/createVideo', 'VideoController@create');
+// Formulaire création vidéo
+Route::get('/admin/createVideo', [VideoController::class, 'create']);
 
-//create a new video
-Route::post('/admin/createVideo', 'VideoController@store');
+// Création vidéo
+Route::post('/admin/createVideo', [VideoController::class, 'store']);
 
-//delete video
-Route::post('/admin/deleteVideo/{id}', 'VideoController@destroy');
+Route::match(['GET','POST'], '/admin/deleteVideo/{id}', [VideoController::class, 'destroy']);
+Route::match(['GET','POST'], '/admin/deleteVideoPdf/{id}', [VideoController::class, 'destroyPdf']);
 
-//delete video pdf
-Route::post('/admin/deleteVideoPdf/{id}', 'VideoController@destroyPdf');
+// Édition vidéo
+Route::get('/admin/editVideo/{id}', [VideoController::class, 'edit']);
 
-//edit video
-Route::get('/admin/editVideo/{id}', 'VideoController@edit');
+// Mise à jour des vignettes (POST)
+Route::post('/admin/update-thumbnails', [VideoController::class, 'thumbnails']);
 
-//update video thumbnails
-Route::post('/admin/update-thumbnails', 'VideoController@thumbnails');
+// Liste des thèmes (admin)
+Route::get('/admin/themes', [ThemeController::class, 'indexAdmin']);
 
-//display list of themes
-Route::get('/admin/themes', 'ThemeController@indexAdmin');
+// Formulaire création thème
+Route::get('/admin/createTheme', [ThemeController::class, 'create']);
 
-//display form to create themes
-Route::get('/admin/createTheme', 'ThemeController@create');
+// Création thème
+Route::post('/admin/themes', [ThemeController::class, 'store']);
 
-//create a new theme
-Route::post('/admin/themes', 'ThemeController@store');
+// Édition thème
+Route::get('/admin/editTheme/{id}', [ThemeController::class, 'edit']);
 
-//edit theme
-Route::get('/admin/editTheme/{id}', 'ThemeController@edit');
+// Mise à jour thème (POST)
+Route::post('/admin/editTheme/{id}', [ThemeController::class, 'update']);
 
-//update theme
-Route::post('/admin/editTheme/{id}', 'ThemeController@update');
+Route::match(['GET','POST'], '/admin/deleteTheme/{id}', [ThemeController::class, 'destroy']);
+Route::match(['GET','POST'], '/admin/deleteThemePdf/{id}', [ThemeController::class, 'destroyPdf']);
 
-//delete theme
-Route::post('/admin/deleteTheme/{id}', 'ThemeController@destroy');
+// Mise à jour vidéo (admin)
+Route::post('/admin/editVideo/{id}', [VideoController::class, 'update']);
 
-//delete theme-pdf
-Route::post('/admin/deleteThemePdf/{id}', 'ThemeController@destroyPdf');
+// Options (affichage)
+Route::get('/admin/options', [OptionsController::class, 'edit']);
 
-//update theme
-Route::post('/admin/editVideo/{id}', 'VideoController@update');
+// Options (mise à jour)
+Route::post('/admin/options', [OptionsController::class, 'update']);
 
-//display options page
-Route::get('/admin/options', 'OptionsController@edit');
 
-//update theme
-Route::post('/admin/options', 'OptionsController@update');
+
+
+
+
+
