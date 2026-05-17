@@ -31,6 +31,9 @@
     text-decoration: none;
     // https://stackoverflow.com/questions/450903/how-can-i-make-a-div-not-larger-than-its-contents
     width: fit-content;
+    &:hover {
+        @include hover;
+    }
     &:hover .yep::after{
         @include wizz-hover;
     }
