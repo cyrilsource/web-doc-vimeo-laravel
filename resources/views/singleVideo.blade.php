@@ -21,7 +21,7 @@ themes/{{$video->slug}}/{{$video->id}}
 <main  id="swup" class="main" role="main">
 @include('header')
 @include('gif')
-<div class="singleTheme">
+<div class="singleTheme singleTheme--video">
     <div class="background-image transition-fade2">
         <img class="background-image__image" src="{{ $video->thumbnail_large }}" alt="{{ $video->title }}">
         <div class="background-image__blur"></div>
@@ -59,7 +59,7 @@ themes/{{$video->slug}}/{{$video->id}}
             @endif
 
         </div>
-        <a id="play-video" data-lity class="video-play-button transition-fade2" href="{{ $video->link }}">
+        <a id="play-video" data-lity class="video-play-button transition-fade2" href="{{ $video->player_url }}">
             <span></span>
         </a>
     </div>

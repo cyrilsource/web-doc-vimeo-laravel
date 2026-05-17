@@ -18,19 +18,78 @@
         box-shadow: inset 84px -62px 87px -8px $main-white;
     }
 
+    // Overlay titre — caché sur desktop, visible sur mobile (pages thème)
+    &__title-mobile {
+        display: none;
+    }
+
+    // Mobile : hero pleine largeur en haut (pages thème par défaut)
     @include mobile-only {
-        order: 3;
+        order: 1;
         width: 100%;
-        margin-left: 0;
-        margin-top: 2rem;
-        margin-bottom: 0;
+        height: 55vw;
+        margin: 0;
+        overflow: hidden;
         z-index: 0;
+
         &__image {
-            opacity: 0.55;
-            border-radius: 4px;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.85;
         }
+
         &__blur {
-            box-shadow: inset 0 -60px 60px -10px $main-white;
+            box-shadow: inset 0 -80px 60px -20px $main-white;
+        }
+
+        &__title-mobile {
+            display: flex;
+            align-items: flex-end;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            padding: 1rem;
+            background: linear-gradient(to bottom, transparent 30%, rgba($main-color, 0.85) 100%);
+            h2 {
+                color: $main-white;
+                font-size: 1.4rem;
+                text-transform: uppercase;
+                font-weight: 600;
+                line-height: 1.2;
+            }
+        }
+    }
+}
+
+// Pages vidéo : image sous le bouton play (override)
+.singleTheme--video {
+    .background-image {
+        @include mobile-only {
+            order: 3;
+            height: auto;
+            margin-top: 1.5rem;
+            overflow: visible;
+
+            &__title-mobile {
+                display: none;
+            }
+
+            &__image {
+                position: static;
+                width: 100%;
+                height: auto;
+                object-fit: unset;
+                opacity: 0.6;
+                border-radius: 4px;
+            }
+
+            &__blur {
+                box-shadow: inset 0 -60px 60px -10px $main-white;
+            }
         }
     }
 }

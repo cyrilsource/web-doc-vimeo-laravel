@@ -94,4 +94,33 @@
     margin-bottom: 2.5rem;
 }
 
+// Titre visible seulement sur desktop (remplacé par overlay sur mobile)
+.entry-title--desktop-only {
+    @include mobile-only {
+        display: none;
+    }
+}
+
+// Scroll reveal — état initial (.scroll-reveal évite le conflit avec .reveal existant)
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 650ms ease, transform 650ms ease;
+
+    &.is-revealed {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// Stagger pour les cartes dans un carousel
+.video-carousel .scroll-reveal,
+.video-vignette .scroll-reveal {
+    @for $i from 1 through 8 {
+        &:nth-child(#{$i}) {
+            transition-delay: #{($i - 1) * 80}ms;
+        }
+    }
+}
+
 

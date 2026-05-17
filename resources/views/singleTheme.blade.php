@@ -25,6 +25,9 @@ themes/{{$theme->slug}}/{{$theme->id}}
     <div class="background-image transition-fade2">
         <img class="background-image__image" src="{{ url('/') }}/storage/img/theme/{{$theme->thumbnail}}" alt="{{ $theme->name }}">
         <div class="background-image__blur"></div>
+        <div class="background-image__title-mobile">
+            <h2>{{ $theme->name }}</h2>
+        </div>
     </div>
         <div class="entry-content transition-fade2">
             <div class="header-theme">
@@ -33,11 +36,11 @@ themes/{{$theme->slug}}/{{$theme->id}}
                     <a id="pdf" class="button" href="#" data-link="{{ url('/') }}/storage/pdf/theme/{{$theme->pdf}}">
                         <span class="yep" >pdf</span>
                     </a>
-                    <div id="entry-title" class="center entry-title entry-title__page entry-title__page-pdf transition-fade2">
+                    <div id="entry-title" class="entry-title--desktop-only center entry-title entry-title__page entry-title__page-pdf transition-fade2">
                         <h1>{{ $theme->name }}</h1>
                     </div>
                     @else
-                    <div id="entry-title" class="center entry-title entry-title__page transition-fade2">
+                    <div id="entry-title" class="entry-title--desktop-only center entry-title entry-title__page transition-fade2">
                         <h1>{{ $theme->name }}</h1>
                     </div>
                 @endif

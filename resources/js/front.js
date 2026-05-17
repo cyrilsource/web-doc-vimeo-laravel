@@ -1,3 +1,24 @@
+// Scroll reveal avec IntersectionObserver
+function initScrollReveal () {
+  var elements = document.querySelectorAll('.scroll-reveal')
+  if (!elements.length) return
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-revealed')
+        observer.unobserve(entry.target)
+      }
+    })
+  }, { threshold: 0.12 })
+
+  elements.forEach(function (el) { observer.observe(el) })
+}
+
+document.addEventListener('DOMContentLoaded', initScrollReveal)
+// Ré-init après navigation swup si présent
+document.addEventListener('swup:contentReplaced', initScrollReveal)
+
 // script turn the logo
 const logo = document.getElementById('logo')
 

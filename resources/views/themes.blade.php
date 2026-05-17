@@ -14,18 +14,18 @@
     <div class="theme-list">
         <div class="transition-fade2">
             @foreach ($themes as $theme)
-                <a  class="theme-list__theme-link" href="{{ url('/themes') }}/{{ $theme->slug }}/{{ $theme->id }}">
+                <a  class="theme-list__theme-link scroll-reveal" href="{{ url('/themes') }}/{{ $theme->slug }}/{{ $theme->id }}">
                     <div class="theme-list__title">
                         <h2>{{ $theme->name }}</h2>
                         <span>&rarr;</span>
                     </div>
                 </a>
-                <div id="entry-content-text" class="entry-content-text ">
+                <div id="entry-content-text" class="entry-content-text scroll-reveal">
                     {{ $theme->excerpt }}
                 </div>
                 @if (count($theme->videos) > 2)
 
-                    <section class="video-carousel transition-fade2 margin-bottom">
+                    <section class="video-carousel transition-fade2 margin-bottom scroll-reveal">
                     @foreach ($theme->videos->shuffle() as $video)
                         <a href="{{ url('/video') }}/{{ $video->slug }}/{{ $video->id }}" class="video-carousel-card">
                             <div class="video-carousel-card__title">
@@ -46,7 +46,7 @@
                     @endforeach
                     </section>
                     @else
-                    <section class="video-vignette horizontal-align transition-fade2 margin-bottom">
+                    <section class="video-vignette horizontal-align transition-fade2 margin-bottom scroll-reveal">
                         @foreach ($theme->videos->shuffle() as $video)
                             <a href="{{ url('/video') }}/{{ $video->slug }}/{{ $video->id }}" class="video-vignette-card">
                                 <div class="video-vignette-card__title">
