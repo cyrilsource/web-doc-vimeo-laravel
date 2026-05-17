@@ -13,15 +13,11 @@
         }
     }
 
-    // Pages vidéo : margin réduit + entry-content en premier (order: 1)
+    // Pages vidéo : positioning context for absolute background-image on desktop
     &--video {
+        position: relative;
         @include mobile-only {
             margin-top: 2rem;
-        }
-        .entry-content {
-            @include mobile-only {
-                order: 1;
-            }
         }
     }
 }

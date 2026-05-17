@@ -63,7 +63,6 @@
         margin-top: 6rem;
     }
     @include mobile-only {
-        order: 2;
         position: relative;
         top: auto;
         left: auto;

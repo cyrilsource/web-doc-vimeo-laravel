@@ -66,11 +66,20 @@
     }
 }
 
-// Pages vidéo : image SOUS le bouton play (order: 3, après play à order: 2)
+// Pages vidéo : image SOUS le bouton play
+// DOM order: entry-content → play-button → background-image (naturally last)
+// Desktop: absolute pour garder la position décorative droite malgré l'ordre DOM
 .singleTheme--video {
     .background-image {
+        @media screen and (min-width: 646px) {
+            position: absolute;
+            top: 0;
+            left: 25%;
+            width: 74%;
+            margin: 0;
+        }
+
         @include mobile-only {
-            order: 3;
             height: auto;
             margin-top: 1.5rem;
             overflow: visible;

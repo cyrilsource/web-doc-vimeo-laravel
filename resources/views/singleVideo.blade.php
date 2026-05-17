@@ -22,10 +22,6 @@ themes/{{$video->slug}}/{{$video->id}}
 @include('header')
 @include('gif')
 <div class="singleTheme singleTheme--video">
-    <div class="background-image transition-fade2">
-        <img class="background-image__image" src="{{ $video->thumbnail_large }}" alt="{{ $video->title }}">
-        <div class="background-image__blur"></div>
-    </div>
 
         <div class="entry-content transition-fade2">
             <div class="header-theme scroll-reveal">
@@ -59,9 +55,17 @@ themes/{{$video->slug}}/{{$video->id}}
             @endif
 
         </div>
+
         <a id="play-video" data-lity class="video-play-button transition-fade2 scroll-reveal" href="{{ $video->player_url }}">
             <span></span>
         </a>
+
+        {{-- Image après le bouton play (DOM order = ordre visuel sur mobile) --}}
+        <div class="background-image transition-fade2 scroll-reveal">
+            <img class="background-image__image" src="{{ $video->thumbnail_large }}" alt="{{ $video->title }}">
+            <div class="background-image__blur"></div>
+        </div>
+
     </div>
 
 </main>
