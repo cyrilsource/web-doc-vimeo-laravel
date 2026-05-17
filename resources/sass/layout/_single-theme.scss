@@ -3,12 +3,25 @@
     @include mobile-only {
         display: flex;
         flex-direction: column;
-        margin-top: 0; // l'image hero remplace le margin-top sur les pages thème
+        margin-top: 0;
     }
 
+    // Sur les pages thème : entry-content après l'image (order: 0 > order: -1)
+    .entry-content {
+        @include mobile-only {
+            order: 0;
+        }
+    }
+
+    // Pages vidéo : margin réduit + entry-content en premier (order: 1)
     &--video {
         @include mobile-only {
-            margin-top: 2rem; // petit espace après le header mobile
+            margin-top: 2rem;
+        }
+        .entry-content {
+            @include mobile-only {
+                order: 1;
+            }
         }
     }
 }

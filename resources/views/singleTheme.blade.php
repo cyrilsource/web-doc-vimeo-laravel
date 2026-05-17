@@ -22,7 +22,7 @@ themes/{{$theme->slug}}/{{$theme->id}}
 @include('header')
 @include('gif')
 <div class="singleTheme">
-    <div class="background-image transition-fade2">
+    <div class="background-image transition-fade2 scroll-reveal">
         <img class="background-image__image" src="{{ url('/') }}/storage/img/theme/{{$theme->thumbnail}}" alt="{{ $theme->name }}">
         <div class="background-image__blur"></div>
         <div class="background-image__title-mobile">
@@ -30,7 +30,7 @@ themes/{{$theme->slug}}/{{$theme->id}}
         </div>
     </div>
         <div class="entry-content transition-fade2">
-            <div class="header-theme">
+            <div class="header-theme scroll-reveal">
                 {{-- https://www.xspdf.com/resolution/53718494.html --}}
                 @if (!empty($theme->pdf))
                     <a id="pdf" class="button" href="#" data-link="{{ url('/') }}/storage/pdf/theme/{{$theme->pdf}}">
@@ -46,15 +46,15 @@ themes/{{$theme->slug}}/{{$theme->id}}
                 @endif
 
             </div>
-            <div id="entry-content-text" class=entry-content-text>
+            <div id="entry-content-text" class="entry-content-text scroll-reveal">
                 {{ $theme->excerpt }}
             </div>
-            <a href="#long" class="button" data-lity href="#long">
+            <a href="#long" class="button scroll-reveal" data-lity href="#long">
                 <span class="yep" >Lire + de texte</span>
             </a>
             <div id="long" class="lity-hide">{!! $theme->description !!}</div>
             @if($frame !='none')
-                <section class="video-carousel transition-fade2">
+                <section class="video-carousel transition-fade2 scroll-reveal">
                     @foreach ($videos as $video)
                         <a href="{{ url('/video') }}/{{ $video->slug }}/{{ $video->id }}" class="video-carousel-card">
                             <div class="video-carousel-card__title">
@@ -67,7 +67,7 @@ themes/{{$theme->slug}}/{{$theme->id}}
                     @endforeach
                 </section>
             @else
-                <section class="video-vignette horizontal-align transition-fade2">
+                <section class="video-vignette horizontal-align transition-fade2 scroll-reveal">
                     @foreach ($videos as $video)
                         <a href="{{ url('/video') }}/{{ $video->slug }}/{{ $video->id }}" class="video-vignette-card">
                             <div class="video-vignette-card__title">
@@ -86,5 +86,4 @@ themes/{{$theme->slug}}/{{$theme->id}}
 </main>
 
 @endsection
-
 

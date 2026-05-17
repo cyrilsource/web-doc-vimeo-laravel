@@ -1827,9 +1827,9 @@ html.is-animating .transition-slide {
 
 @media screen and (max-width: 645px) {
   .background-image {
-    -webkit-box-ordinal-group: 2;
-        -ms-flex-order: 1;
-            order: 1;
+    -webkit-box-ordinal-group: 0;
+        -ms-flex-order: -1;
+            order: -1;
     width: 100%;
     height: 55vw;
     margin: 0;
@@ -1898,7 +1898,7 @@ html.is-animating .transition-slide {
     height: auto;
     -o-object-fit: unset;
        object-fit: unset;
-    opacity: 0.6;
+    opacity: 0.65;
     border-radius: 4px;
   }
 
@@ -1926,8 +1926,24 @@ html.is-animating .transition-slide {
 }
 
 @media screen and (max-width: 645px) {
+  .singleTheme .entry-content {
+    -webkit-box-ordinal-group: 1;
+        -ms-flex-order: 0;
+            order: 0;
+  }
+}
+
+@media screen and (max-width: 645px) {
   .singleTheme--video {
     margin-top: 2rem;
+  }
+}
+
+@media screen and (max-width: 645px) {
+  .singleTheme--video .entry-content {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
   }
 }
 

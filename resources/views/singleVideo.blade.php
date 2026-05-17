@@ -28,7 +28,7 @@ themes/{{$video->slug}}/{{$video->id}}
     </div>
 
         <div class="entry-content transition-fade2">
-            <div class="header-theme">
+            <div class="header-theme scroll-reveal">
                 @if (!empty($video->pdf))
                     <a id="pdf" href=#" class="button" data-link="{{ url('/') }}/storage/pdf/video/{{$video->pdf}}">
                         <span class="yep">pdf</span>
@@ -44,22 +44,22 @@ themes/{{$video->slug}}/{{$video->id}}
                 @endif
 
             </div>
-            <div class="video-duration">
+            <div class="video-duration scroll-reveal">
                 <p>{{ $video->duration }}</p>
             </div>
-            <div class="video-themes">
+            <div class="video-themes scroll-reveal">
                 @foreach ($video->themes as $theme)
                     <em><a href="{{ url('/themes') }}/{{ $theme->slug }}/{{ $theme->id }}">{{$theme->name}}@if(!$loop->last),@endif</a></em>
                 @endforeach
             </div>
             @if (!empty($video->description))
-                <div id="entry-content-text" class=entry-content-text>
+                <div id="entry-content-text" class="entry-content-text scroll-reveal">
                     {!! $video->description ?? '' !!}
                 </div>
             @endif
 
         </div>
-        <a id="play-video" data-lity class="video-play-button transition-fade2" href="{{ $video->player_url }}">
+        <a id="play-video" data-lity class="video-play-button transition-fade2 scroll-reveal" href="{{ $video->player_url }}">
             <span></span>
         </a>
     </div>
