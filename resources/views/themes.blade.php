@@ -16,7 +16,7 @@
         <h1 class="intro-screen__title">{{ $homepageTitle }}</h1>
         @endif
         @if($homepageDescription)
-        <p class="intro-screen__description">{{ nl2br(e($homepageDescription)) }}</p>
+        <p class="intro-screen__description">{!! nl2br(e($homepageDescription)) !!}</p>
         @endif
         <button id="intro-enter" class="intro-screen__btn">Découvrir</button>
     </div>
