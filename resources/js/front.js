@@ -129,6 +129,21 @@ if (glass) {
   })
 }
 
+// Intro screen — première visite
+var introScreen = document.getElementById('intro-screen')
+if (introScreen) {
+  var introEnterBtn = document.getElementById('intro-enter')
+  if (introEnterBtn) {
+    introEnterBtn.addEventListener('click', function () {
+      introScreen.classList.add('is-hiding')
+      setTimeout(function () {
+        introScreen.style.display = 'none'
+      }, 600)
+      setCookie('tc_visited', '1')
+    })
+  }
+}
+
 // open pdf in new tab
 let pdf = document.getElementById('pdf')
 

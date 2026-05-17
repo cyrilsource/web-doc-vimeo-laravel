@@ -35,7 +35,16 @@ class ThemeController extends Controller
         $random = array_rand($all_videos->toArray(), 1);
         $image  = $all_videos[$random]['thumbnail_large'];
 
-        return view('themes', ['themes' => $themes, 'image' => $image, 'template' => 'index']);
+        $homepageTitle       = DB::table('options')->where('name', 'homepage_title')->value('field');
+        $homepageDescription = DB::table('options')->where('name', 'homepage_description')->value('field');
+
+        return view('themes', [
+            'themes'              => $themes,
+            'image'               => $image,
+            'template'            => 'index',
+            'homepageTitle'       => $homepageTitle,
+            'homepageDescription' => $homepageDescription,
+        ]);
     }
 
     /**

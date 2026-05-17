@@ -9,6 +9,19 @@
 @stop
 
 @section('content')
+@if($homepageTitle || $homepageDescription)
+<div id="intro-screen" class="intro-screen" role="dialog" aria-modal="true" aria-label="Introduction">
+    <div class="intro-screen__content">
+        @if($homepageTitle)
+        <h1 class="intro-screen__title">{{ $homepageTitle }}</h1>
+        @endif
+        @if($homepageDescription)
+        <p class="intro-screen__description">{{ nl2br(e($homepageDescription)) }}</p>
+        @endif
+        <button id="intro-enter" class="intro-screen__btn">Découvrir</button>
+    </div>
+</div>
+@endif
 <main  id="swup" class="main" role="main">
 @include('header')
     <div class="theme-list">

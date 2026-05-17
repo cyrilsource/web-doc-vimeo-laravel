@@ -61,10 +61,11 @@ class OptionsController extends Controller
      */
     public function edit()
     {
-        //query the number of words for the option words
-        $words = DB::table('options')->where('name', 'words')->value('field');
+        $words               = DB::table('options')->where('name', 'words')->value('field');
+        $homepageTitle       = DB::table('options')->where('name', 'homepage_title')->value('field');
+        $homepageDescription = DB::table('options')->where('name', 'homepage_description')->value('field');
 
-        return view('admin.options', ['words' => $words]);
+        return view('admin.options', compact('words', 'homepageTitle', 'homepageDescription'));
     }
 
     /**
@@ -76,18 +77,23 @@ class OptionsController extends Controller
      */
     public function update(Request $request)
     {
-        $datas = $request->all();
-        $words = Arr::except($datas, ['_token']);
-
-        //update datas in database
         DB::table('options')
             ->where('name', 'Words')
-            ->update($words);
+            ->update(['field' => $request->input('field')]);
 
-        //query the number of words for the option words
-        $words = DB::table('options')->where('name', 'words')->value('field');
+        DB::table('options')
+            ->where('name', 'homepage_title')
+            ->update(['field' => $request->input('homepage_title', '')]);
 
-        return view('admin.options', ['words' => $words]);
+        DB::table('options')
+            ->where('name', 'homepage_description')
+            ->update(['field' => $request->input('homepage_description', '')]);
+
+        $words               = DB::table('options')->where('name', 'words')->value('field');
+        $homepageTitle       = DB::table('options')->where('name', 'homepage_title')->value('field');
+        $homepageDescription = DB::table('options')->where('name', 'homepage_description')->value('field');
+
+        return view('admin.options', compact('words', 'homepageTitle', 'homepageDescription'));
     }
 
     /**
