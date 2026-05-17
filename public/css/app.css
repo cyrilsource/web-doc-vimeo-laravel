@@ -1939,6 +1939,7 @@ html.is-animating .transition-slide {
 
 .singleTheme--video {
   position: relative;
+  margin-top: 3rem;
 }
 
 @media screen and (max-width: 645px) {

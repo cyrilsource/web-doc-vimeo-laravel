@@ -14,8 +14,10 @@
     }
 
     // Pages vidéo : positioning context for absolute background-image on desktop
+    // margin-top réduit car l'image (position: absolute) ne compense plus le 10rem
     &--video {
         position: relative;
+        margin-top: 3rem;
         @include mobile-only {
             margin-top: 2rem;
         }
